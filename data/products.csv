@@ -1,0 +1,151 @@
+product_id,product_name,category,sku,price,stock_quantity,is_active
+1,Wireless Bluetooth Earbuds,Electronics Accessories,ELA-0001,85.35,377,True
+2,USB-C Charging Cable,Electronics Accessories,ELA-0002,24.3,210,True
+3,Phone Camera Lens Kit,Electronics Accessories,ELA-0003,62.72,17,True
+4,Portable Power Bank,Electronics Accessories,ELA-0004,101.84,0,True
+5,Wireless Charging Pad,Electronics Accessories,ELA-0005,77.81,407,True
+6,Laptop Sleeve Case,Electronics Accessories,ELA-0006,117.13,41,True
+7,Bluetooth Speaker Mini,Electronics Accessories,ELA-0007,26.45,256,True
+8,Noise-Cancelling Headphones,Electronics Accessories,ELA-0008,62.15,436,True
+9,Phone Ring Holder,Electronics Accessories,ELA-0009,24.51,342,True
+10,HDMI Adapter Cable,Electronics Accessories,ELA-0010,98.49,268,True
+11,USB Hub 4-Port,Electronics Accessories,ELA-0011,61.42,379,True
+12,Screen Protector Pack,Electronics Accessories,ELA-0012,102.28,69,True
+13,Car Phone Mount,Electronics Accessories,ELA-0013,39.07,208,True
+14,Webcam Cover Slide,Electronics Accessories,ELA-0014,54.5,333,True
+15,Mechanical Keyboard,Electronics Accessories,ELA-0015,106.88,427,True
+16,Wireless Mouse,Electronics Accessories,ELA-0016,112.64,353,True
+17,Cable Organizer Set,Electronics Accessories,ELA-0017,13.98,131,True
+18,Smartwatch Band,Electronics Accessories,ELA-0018,70.22,195,True
+19,Tablet Stand,Electronics Accessories,ELA-0019,91.69,497,True
+20,Earbud Case Cover,Electronics Accessories,ELA-0020,71.79,220,True
+21,Surge Protector Strip,Electronics Accessories,ELA-0021,74.41,143,True
+22,Bluetooth Adapter Dongle,Electronics Accessories,ELA-0022,102.62,208,True
+23,Phone Grip Stand,Electronics Accessories,ELA-0023,119.63,0,True
+24,LED Desk Lamp USB,Electronics Accessories,ELA-0024,85.82,0,True
+25,Travel Adapter Kit,Electronics Accessories,ELA-0025,93.35,0,True
+26,Stainless Steel Water Bottle,Home & Kitchen,HMK-0001,55.74,316,True
+27,Non-Stick Frying Pan,Home & Kitchen,HMK-0002,17.75,279,False
+28,Ceramic Coffee Mug Set,Home & Kitchen,HMK-0003,69.63,333,True
+29,Bamboo Cutting Board,Home & Kitchen,HMK-0004,34.84,416,True
+30,Silicone Baking Mat,Home & Kitchen,HMK-0005,29.56,48,True
+31,Electric Kettle,Home & Kitchen,HMK-0006,74.78,188,True
+32,Knife Sharpener Tool,Home & Kitchen,HMK-0007,10.11,346,True
+33,Glass Food Containers,Home & Kitchen,HMK-0008,88.94,90,True
+34,Dish Drying Rack,Home & Kitchen,HMK-0009,21.02,112,True
+35,Kitchen Scale Digital,Home & Kitchen,HMK-0010,122.82,179,True
+36,Reusable Produce Bags,Home & Kitchen,HMK-0011,33.98,0,False
+37,Oven Mitts Set,Home & Kitchen,HMK-0012,28.01,76,True
+38,Vegetable Spiralizer,Home & Kitchen,HMK-0013,69.55,417,True
+39,French Press Coffee Maker,Home & Kitchen,HMK-0014,144.59,18,True
+40,Spice Rack Organizer,Home & Kitchen,HMK-0015,95.94,456,False
+41,Cast Iron Skillet,Home & Kitchen,HMK-0016,131.34,199,True
+42,Silicone Spatula Set,Home & Kitchen,HMK-0017,62.92,441,True
+43,Salad Spinner,Home & Kitchen,HMK-0018,75.8,22,True
+44,Wine Glass Set,Home & Kitchen,HMK-0019,56.79,202,True
+45,Bath Towel Set,Home & Kitchen,HMK-0020,135.62,141,True
+46,Throw Pillow Cover,Home & Kitchen,HMK-0021,50.36,0,False
+47,Scented Candle Set,Home & Kitchen,HMK-0022,78.49,211,True
+48,Storage Ottoman Bin,Home & Kitchen,HMK-0023,105.05,379,True
+49,Wall Clock Modern,Home & Kitchen,HMK-0024,70.04,3,True
+50,Bedside Lamp,Home & Kitchen,HMK-0025,30.57,454,True
+51,Yoga Mat Non-Slip,Sports & Outdoors,SPO-0001,60.06,144,True
+52,Resistance Band Set,Sports & Outdoors,SPO-0002,137.4,175,True
+53,Adjustable Dumbbell,Sports & Outdoors,SPO-0003,146.7,286,True
+54,Camping Tent 2-Person,Sports & Outdoors,SPO-0004,55.45,231,True
+55,Insulated Water Bottle,Sports & Outdoors,SPO-0005,91.99,56,True
+56,Hiking Backpack,Sports & Outdoors,SPO-0006,128.63,423,True
+57,Foam Roller,Sports & Outdoors,SPO-0007,77.34,401,True
+58,Jump Rope Speed,Sports & Outdoors,SPO-0008,115.78,483,False
+59,Running Armband Phone Holder,Sports & Outdoors,SPO-0009,73.83,121,True
+60,Sleeping Bag Compact,Sports & Outdoors,SPO-0010,33.85,223,True
+61,Trekking Poles Pair,Sports & Outdoors,SPO-0011,40.07,1,True
+62,Bike Helmet,Sports & Outdoors,SPO-0012,169.32,382,True
+63,Fitness Tracker Band,Sports & Outdoors,SPO-0013,93.51,163,True
+64,Cooler Bag Insulated,Sports & Outdoors,SPO-0014,170.07,256,True
+65,Camping Lantern LED,Sports & Outdoors,SPO-0015,32.51,164,True
+66,Swim Goggles,Sports & Outdoors,SPO-0016,57.52,60,True
+67,Ankle Weights Pair,Sports & Outdoors,SPO-0017,90.01,368,True
+68,Portable Hammock,Sports & Outdoors,SPO-0018,177.56,378,True
+69,Golf Ball Set,Sports & Outdoors,SPO-0019,119.22,185,False
+70,Basketball Official Size,Sports & Outdoors,SPO-0020,46.81,146,True
+71,Soccer Ball Match,Sports & Outdoors,SPO-0021,123.94,0,False
+72,Tennis Racket,Sports & Outdoors,SPO-0022,179.49,194,True
+73,Fishing Rod Combo,Sports & Outdoors,SPO-0023,92.79,406,True
+74,Compression Socks,Sports & Outdoors,SPO-0024,20.27,395,True
+75,Sports Duffel Bag,Sports & Outdoors,SPO-0025,117.2,205,True
+76,Facial Cleanser Gel,Beauty & Personal Care,BPC-0001,26.67,367,True
+77,Vitamin C Serum,Beauty & Personal Care,BPC-0002,50.4,411,True
+78,Moisturizing Lotion,Beauty & Personal Care,BPC-0003,31.98,284,False
+79,Electric Toothbrush,Beauty & Personal Care,BPC-0004,26.95,21,True
+80,Hair Dryer Ionic,Beauty & Personal Care,BPC-0005,17.16,55,True
+81,Makeup Brush Set,Beauty & Personal Care,BPC-0006,7.46,349,True
+82,Sunscreen SPF 50,Beauty & Personal Care,BPC-0007,26.71,303,True
+83,Lip Balm Pack,Beauty & Personal Care,BPC-0008,45.28,0,True
+84,Nail Care Kit,Beauty & Personal Care,BPC-0009,18.46,413,True
+85,Body Wash Natural,Beauty & Personal Care,BPC-0010,40.4,358,True
+86,Shampoo & Conditioner Set,Beauty & Personal Care,BPC-0011,14.81,404,True
+87,Facial Roller Jade,Beauty & Personal Care,BPC-0012,39.84,370,True
+88,Beard Trimmer Kit,Beauty & Personal Care,BPC-0013,14.29,142,True
+89,Hand Cream Travel Pack,Beauty & Personal Care,BPC-0014,58.76,79,True
+90,Face Mask Sheet Pack,Beauty & Personal Care,BPC-0015,33.04,29,True
+91,Hair Straightener,Beauty & Personal Care,BPC-0016,7.66,240,True
+92,Perfume Travel Set,Beauty & Personal Care,BPC-0017,14.02,497,False
+93,Cotton Rounds Pack,Beauty & Personal Care,BPC-0018,59.55,458,True
+94,Nail Polish Set,Beauty & Personal Care,BPC-0019,57.26,391,True
+95,Exfoliating Body Scrub,Beauty & Personal Care,BPC-0020,48.16,358,True
+96,Eyebrow Kit,Beauty & Personal Care,BPC-0021,50.74,478,True
+97,Deodorant Natural,Beauty & Personal Care,BPC-0022,37.26,24,True
+98,Bath Bomb Set,Beauty & Personal Care,BPC-0023,37.91,0,True
+99,Makeup Mirror LED,Beauty & Personal Care,BPC-0024,38.23,211,False
+100,Travel Toiletry Bag,Beauty & Personal Care,BPC-0025,40.04,0,True
+101,Gel Pen Set,Office & Stationery,OFS-0001,46.0,49,True
+102,Notebook Ruled A5,Office & Stationery,OFS-0002,37.39,463,True
+103,Desk Organizer Tray,Office & Stationery,OFS-0003,38.43,411,True
+104,Sticky Notes Pack,Office & Stationery,OFS-0004,39.75,191,True
+105,Stapler Compact,Office & Stationery,OFS-0005,34.01,95,True
+106,Highlighter Set,Office & Stationery,OFS-0006,15.88,2,False
+107,Mechanical Pencil Set,Office & Stationery,OFS-0007,32.49,435,True
+108,File Folder Pack,Office & Stationery,OFS-0008,7.91,158,True
+109,Whiteboard Markers,Office & Stationery,OFS-0009,49.58,249,True
+110,Desk Calendar Planner,Office & Stationery,OFS-0010,41.59,2,True
+111,Paper Clip Set,Office & Stationery,OFS-0011,42.45,260,True
+112,Envelope Pack,Office & Stationery,OFS-0012,27.54,128,True
+113,Label Maker Tape,Office & Stationery,OFS-0013,32.03,138,True
+114,Binder Clips Set,Office & Stationery,OFS-0014,14.74,416,True
+115,Scissors Office,Office & Stationery,OFS-0015,13.81,430,True
+116,Correction Tape Pack,Office & Stationery,OFS-0016,39.5,71,True
+117,Desk Mat Large,Office & Stationery,OFS-0017,33.18,490,True
+118,Bookend Set,Office & Stationery,OFS-0018,43.0,387,True
+119,Push Pin Pack,Office & Stationery,OFS-0019,19.28,12,True
+120,Rubber Stamp Set,Office & Stationery,OFS-0020,47.28,26,True
+121,Index Card Pack,Office & Stationery,OFS-0021,7.74,303,True
+122,Laminating Sheets,Office & Stationery,OFS-0022,36.42,249,True
+123,Pencil Case,Office & Stationery,OFS-0023,45.85,319,True
+124,Wall Planner Yearly,Office & Stationery,OFS-0024,18.81,196,True
+125,Business Card Holder,Office & Stationery,OFS-0025,43.42,324,False
+126,Building Block Set,Toys & Games,TOY-0001,21.92,485,True
+127,Puzzle 1000-Piece,Toys & Games,TOY-0002,27.52,16,True
+128,Board Game Family,Toys & Games,TOY-0003,43.72,290,True
+129,Remote Control Car,Toys & Games,TOY-0004,35.16,41,True
+130,Plush Teddy Bear,Toys & Games,TOY-0005,55.99,271,False
+131,Card Game Deck,Toys & Games,TOY-0006,37.64,444,True
+132,Building Blocks Mega Set,Toys & Games,TOY-0007,64.01,48,True
+133,Play-Doh Variety Pack,Toys & Games,TOY-0008,77.73,336,True
+134,Wooden Train Set,Toys & Games,TOY-0009,44.35,254,True
+135,Action Figure Set,Toys & Games,TOY-0010,34.26,259,True
+136,Kids Art Supplies Kit,Toys & Games,TOY-0011,44.14,321,True
+137,Toy Kitchen Set,Toys & Games,TOY-0012,70.57,0,True
+138,Dinosaur Figure Set,Toys & Games,TOY-0013,57.56,115,True
+139,Water Gun Blaster,Toys & Games,TOY-0014,59.39,306,True
+140,Rubik's Cube Puzzle,Toys & Games,TOY-0015,87.85,465,True
+141,Toy Drone Mini,Toys & Games,TOY-0016,68.7,73,True
+142,Craft Kit Kids,Toys & Games,TOY-0017,51.45,274,True
+143,Building Block Vehicles,Toys & Games,TOY-0018,88.77,324,True
+144,Plush Animal Set,Toys & Games,TOY-0019,18.41,218,True
+145,Kite Flying Set,Toys & Games,TOY-0020,50.66,204,False
+146,Bubble Machine,Toys & Games,TOY-0021,38.64,342,True
+147,Magnetic Tile Set,Toys & Games,TOY-0022,87.03,150,True
+148,Toy Race Track,Toys & Games,TOY-0023,42.07,61,True
+149,Yo-Yo Classic,Toys & Games,TOY-0024,85.98,378,True
+150,Stuffed Animal Large,Toys & Games,TOY-0025,72.06,367,True

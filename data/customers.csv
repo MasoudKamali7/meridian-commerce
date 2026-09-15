@@ -1,0 +1,1001 @@
+customer_id,first_name,last_name,email,phone,signup_date,customer_segment,country,is_active
+1,Danielle,Johnson,danielle.johnson1@example.com,533-521-8196x001,2024-09-02,Returning,United States,True
+2,William,Johnson,william.johnson2@example.com,886.737.9402,2025-02-16,VIP,United States,True
+3,Joshua,Lewis,joshua.lewis3@example.com,001-851-316-1559x407,2023-11-20,Returning,Germany,True
+4,Andrea,Calderon,andrea.calderon4@example.com,+1-659-931-0341x316,2025-06-16,Returning,United Kingdom,True
+5,Cynthia,Diaz,cynthia.diaz5@example.com,(653)541-9283x276,2022-03-26,New,United Kingdom,True
+6,Gabrielle,Cameron,gabrielle.cameron6@example.com,001-903-405-6413x953,2026-02-22,New,Canada,True
+7,Joseph,Wright,joseph.wright7@example.com,+1-484-996-9653,2025-01-21,New,Canada,True
+8,Christopher,Williams,christopher.williams8@example.com,922-669-1669,2023-11-23,VIP,Germany,True
+9,Tasha,Valencia,tasha.valencia9@example.com,9182451462,2023-09-07,Returning,United States,True
+10,Stephanie,Liu,stephanie.liu10@example.com,282-781-4893x252,2024-11-06,Returning,United States,True
+11,Tracy,Rodriguez,tracy.rodriguez11@example.com,(443)903-9117x182,2025-06-25,New,United States,True
+12,Stacey,Martin,stacey.martin12@example.com,596.338.3465x78713,2023-05-23,VIP,France,True
+13,Matthew,Chapman,matthew.chapman13@example.com,793.301.0310,2026-01-29,Returning,Australia,True
+14,Willie,Ramirez,willie.ramirez14@example.com,838.729.9737x6311,2024-08-02,New,United States,True
+15,Rodney,Owens,rodney.owens15@example.com,001-801-406-5133x387,2024-04-05,New,United Kingdom,True
+16,Joshua,Wright,joshua.wright16@example.com,478-810-8013,2022-01-24,New,Australia,True
+17,Todd,Lewis,todd.lewis17@example.com,(502)660-6474x6872,2026-02-10,Returning,United States,True
+18,Jeff,Brown,jeff.brown18@example.com,001-380-450-0978x820,2024-08-04,Returning,Canada,True
+19,Casey,Jones,casey.jones19@example.com,361.893.9909,2024-07-26,Returning,Australia,True
+20,Diane,Cunningham,diane.cunningham20@example.com,343-353-4624x75107,2024-02-08,New,United States,True
+21,Amanda,Wagner,amanda.wagner21@example.com,(651)235-4278,2022-01-18,Returning,Canada,False
+22,Elizabeth,Spencer,elizabeth.spencer22@example.com,+1-612-941-1824x4935,2025-08-16,New,United States,True
+23,John,Odonnell,john.odonnell23@example.com,4169400524,2024-09-06,New,Australia,True
+24,Andrea,Patterson,andrea.patterson24@example.com,4118280598,2023-05-04,Returning,France,True
+25,David,Parker,david.parker25@example.com,4535315869,2024-06-07,Returning,Australia,True
+26,Michelle,Cherry,michelle.cherry26@example.com,(360)825-6342,2023-07-28,Returning,United States,True
+27,Monica,Garrison,monica.garrison27@example.com,837.754.3303,2024-08-18,New,Germany,True
+28,Joshua,Jones,joshua.jones28@example.com,001-345-886-8501x429,2025-05-05,Returning,Germany,False
+29,Michael,Hartman,michael.hartman29@example.com,(798)816-9340x60883,2023-07-04,Returning,United States,True
+30,Chad,Beck,chad.beck30@example.com,895-814-8465x64823,2024-05-16,New,Germany,True
+31,Erica,Orr,erica.orr31@example.com,+1-794-968-0443x699,2026-02-01,Returning,United States,True
+32,Scott,Lowe,scott.lowe32@example.com,272.214.8951x34332,2023-07-16,New,Canada,True
+33,John,Alvarez,john.alvarez33@example.com,001-517-469-3676x320,2023-02-03,New,United States,True
+34,Linda,Dominguez,linda.dominguez34@example.com,908.831.7278x895,2023-11-27,VIP,United States,False
+35,Maria,Kelley,maria.kelley35@example.com,(677)943-4873,2022-02-14,VIP,United States,True
+36,Chris,Mitchell,chris.mitchell36@example.com,855-881-2236x231,2026-02-22,Returning,Canada,True
+37,Mark,Owens,mark.owens37@example.com,2367690967,2022-11-05,Returning,United States,True
+38,Kenneth,Price,kenneth.price38@example.com,(488)993-7346x70656,2026-05-13,New,United Kingdom,True
+39,Samantha,Hooper,samantha.hooper39@example.com,+1-906-499-0162,2022-06-01,Returning,United States,True
+40,Brent,Gray,brent.gray40@example.com,975.256.4641,2024-07-28,Returning,United States,True
+41,Kaitlyn,Williams,kaitlyn.williams41@example.com,(931)300-3309x232,2024-10-05,New,United States,True
+42,Anne,Robinson,anne.robinson42@example.com,001-645-829-9124x190,2024-12-27,Returning,United Kingdom,True
+43,Randy,Espinoza,randy.espinoza43@example.com,793-814-9190,2025-03-17,New,United States,True
+44,Doris,Jones,doris.jones44@example.com,+1-650-967-1657x2628,2024-04-09,VIP,Canada,True
+45,Steven,Petersen,steven.petersen45@example.com,001-845-731-4737,2023-12-04,New,Germany,True
+46,Anthony,Rosales,anthony.rosales46@example.com,(273)554-5494,2025-05-23,Returning,Canada,True
+47,Christopher,Cortez,christopher.cortez47@example.com,783.977.7014x3634,2025-03-05,Returning,United States,True
+48,Angela,Cooper,angela.cooper48@example.com,001-485-557-4443x135,2024-02-23,Returning,United States,True
+49,Javier,Washington,javier.washington49@example.com,001-498-694-1343x524,2025-11-07,Returning,Germany,True
+50,Brandon,Brown,brandon.brown50@example.com,627-910-9477x7520,2024-06-11,New,United States,True
+51,Danny,Jones,danny.jones51@example.com,519.802.2941x3186,2024-04-18,VIP,Germany,True
+52,Shannon,Ramos,shannon.ramos52@example.com,001-564-699-0913,2025-07-29,Returning,United States,True
+53,Donna,Moore,donna.moore53@example.com,(681)220-6797,2025-07-26,VIP,Australia,True
+54,Jesse,Mann,jesse.mann54@example.com,001-671-434-9361x832,2023-07-24,VIP,United Kingdom,True
+55,Charles,Martin,charles.martin55@example.com,999-347-1746x4887,2023-04-05,Returning,France,True
+56,Carly,Preston,carly.preston56@example.com,001-459-940-1399x049,2025-05-14,VIP,United States,True
+57,April,Ramos,april.ramos57@example.com,429-767-1756x551,2025-09-21,New,United Kingdom,True
+58,Robert,Simpson,robert.simpson58@example.com,+1-968-807-1545x1680,2025-08-23,New,United States,True
+59,Brian,Stone,brian.stone59@example.com,+1-277-503-4824x771,2023-01-02,New,United States,True
+60,Jennifer,Collins,jennifer.collins60@example.com,9866131712,2024-08-23,Returning,Canada,True
+61,William,Hill,william.hill61@example.com,873.778.2639x8214,2022-02-01,Returning,Germany,True
+62,Sarah,Romero,sarah.romero62@example.com,9447997278,2022-10-09,New,France,True
+63,Martin,Hines,martin.hines63@example.com,(875)433-9636x0576,2025-08-29,Returning,United Kingdom,True
+64,Tyler,Johnson,tyler.johnson64@example.com,695.717.1870x26217,2026-04-08,Returning,United States,True
+65,Cindy,Sanders,cindy.sanders65@example.com,358-565-7809,2025-05-07,New,United States,True
+66,Crystal,Mccall,crystal.mccall66@example.com,216.711.7240,2024-06-20,Returning,United Kingdom,True
+67,Laura,Carter,laura.carter67@example.com,(862)538-6922x219,2023-07-08,New,United States,True
+68,Tyler,Aguilar,tyler.aguilar68@example.com,474.374.0748,2022-02-12,Returning,United States,True
+69,Scott,Reed,scott.reed69@example.com,001-346-547-4367,2026-05-14,New,United States,True
+70,Patrick,Howard,patrick.howard70@example.com,740-564-0909x7439,2025-08-25,VIP,United States,True
+71,Dana,Oliver,dana.oliver71@example.com,+1-421-504-7095x2145,2023-03-17,Returning,United States,True
+72,David,Ryan,david.ryan72@example.com,(488)542-4745x171,2024-10-15,New,United States,True
+73,Michelle,Ramsey,michelle.ramsey73@example.com,(885)716-0481x7549,2022-06-03,New,United States,True
+74,Daniel,Hall,daniel.hall74@example.com,8983593174,2024-07-14,Returning,United States,True
+75,Donald,Shah,donald.shah75@example.com,471-813-8267x5869,2025-06-03,Returning,France,True
+76,Diana,Bass,diana.bass76@example.com,+1-764-205-3773x515,2024-03-02,Returning,United States,True
+77,Raymond,Lopez,raymond.lopez77@example.com,471-539-0053,2024-09-26,Returning,United States,True
+78,Casey,Hubbard,casey.hubbard78@example.com,493.435.2904,2023-02-05,New,Canada,True
+79,Amber,Lindsey,amber.lindsey79@example.com,402-605-3950,2026-02-07,Returning,United States,False
+80,Brian,Harmon,brian.harmon80@example.com,611.977.5891x78390,2025-10-01,New,Australia,True
+81,Dawn,Johnson,dawn.johnson81@example.com,666.717.7115x9212,2024-04-13,VIP,United Kingdom,True
+82,Oscar,Harper,oscar.harper82@example.com,778-996-1183x6736,2024-02-25,Returning,United States,True
+83,Raymond,Blair,raymond.blair83@example.com,465-245-2711x11615,2025-12-28,Returning,United States,True
+84,Brenda,Hoffman,brenda.hoffman84@example.com,416-956-0494x51983,2024-12-26,New,Germany,True
+85,Jeffrey,Rodriguez,jeffrey.rodriguez85@example.com,+1-251-649-3689,2024-04-12,Returning,Australia,True
+86,Anthony,Nelson,anthony.nelson86@example.com,001-545-850-2296x120,2022-06-02,Returning,United States,True
+87,Robert,Peterson,robert.peterson87@example.com,(645)999-1022x901,2024-01-10,Returning,Canada,True
+88,Ebony,Tucker,ebony.tucker88@example.com,664.238.1561x497,2025-12-15,Returning,United States,True
+89,Jeffrey,Joyce,jeffrey.joyce89@example.com,3032432445,2021-09-16,VIP,France,True
+90,Tyler,Jordan,tyler.jordan90@example.com,(268)838-8516,2021-11-25,Returning,United States,True
+91,Andrew,Morse,andrew.morse91@example.com,796-396-6416x05297,2023-09-20,New,Australia,True
+92,Samuel,Rodriguez,samuel.rodriguez92@example.com,(596)781-6453x52181,2023-11-17,Returning,Canada,False
+93,Michael,Mullen,michael.mullen93@example.com,+1-923-912-4329x2127,2025-12-21,Returning,Canada,True
+94,Erin,Macias,erin.macias94@example.com,+1-795-352-7177x4490,2023-10-14,Returning,United States,True
+95,Lance,Hayes,lance.hayes95@example.com,9542119986,2024-12-02,Returning,United States,True
+96,Shannon,Pacheco,shannon.pacheco96@example.com,+1-435-297-8207x1518,2025-01-29,Returning,United States,True
+97,John,Kim,john.kim97@example.com,288.792.5546x659,2025-01-24,Returning,United States,True
+98,Cameron,Davis,cameron.davis98@example.com,+1-364-649-2519x2546,2025-08-08,Returning,United States,True
+99,Angelica,Schneider,angelica.schneider99@example.com,528-516-8505x42357,2025-02-11,New,United Kingdom,True
+100,Zoe,Moore,zoe.moore100@example.com,418-488-0592x9622,2022-04-27,New,United States,True
+101,Jennifer,Williams,jennifer.williams101@example.com,(737)994-7383x473,2024-01-12,New,United States,True
+102,Steven,Campbell,steven.campbell102@example.com,(388)362-3924x0758,2026-01-03,Returning,France,True
+103,Justin,Hines,justin.hines103@example.com,878-726-1375x060,2025-09-11,Returning,Germany,True
+104,Joe,Vang,joe.vang104@example.com,(930)951-5220x472,2024-05-07,Returning,Australia,True
+105,Christina,Bullock,christina.bullock105@example.com,6435289861,2025-11-05,VIP,France,True
+106,Kevin,Williams,kevin.williams106@example.com,(897)211-7980x89324,2023-09-02,New,United States,True
+107,Christina,Allen,christina.allen107@example.com,(221)885-1888x88067,2024-10-13,Returning,United States,True
+108,Tina,King,tina.king108@example.com,2517531952,2023-10-30,Returning,United Kingdom,True
+109,Amy,Li,amy.li109@example.com,(577)222-1704,2025-12-13,New,Canada,True
+110,Kylie,Blackwell,kylie.blackwell110@example.com,348-768-7403x45054,2024-04-08,New,United States,False
+111,Samuel,Ross,samuel.ross111@example.com,865.427.7584x161,2024-12-31,New,United Kingdom,True
+112,Amy,Morris,amy.morris112@example.com,754-947-9627,2022-05-30,New,United States,True
+113,Bobby,Berg,bobby.berg113@example.com,(996)240-1658x202,2025-10-23,VIP,United States,True
+114,David,Young,david.young114@example.com,+1-455-769-0927x5571,2023-09-30,Returning,United States,True
+115,Raymond,Banks,raymond.banks115@example.com,610.627.8681,2024-03-09,Returning,Canada,True
+116,Jane,Lewis,jane.lewis116@example.com,+1-747-331-2172x715,2025-04-11,VIP,Canada,True
+117,Andrea,Roberts,andrea.roberts117@example.com,722-958-3132x3705,2026-02-16,Returning,United States,True
+118,Linda,Arnold,linda.arnold118@example.com,+1-711-346-7866x912,2024-07-17,New,Germany,True
+119,Shannon,Frazier,shannon.frazier119@example.com,(628)492-2680x182,2023-10-23,VIP,United States,True
+120,Fernando,Donovan,fernando.donovan120@example.com,458.641.4384,2024-09-18,Returning,United States,True
+121,Christina,Davis,christina.davis121@example.com,+1-229-692-2995x9001,2025-08-01,Returning,Germany,True
+122,Debra,Wang,debra.wang122@example.com,(490)978-4473x64710,2025-07-28,VIP,Australia,True
+123,Robert,Marshall,robert.marshall123@example.com,992-355-5625x88153,2025-07-10,Returning,Germany,False
+124,Joseph,Wright,joseph.wright124@example.com,704-569-6325,2023-09-11,New,United Kingdom,True
+125,Kathryn,Jimenez,kathryn.jimenez125@example.com,277.247.0168x73395,2025-11-13,New,Canada,False
+126,Juan,Harper,juan.harper126@example.com,+1-874-280-1624x5650,2025-06-22,Returning,Canada,True
+127,Ashley,Lee,ashley.lee127@example.com,+1-341-468-7849,2025-03-15,Returning,United States,True
+128,Theresa,Long,theresa.long128@example.com,985-923-9868x00025,2024-12-27,VIP,United States,True
+129,Eduardo,Barry,eduardo.barry129@example.com,(759)952-6949,2025-02-26,New,United States,True
+130,Jeanne,Evans,jeanne.evans130@example.com,9556169409,2025-03-19,Returning,United States,True
+131,Tammy,Patton,tammy.patton131@example.com,001-399-530-9728x962,2024-10-16,Returning,United Kingdom,True
+132,Andrew,Edwards,andrew.edwards132@example.com,(563)768-9702,2022-06-13,New,United States,True
+133,Whitney,Mendoza,whitney.mendoza133@example.com,(652)678-5854x9733,2022-04-21,New,United States,True
+134,Jeffrey,Dudley,jeffrey.dudley134@example.com,843-875-7584x4198,2025-04-29,Returning,United States,True
+135,Loretta,Blevins,loretta.blevins135@example.com,(540)541-5747,2022-04-25,VIP,Canada,True
+136,Maria,Nelson,maria.nelson136@example.com,+1-542-519-9330,2024-01-27,Returning,United States,True
+137,Brian,Gutierrez,brian.gutierrez137@example.com,001-771-620-8267x734,2025-06-29,Returning,Germany,True
+138,Debbie,Velez,debbie.velez138@example.com,893-980-2620,2025-07-13,Returning,United States,True
+139,Jacob,Curry,jacob.curry139@example.com,400-949-9154x7887,2024-12-20,Returning,United States,True
+140,Joshua,Lamb,joshua.lamb140@example.com,727-342-0549x32966,2024-06-06,VIP,Canada,True
+141,Richard,Davis,richard.davis141@example.com,(675)730-4637,2023-06-21,VIP,Germany,True
+142,Kevin,Sharp,kevin.sharp142@example.com,8456301742,2026-06-17,New,United States,True
+143,Hannah,Fowler,hannah.fowler143@example.com,959-533-2727x9568,2025-03-22,Returning,Canada,True
+144,Kathleen,Becker,kathleen.becker144@example.com,+1-518-478-5191x088,2026-05-16,Returning,Canada,True
+145,Franklin,Bond,franklin.bond145@example.com,813.997.1870x728,2024-09-11,New,United States,True
+146,Anne,Hansen,anne.hansen146@example.com,+1-240-364-0391x0651,2025-05-04,New,Germany,True
+147,Valerie,Kennedy,valerie.kennedy147@example.com,762-326-5676x6182,2021-11-27,Returning,United Kingdom,True
+148,Gregory,Medina,gregory.medina148@example.com,723.400.4786x86337,2025-08-23,Returning,Canada,True
+149,Joshua,Pineda,joshua.pineda149@example.com,001-210-569-0331x190,2024-11-02,New,Germany,True
+150,Joy,Morales,joy.morales150@example.com,783.702.8439,2025-04-07,New,Germany,True
+151,Joel,Walter,joel.walter151@example.com,+1-783-864-4089x2687,2023-11-25,VIP,United Kingdom,True
+152,Kristi,Flores,kristi.flores152@example.com,(862)846-2873x34270,2023-12-31,New,Germany,True
+153,Angela,Anderson,angela.anderson153@example.com,543.251.7518,2025-08-01,New,Canada,True
+154,Joseph,Nunez,joseph.nunez154@example.com,+1-501-539-8373x540,2025-08-01,Returning,Canada,True
+155,Suzanne,Wilson,suzanne.wilson155@example.com,001-673-693-6385x467,2024-07-26,VIP,Canada,True
+156,Michael,Andrade,michael.andrade156@example.com,217.653.5560x932,2023-08-27,New,United Kingdom,True
+157,Angela,Silva,angela.silva157@example.com,001-664-923-5369x378,2025-04-07,Returning,United States,True
+158,Tammy,May,tammy.may158@example.com,372.252.2872x8080,2024-04-28,Returning,Germany,True
+159,Kathy,Gutierrez,kathy.gutierrez159@example.com,+1-931-220-3875x0997,2025-12-11,New,Germany,True
+160,Adam,Arnold,adam.arnold160@example.com,4083484086,2023-01-22,Returning,United States,True
+161,Samantha,Warren,samantha.warren161@example.com,739.884.5461,2023-03-02,Returning,Germany,True
+162,Stephen,Sanchez,stephen.sanchez162@example.com,001-234-410-1666x870,2023-11-10,Returning,United States,True
+163,Christopher,Bruce,christopher.bruce163@example.com,+1-659-218-0339x7401,2022-12-15,Returning,United States,True
+164,Harry,Jefferson,harry.jefferson164@example.com,5398261429,2024-08-13,Returning,United Kingdom,True
+165,Erica,Fernandez,erica.fernandez165@example.com,(821)785-0163x1599,2021-11-08,New,United States,True
+166,Anthony,Nelson,anthony.nelson166@example.com,673.558.6629x619,2026-02-26,Returning,United Kingdom,False
+167,Jennifer,Miller,jennifer.miller167@example.com,(662)965-5110,2025-06-09,Returning,Germany,True
+168,Michael,Nelson,michael.nelson168@example.com,(312)267-8886,2025-06-14,New,United States,True
+169,Christopher,Spencer,christopher.spencer169@example.com,+1-495-860-4661x839,2022-01-24,New,United States,True
+170,Gavin,Adams,gavin.adams170@example.com,672-512-6464x715,2025-02-03,Returning,United States,True
+171,Jennifer,Simpson,jennifer.simpson171@example.com,+1-937-712-4065x965,2024-09-20,Returning,Canada,True
+172,Ryan,Colon,ryan.colon172@example.com,+1-992-545-9375x2654,2024-10-09,New,France,True
+173,Mark,Ramirez,mark.ramirez173@example.com,(651)393-9828x0737,2024-03-25,Returning,Canada,True
+174,Lori,Flynn,lori.flynn174@example.com,(872)843-4266x17979,2024-12-29,New,United States,True
+175,Amy,Gibbs,amy.gibbs175@example.com,(789)811-3529x096,2023-03-27,Returning,Canada,True
+176,Daniel,Garcia,daniel.garcia176@example.com,888.989.9375,2024-12-19,New,United States,True
+177,Kelsey,Chapman,kelsey.chapman177@example.com,925.507.1461x12545,2023-02-18,Returning,United Kingdom,True
+178,Adriana,Bailey,adriana.bailey178@example.com,777-351-4010,2022-03-14,Returning,United States,True
+179,Erica,Martin,erica.martin179@example.com,001-438-828-2586x736,2026-04-06,VIP,United Kingdom,True
+180,Randall,Mclaughlin,randall.mclaughlin180@example.com,379.366.0334,2022-11-23,New,United States,True
+181,Lauren,Herrera,lauren.herrera181@example.com,(853)371-4785x969,2022-08-24,Returning,France,True
+182,Michael,Bruce,michael.bruce182@example.com,+1-424-799-1251x341,2021-09-02,New,United States,True
+183,Heather,Dixon,heather.dixon183@example.com,(492)496-6278x28274,2024-07-12,VIP,Canada,True
+184,Leonard,Hayes,leonard.hayes184@example.com,9508723688,2024-02-09,VIP,Australia,True
+185,Gail,Perry,gail.perry185@example.com,672.419.0340x438,2021-10-16,New,United States,True
+186,Kimberly,Cunningham,kimberly.cunningham186@example.com,001-578-881-9148x580,2023-12-23,Returning,Australia,True
+187,Curtis,Greer,curtis.greer187@example.com,001-834-407-4517x133,2023-08-14,Returning,Canada,True
+188,Christina,Glover,christina.glover188@example.com,709.658.4982,2023-07-09,Returning,United States,True
+189,Keith,Adams,keith.adams189@example.com,412.660.4223x25367,2025-08-22,Returning,United States,True
+190,Courtney,Brooks,courtney.brooks190@example.com,216-384-5775,2023-10-30,New,United Kingdom,True
+191,Jessica,Ellis,jessica.ellis191@example.com,+1-451-986-3637x4545,2026-02-21,New,United States,True
+192,Kristina,Shannon,kristina.shannon192@example.com,001-600-417-0127x706,2023-07-23,VIP,Canada,True
+193,Nancy,Mcdowell,nancy.mcdowell193@example.com,554-815-2064,2025-01-31,VIP,United States,True
+194,Diana,Padilla,diana.padilla194@example.com,2372129387,2022-03-22,Returning,Canada,True
+195,Heather,Montoya,heather.montoya195@example.com,(427)413-6111x55426,2023-11-10,Returning,United States,True
+196,Casey,Elliott,casey.elliott196@example.com,+1-427-353-2697x311,2022-12-02,Returning,Germany,True
+197,Brittany,Cruz,brittany.cruz197@example.com,(552)534-1389x99404,2024-07-08,Returning,France,True
+198,Julie,Phillips,julie.phillips198@example.com,2377613791,2025-03-28,VIP,France,True
+199,Sarah,Anderson,sarah.anderson199@example.com,001-365-282-7109,2023-11-18,VIP,United Kingdom,True
+200,Jose,Williams,jose.williams200@example.com,4686486661,2021-11-06,Returning,United States,True
+201,Christopher,Miller,christopher.miller201@example.com,528.256.9146,2023-11-05,Returning,United Kingdom,False
+202,John,Middleton,john.middleton202@example.com,479-290-4210,2024-09-10,New,United States,True
+203,Frank,Benton,frank.benton203@example.com,684.325.2410x56481,2022-09-04,New,United States,True
+204,Tyler,Dixon,tyler.dixon204@example.com,3795252419,2024-08-24,VIP,United States,True
+205,Joyce,Smith,joyce.smith205@example.com,8305756220,2022-04-08,Returning,United States,True
+206,Marc,Butler,marc.butler206@example.com,001-854-319-5180x238,2023-06-11,New,United Kingdom,True
+207,Natalie,Cline,natalie.cline207@example.com,001-945-718-7053x494,2024-07-12,New,Canada,True
+208,Brittany,Snyder,brittany.snyder208@example.com,001-838-632-0603x850,2023-08-25,Returning,United States,True
+209,Dalton,Moreno,dalton.moreno209@example.com,867.702.4103,2025-04-23,New,United States,True
+210,Stephen,Adkins,stephen.adkins210@example.com,001-818-426-1990,2021-05-19,New,France,True
+211,Joel,Green,joel.green211@example.com,465-957-4313x29121,2024-06-08,Returning,United States,True
+212,Steven,Russell,steven.russell212@example.com,+1-453-674-7411,2023-12-18,Returning,United States,True
+213,Margaret,Terry,margaret.terry213@example.com,2356213568,2025-03-14,Returning,United States,True
+214,Jorge,Ewing,jorge.ewing214@example.com,4673883171,2025-03-05,New,United Kingdom,False
+215,Alexander,Greer,alexander.greer215@example.com,323.265.1994,2024-10-02,Returning,Canada,True
+216,Wendy,Gonzalez,wendy.gonzalez216@example.com,+1-972-215-1070x2966,2025-07-12,New,United States,True
+217,Patrick,Simmons,patrick.simmons217@example.com,(632)944-7209x993,2021-03-19,Returning,United States,True
+218,Robert,Pierce,robert.pierce218@example.com,2148626383,2022-10-20,Returning,Canada,True
+219,Kimberly,Howard,kimberly.howard219@example.com,+1-275-798-5642,2023-03-18,Returning,Canada,True
+220,Carla,Johnson,carla.johnson220@example.com,001-240-578-5932x133,2025-12-09,Returning,United States,True
+221,Barbara,Mcgrath,barbara.mcgrath221@example.com,(452)523-9559x0599,2024-12-07,Returning,Australia,True
+222,Mary,Cochran,mary.cochran222@example.com,984.227.0103x9308,2022-01-31,Returning,United States,True
+223,Martin,Mendez,martin.mendez223@example.com,(352)750-0292,2024-06-16,New,United States,True
+224,Susan,Brooks,susan.brooks224@example.com,+1-769-515-4522x6752,2024-09-17,Returning,Australia,True
+225,Elizabeth,Olsen,elizabeth.olsen225@example.com,(544)322-0969x0295,2023-08-09,New,United States,True
+226,Sharon,Taylor,sharon.taylor226@example.com,001-313-755-2157x043,2022-02-15,New,Canada,True
+227,Jonathan,Rodriguez,jonathan.rodriguez227@example.com,7068762676,2023-05-14,VIP,United States,True
+228,Craig,Mendoza,craig.mendoza228@example.com,001-632-371-0405,2026-02-16,Returning,United States,True
+229,Charles,Jackson,charles.jackson229@example.com,(821)481-5997x0629,2026-05-28,VIP,France,True
+230,Brian,Rivera,brian.rivera230@example.com,268.884.4431,2024-02-17,Returning,United States,True
+231,Ashley,Larsen,ashley.larsen231@example.com,(505)306-1497,2024-05-24,Returning,Germany,True
+232,Anthony,Jackson,anthony.jackson232@example.com,717-814-6774x1862,2024-09-22,Returning,United States,True
+233,Mike,Griffin,mike.griffin233@example.com,877-543-4902x115,2024-04-01,Returning,United States,True
+234,Angela,Randall,angela.randall234@example.com,468.379.3741x60898,2023-01-08,Returning,United States,True
+235,Stacy,Cole,stacy.cole235@example.com,(433)620-6163,2022-05-20,New,Canada,True
+236,Luis,Acosta,luis.acosta236@example.com,916-286-8548,2025-10-29,Returning,United States,True
+237,Kristin,Dean,kristin.dean237@example.com,761.862.2999x11914,2022-03-21,New,Germany,True
+238,Joseph,Pena,joseph.pena238@example.com,001-897-202-4629,2026-05-11,New,United States,True
+239,Randy,Koch,randy.koch239@example.com,001-330-574-5054x447,2021-09-13,Returning,France,True
+240,Dennis,Mccann,dennis.mccann240@example.com,754.269.1373x678,2026-03-17,New,United States,True
+241,Zachary,Moore,zachary.moore241@example.com,986-228-9023x3030,2023-07-21,VIP,Germany,True
+242,Samantha,Bush,samantha.bush242@example.com,457-986-1035x797,2021-08-14,VIP,United Kingdom,True
+243,Brenda,Bailey,brenda.bailey243@example.com,(541)540-6029,2025-08-30,VIP,United Kingdom,True
+244,Deborah,Byrd,deborah.byrd244@example.com,668-600-7229x034,2024-08-28,Returning,Germany,False
+245,Rodney,Bennett,rodney.bennett245@example.com,(774)637-4896x910,2024-08-19,New,United Kingdom,True
+246,Kenneth,Rodriguez,kenneth.rodriguez246@example.com,554-254-4432,2024-07-18,VIP,Canada,True
+247,Linda,Lang,linda.lang247@example.com,+1-565-720-7446x660,2024-03-02,Returning,United States,True
+248,Jessica,Walker,jessica.walker248@example.com,+1-375-984-2824,2023-01-29,VIP,United States,True
+249,David,Green,david.green249@example.com,+1-725-713-5346,2023-12-02,VIP,Australia,True
+250,Jorge,Carter,jorge.carter250@example.com,370-899-9173,2024-06-04,VIP,Canada,True
+251,Alyssa,Gutierrez,alyssa.gutierrez251@example.com,(423)356-9725,2022-02-01,New,United Kingdom,True
+252,Tony,Welch,tony.welch252@example.com,(450)907-4329,2025-03-23,Returning,United States,True
+253,Kristen,Chan,kristen.chan253@example.com,(296)566-6760,2023-06-02,VIP,United States,True
+254,Jessica,Dodson,jessica.dodson254@example.com,683-400-3354x21689,2021-07-13,Returning,United States,True
+255,Cameron,Williams,cameron.williams255@example.com,878-298-5625x7532,2024-03-09,New,Canada,True
+256,Jeremy,Acosta,jeremy.acosta256@example.com,(830)698-2150,2024-04-16,Returning,United States,True
+257,Kelsey,Dean,kelsey.dean257@example.com,+1-901-400-1676x184,2023-01-02,VIP,United States,True
+258,Jamie,Jennings,jamie.jennings258@example.com,8463184992,2022-12-03,Returning,United States,True
+259,William,Williamson,william.williamson259@example.com,411-273-9348x3564,2022-03-27,Returning,United States,True
+260,Amy,Lozano,amy.lozano260@example.com,001-375-330-0119x721,2023-07-26,New,Canada,True
+261,Rebecca,Newman,rebecca.newman261@example.com,344.370.1204x556,2022-06-01,Returning,United States,True
+262,Melissa,Zamora,melissa.zamora262@example.com,7227557941,2023-04-29,VIP,United Kingdom,True
+263,Ian,Morales,ian.morales263@example.com,946.976.2120x216,2023-01-16,New,United States,True
+264,Howard,James,howard.james264@example.com,(790)227-7167x014,2022-04-08,Returning,United States,True
+265,Janet,Gregory,janet.gregory265@example.com,001-499-235-8891x637,2025-12-25,VIP,United States,True
+266,Alexander,Michael,alexander.michael266@example.com,877.821.7535x40838,2023-07-11,Returning,United States,True
+267,Lisa,Miller,lisa.miller267@example.com,897.217.7517x016,2026-03-09,Returning,United States,True
+268,Angela,Smith,angela.smith268@example.com,799-248-8375,2023-06-14,Returning,United States,True
+269,Lisa,Richard,lisa.richard269@example.com,789-397-5711x30554,2025-08-06,Returning,Canada,True
+270,Brandon,Martin,brandon.martin270@example.com,(561)949-3316,2025-08-17,New,United States,True
+271,Makayla,Lee,makayla.lee271@example.com,216-809-1779x82708,2025-12-04,Returning,Canada,True
+272,Mary,Webb,mary.webb272@example.com,529.622.1699x58669,2024-12-14,Returning,Germany,True
+273,Raymond,Cooper,raymond.cooper273@example.com,572-626-9848x5833,2023-09-21,VIP,United Kingdom,True
+274,Glenda,Morse,glenda.morse274@example.com,(828)685-1587,2025-03-07,VIP,United States,True
+275,Natalie,Henderson,natalie.henderson275@example.com,6814062003,2025-08-07,Returning,United States,False
+276,Tonya,Vega,tonya.vega276@example.com,(504)838-0571,2023-07-13,Returning,United States,True
+277,John,Mueller,john.mueller277@example.com,001-940-566-6580x043,2024-02-26,Returning,United States,True
+278,Rhonda,Bush,rhonda.bush278@example.com,+1-359-889-3347x2122,2023-01-02,Returning,France,True
+279,Billy,Ramirez,billy.ramirez279@example.com,222-694-0572x025,2025-11-01,Returning,United States,True
+280,Tracy,Armstrong,tracy.armstrong280@example.com,(815)383-2818x268,2021-09-04,Returning,United States,True
+281,Michael,Ware,michael.ware281@example.com,+1-555-554-3987x8015,2024-04-12,VIP,Canada,True
+282,Susan,Fleming,susan.fleming282@example.com,261-664-8408x58877,2022-10-30,Returning,United Kingdom,True
+283,Rachel,Lee,rachel.lee283@example.com,811.328.8013x36138,2024-09-14,Returning,Canada,True
+284,Julie,Hernandez,julie.hernandez284@example.com,650.811.0248x193,2023-10-06,New,United States,True
+285,Paul,Mccoy,paul.mccoy285@example.com,(350)661-8091x90158,2023-06-26,Returning,United States,True
+286,Kristin,Turner,kristin.turner286@example.com,547-466-0728,2023-10-11,New,United States,True
+287,Julie,Robles,julie.robles287@example.com,+1-342-245-0882,2023-10-27,Returning,United States,False
+288,Adam,Carlson,adam.carlson288@example.com,+1-481-443-5368,2025-03-03,Returning,United States,True
+289,Jack,Jensen,jack.jensen289@example.com,631-329-0878x141,2024-10-30,New,United States,True
+290,James,Carpenter,james.carpenter290@example.com,652-431-4913x57759,2025-12-04,Returning,United States,True
+291,Ariana,Diaz,ariana.diaz291@example.com,962-705-3364x52577,2023-05-03,New,United States,True
+292,Kim,Tucker,kim.tucker292@example.com,329-314-2834,2024-07-21,New,United States,True
+293,Patricia,Atkinson,patricia.atkinson293@example.com,+1-409-796-9308x4887,2025-01-14,Returning,Canada,True
+294,Philip,Vance,philip.vance294@example.com,001-242-578-8165,2023-05-17,Returning,Canada,True
+295,Melanie,Drake,melanie.drake295@example.com,+1-228-527-2299x275,2026-03-16,New,United Kingdom,True
+296,Kathleen,Hall,kathleen.hall296@example.com,753-303-8567x700,2024-07-29,Returning,United States,True
+297,Jane,Boyd,jane.boyd297@example.com,649-889-2665x918,2025-08-21,Returning,United States,True
+298,Teresa,Walker,teresa.walker298@example.com,(655)577-9082x7231,2024-04-04,New,United States,True
+299,Edward,Moore,edward.moore299@example.com,+1-813-265-1777x392,2021-07-17,Returning,Canada,True
+300,John,Anderson,john.anderson300@example.com,001-622-480-9202,2025-11-18,New,United Kingdom,True
+301,Zachary,Sullivan,zachary.sullivan301@example.com,001-404-513-7977,2023-12-12,New,United States,True
+302,Maria,Burke,maria.burke302@example.com,001-329-584-2579,2026-01-27,Returning,Australia,True
+303,Nicholas,Anderson,nicholas.anderson303@example.com,9382862912,2024-04-16,Returning,United States,True
+304,Natalie,Schmidt,natalie.schmidt304@example.com,001-811-572-9806x865,2025-10-16,Returning,United States,True
+305,Shawna,Olson,shawna.olson305@example.com,001-865-699-1624x731,2026-06-16,Returning,United Kingdom,True
+306,Jacob,Fletcher,jacob.fletcher306@example.com,8987180635,2023-12-25,VIP,Germany,True
+307,Daniel,Simmons,daniel.simmons307@example.com,001-844-586-9594,2024-03-06,Returning,United Kingdom,True
+308,Robert,Bowers,robert.bowers308@example.com,525.988.7449x5621,2024-12-10,Returning,United Kingdom,True
+309,Krista,Avery,krista.avery309@example.com,838-265-8902,2024-06-05,Returning,United States,True
+310,Linda,Morrow,linda.morrow310@example.com,696.211.4351x9066,2025-02-17,New,United Kingdom,True
+311,Sonya,Wilkins,sonya.wilkins311@example.com,+1-477-203-8430x9883,2024-01-13,Returning,United States,True
+312,Michael,Pena,michael.pena312@example.com,(214)365-6693,2024-02-13,New,Germany,True
+313,Samantha,Dunn,samantha.dunn313@example.com,001-689-455-4393x769,2023-01-08,New,United States,True
+314,Richard,Rodriguez,richard.rodriguez314@example.com,684-951-8489,2022-11-25,VIP,United Kingdom,True
+315,Tammy,Hart,tammy.hart315@example.com,001-735-877-9071x416,2025-09-26,Returning,United States,False
+316,Stephanie,Black,stephanie.black316@example.com,4439416518,2024-04-08,Returning,Canada,True
+317,Lee,Robinson,lee.robinson317@example.com,001-542-537-3334,2022-02-14,Returning,United States,True
+318,James,Wright,james.wright318@example.com,+1-752-711-1790x807,2025-12-21,New,United Kingdom,True
+319,Travis,Galloway,travis.galloway319@example.com,001-447-228-4639,2026-01-09,New,United States,True
+320,Alicia,Henderson,alicia.henderson320@example.com,+1-908-756-2718,2023-05-05,New,United States,True
+321,Hannah,Smith,hannah.smith321@example.com,669.515.5942,2022-03-29,Returning,United States,True
+322,Joseph,Mullen,joseph.mullen322@example.com,452-576-3655x64729,2023-02-06,Returning,United States,True
+323,Lisa,Le,lisa.le323@example.com,486.863.2270,2024-03-22,Returning,Germany,True
+324,Victor,Cowan,victor.cowan324@example.com,+1-288-557-4489x0612,2025-12-11,New,United States,True
+325,Lisa,Woods,lisa.woods325@example.com,+1-317-754-5588x4506,2023-12-31,VIP,France,True
+326,Michelle,Mccarty,michelle.mccarty326@example.com,999.982.4558,2026-06-16,Returning,United States,False
+327,Pamela,James,pamela.james327@example.com,572-725-6996x1125,2023-08-26,Returning,United States,True
+328,Logan,Carter,logan.carter328@example.com,296-447-5987x622,2024-04-21,Returning,United Kingdom,True
+329,Jessica,Stanley,jessica.stanley329@example.com,001-313-326-1117x800,2022-07-13,Returning,Canada,True
+330,Jose,Moore,jose.moore330@example.com,+1-764-733-4722x8200,2024-03-27,New,United States,True
+331,Michelle,Mcdonald,michelle.mcdonald331@example.com,+1-948-872-8299,2025-07-27,Returning,Canada,True
+332,Alexandra,Fowler,alexandra.fowler332@example.com,257-283-1745x6424,2026-04-05,Returning,United Kingdom,True
+333,Alexandra,Chang,alexandra.chang333@example.com,(254)878-0774,2025-08-31,New,United States,True
+334,Lauren,Harper,lauren.harper334@example.com,4858368663,2021-09-13,New,France,True
+335,Maria,Walker,maria.walker335@example.com,863-589-4484,2022-11-13,New,France,True
+336,Melissa,White,melissa.white336@example.com,217-497-4973x5020,2021-10-30,New,Canada,True
+337,Teresa,Campbell,teresa.campbell337@example.com,(770)831-2073,2022-10-25,VIP,United States,True
+338,Larry,Lloyd,larry.lloyd338@example.com,(470)551-2046x187,2022-10-05,Returning,Canada,True
+339,Paula,Wright,paula.wright339@example.com,(901)836-7303x7183,2024-02-28,Returning,United States,True
+340,Erin,Collins,erin.collins340@example.com,520-888-1474x35031,2024-12-03,New,United States,True
+341,Mark,Jackson,mark.jackson341@example.com,391-563-0097x925,2022-04-03,Returning,United States,True
+342,Eric,Davis,eric.davis342@example.com,+1-750-905-2812x735,2025-06-18,Returning,United States,True
+343,Jessica,Smith,jessica.smith343@example.com,(452)740-7784x8739,2025-04-09,New,Germany,True
+344,Mario,Mcdonald,mario.mcdonald344@example.com,+1-282-818-2744x857,2023-09-29,Returning,United Kingdom,True
+345,Jessica,Andrade,jessica.andrade345@example.com,+1-459-635-1863x878,2025-12-26,Returning,United Kingdom,True
+346,Marcus,Davidson,marcus.davidson346@example.com,318-910-2203,2025-12-11,Returning,United States,True
+347,James,Johnson,james.johnson347@example.com,+1-567-989-9405x3910,2022-11-04,Returning,United States,True
+348,Sarah,Collier,sarah.collier348@example.com,605.386.5094x801,2025-10-17,New,United States,True
+349,Shirley,Yu,shirley.yu349@example.com,413-886-3383,2024-02-07,Returning,France,True
+350,Julie,Miranda,julie.miranda350@example.com,001-757-461-2286,2025-06-10,Returning,United States,True
+351,Amanda,Greene,amanda.greene351@example.com,(558)855-6659x398,2025-05-20,Returning,Germany,True
+352,Katie,Howe,katie.howe352@example.com,657-276-0049x082,2025-05-17,VIP,Canada,True
+353,Kevin,Walker,kevin.walker353@example.com,404-688-8992x10752,2022-04-17,Returning,United States,True
+354,Michael,Perkins,michael.perkins354@example.com,744.919.6931,2023-06-07,New,United Kingdom,True
+355,Gerald,Petersen,gerald.petersen355@example.com,001-891-894-0961x055,2023-07-02,New,United States,True
+356,Sarah,Martinez,sarah.martinez356@example.com,001-539-406-0480x589,2022-02-06,Returning,Germany,True
+357,Brent,Dennis,brent.dennis357@example.com,(379)998-1364x6225,2022-05-17,New,Australia,True
+358,Ashley,Williams,ashley.williams358@example.com,(541)568-6227x8376,2023-02-04,Returning,United States,True
+359,John,Adams,john.adams359@example.com,(659)411-6655x35590,2023-08-10,VIP,United States,True
+360,Vanessa,Jensen,vanessa.jensen360@example.com,592.470.3352x110,2025-03-29,Returning,Canada,True
+361,Misty,Wilkins,misty.wilkins361@example.com,5515477053,2023-03-08,Returning,Australia,True
+362,Amy,Christensen,amy.christensen362@example.com,+1-679-420-6980,2024-02-28,Returning,United States,True
+363,Brian,Gonzalez,brian.gonzalez363@example.com,001-694-807-0164x510,2023-02-15,Returning,Canada,True
+364,Jerry,James,jerry.james364@example.com,001-215-279-8123x878,2024-01-30,Returning,Canada,True
+365,John,Moreno,john.moreno365@example.com,876-220-5554x38404,2023-11-18,VIP,United Kingdom,True
+366,Sherry,Avery,sherry.avery366@example.com,525.862.1689,2025-10-15,Returning,United States,True
+367,John,Hernandez,john.hernandez367@example.com,495-878-2329x8324,2023-07-26,VIP,United Kingdom,True
+368,Wendy,Daugherty,wendy.daugherty368@example.com,(792)451-8812,2025-08-09,VIP,Australia,True
+369,Jessica,Cannon,jessica.cannon369@example.com,(564)574-2312x20994,2024-04-01,New,United States,True
+370,Jerry,Johnson,jerry.johnson370@example.com,972-989-7526,2024-02-28,New,United States,True
+371,Devin,Lee,devin.lee371@example.com,4609463331,2026-02-06,New,France,True
+372,Michelle,Burns,michelle.burns372@example.com,273-366-0965x69998,2026-03-16,New,United States,True
+373,Shannon,Wilcox,shannon.wilcox373@example.com,2385860868,2021-10-18,New,Germany,True
+374,Kelly,Sanders,kelly.sanders374@example.com,347-426-4908x2771,2024-06-07,Returning,United States,True
+375,Kimberly,Pace,kimberly.pace375@example.com,001-982-366-5702x793,2022-08-07,New,United States,True
+376,John,Holt,john.holt376@example.com,001-421-811-7518x689,2024-11-06,Returning,Germany,True
+377,Andrea,Williams,andrea.williams377@example.com,(659)622-2206,2023-11-16,Returning,United States,True
+378,Jessica,Woodward,jessica.woodward378@example.com,221-923-0940x7778,2024-07-25,New,United States,True
+379,John,Chapman,john.chapman379@example.com,576.271.9903x8498,2026-06-11,Returning,United States,True
+380,Jack,Brown,jack.brown380@example.com,(402)409-9451x016,2025-05-11,New,Canada,True
+381,Emily,Carr,emily.carr381@example.com,001-799-882-7950x145,2023-05-18,New,United States,True
+382,Lori,Chang,lori.chang382@example.com,+1-814-572-1458,2023-11-06,Returning,United States,True
+383,Heather,Salazar,heather.salazar383@example.com,798-617-9469,2025-07-12,Returning,France,True
+384,Alicia,Carney,alicia.carney384@example.com,(529)297-8772x934,2025-06-27,VIP,United States,True
+385,David,Marshall,david.marshall385@example.com,539-266-0558,2026-01-02,Returning,Canada,True
+386,Danielle,Vaughn,danielle.vaughn386@example.com,214-448-8501x556,2024-10-18,Returning,United States,True
+387,James,Bass,james.bass387@example.com,+1-677-702-7278x5760,2025-01-09,New,United Kingdom,True
+388,Angela,Smith,angela.smith388@example.com,001-455-812-4056,2026-02-16,New,United States,True
+389,Jacob,Wilson,jacob.wilson389@example.com,001-645-404-6173x574,2026-06-08,Returning,France,True
+390,Daniel,Glover,daniel.glover390@example.com,001-731-478-0782x357,2024-08-03,Returning,United States,True
+391,Kayla,Garcia,kayla.garcia391@example.com,923.207.6810x40915,2023-07-13,VIP,United States,True
+392,Dakota,Miranda,dakota.miranda392@example.com,001-940-394-3533x448,2023-08-14,Returning,United States,True
+393,Joseph,Moore,joseph.moore393@example.com,709-688-1385,2024-11-15,Returning,United States,True
+394,Donald,Bush,donald.bush394@example.com,993-221-4958x7020,2024-01-08,Returning,United States,True
+395,Daniel,Brown,daniel.brown395@example.com,(462)399-7954x53817,2024-05-11,Returning,United States,True
+396,Lisa,Gillespie,lisa.gillespie396@example.com,817.447.7332x945,2026-02-13,VIP,Germany,True
+397,Holly,Ortega,holly.ortega397@example.com,477-301-7157x72459,2023-10-14,VIP,United States,True
+398,Richard,Klein,richard.klein398@example.com,858-514-8769,2024-03-06,Returning,United States,True
+399,Christine,Kelley,christine.kelley399@example.com,361.953.9669x5832,2025-12-01,Returning,Canada,True
+400,Danny,Carlson,danny.carlson400@example.com,281-372-4619x19657,2025-01-20,Returning,United Kingdom,True
+401,Jeff,Taylor,jeff.taylor401@example.com,001-902-527-8469,2024-11-20,New,United States,True
+402,Jamie,Rich,jamie.rich402@example.com,294-765-1909x8624,2025-07-04,VIP,United States,True
+403,Rachel,Faulkner,rachel.faulkner403@example.com,8857140369,2024-03-11,Returning,United States,True
+404,Jennifer,Sullivan,jennifer.sullivan404@example.com,(483)227-2386x56242,2023-09-27,Returning,United Kingdom,True
+405,Charles,Smith,charles.smith405@example.com,001-876-921-2679x692,2021-09-23,Returning,Canada,True
+406,Paul,Perez,paul.perez406@example.com,(990)797-3846x89500,2025-07-06,VIP,United States,True
+407,Daniel,Olson,daniel.olson407@example.com,001-912-384-7818x913,2022-02-11,Returning,Germany,True
+408,Gabriella,Ryan,gabriella.ryan408@example.com,001-949-705-8077,2025-04-20,New,United Kingdom,True
+409,Robert,Yu,robert.yu409@example.com,242-609-4940x7929,2021-09-11,VIP,Canada,False
+410,Lisa,Weber,lisa.weber410@example.com,271-328-1442x9444,2023-08-27,New,Germany,True
+411,Cassandra,Kent,cassandra.kent411@example.com,001-427-452-4372x805,2025-04-16,Returning,United States,True
+412,Mary,Mullins,mary.mullins412@example.com,(863)972-3950x41027,2024-04-14,VIP,United States,True
+413,Kevin,Reese,kevin.reese413@example.com,001-783-266-7428x604,2023-11-02,VIP,United States,True
+414,Connor,Schmidt,connor.schmidt414@example.com,(569)545-4414x967,2026-05-03,Returning,United States,True
+415,April,Byrd,april.byrd415@example.com,(358)900-1061,2025-11-15,Returning,United States,True
+416,Michael,Hardy,michael.hardy416@example.com,330-409-1093x911,2021-10-29,Returning,Australia,False
+417,Nicholas,Gallagher,nicholas.gallagher417@example.com,+1-692-412-4471x7465,2026-03-20,New,United States,True
+418,Kimberly,Ramirez,kimberly.ramirez418@example.com,3669504427,2025-06-18,Returning,United States,True
+419,Tiffany,Gonzalez,tiffany.gonzalez419@example.com,(227)312-8639x1741,2023-06-14,Returning,United States,True
+420,Chad,Luna,chad.luna420@example.com,001-970-972-0064x256,2025-05-27,Returning,Australia,True
+421,Ryan,Anthony,ryan.anthony421@example.com,001-218-330-6719x855,2023-11-07,Returning,United States,True
+422,Michael,Castaneda,michael.castaneda422@example.com,917-343-2806x34615,2025-08-18,Returning,United States,True
+423,Nicole,Kim,nicole.kim423@example.com,320.630.9376,2022-08-17,New,United States,True
+424,Victor,Hanna,victor.hanna424@example.com,400.550.5061x387,2023-05-24,Returning,United States,True
+425,Sandy,Johnson,sandy.johnson425@example.com,(470)279-0320,2022-07-05,New,France,True
+426,Rebecca,Hoover,rebecca.hoover426@example.com,579-329-1117,2023-08-10,Returning,France,True
+427,Linda,Simmons,linda.simmons427@example.com,001-365-319-8253x092,2023-01-17,Returning,United States,True
+428,Joshua,Todd,joshua.todd428@example.com,(358)827-3902,2025-01-03,VIP,Australia,False
+429,Kimberly,Smith,kimberly.smith429@example.com,610.902.1946x7232,2022-12-25,Returning,Canada,True
+430,Robert,Hurley,robert.hurley430@example.com,+1-509-527-9145x608,2024-02-11,New,Germany,True
+431,David,Moreno,david.moreno431@example.com,295-588-3734,2025-06-23,New,United States,True
+432,Daniel,Hernandez,daniel.hernandez432@example.com,972.220.0543x6459,2025-03-26,Returning,United States,True
+433,Dan,Williams,dan.williams433@example.com,+1-922-707-8113,2024-06-28,Returning,United States,False
+434,Robert,Burgess,robert.burgess434@example.com,931-253-1363x63179,2021-04-21,New,Canada,True
+435,Pamela,Thomas,pamela.thomas435@example.com,+1-472-265-2735x435,2024-04-04,New,United States,False
+436,Heather,Brown,heather.brown436@example.com,(417)476-2534,2024-05-21,Returning,United States,True
+437,Belinda,Tran,belinda.tran437@example.com,616.287.3977,2022-07-20,New,United States,True
+438,Jessica,Fitzgerald,jessica.fitzgerald438@example.com,235.869.3929,2024-08-04,Returning,United Kingdom,True
+439,Tina,Williams,tina.williams439@example.com,280.868.6717x7318,2025-09-13,Returning,United States,True
+440,Stephanie,Anderson,stephanie.anderson440@example.com,431-807-4279x9077,2022-10-07,New,Canada,True
+441,Jackson,Savage,jackson.savage441@example.com,+1-570-316-5804x6498,2025-02-03,New,France,True
+442,Christine,Rogers,christine.rogers442@example.com,2857016579,2023-12-08,VIP,United States,True
+443,Michael,Wong,michael.wong443@example.com,001-518-732-5381x793,2024-03-26,Returning,Canada,True
+444,Michael,Adams,michael.adams444@example.com,+1-664-901-5577x8817,2025-05-18,Returning,United States,True
+445,Christine,Marsh,christine.marsh445@example.com,001-613-371-1624x112,2021-03-15,Returning,Germany,True
+446,Heidi,Crawford,heidi.crawford446@example.com,880.946.8275,2022-09-12,VIP,United States,True
+447,Joan,Smith,joan.smith447@example.com,710.938.5695,2021-10-20,VIP,Canada,True
+448,Brittney,Terry,brittney.terry448@example.com,+1-577-949-2424,2022-06-07,Returning,Germany,True
+449,Nathan,Roberts,nathan.roberts449@example.com,6254472928,2024-10-13,Returning,Australia,True
+450,Teresa,Franco,teresa.franco450@example.com,001-422-531-0592x745,2026-06-29,New,Canada,True
+451,Anna,Johnson,anna.johnson451@example.com,952-757-8284x10672,2024-06-28,Returning,United States,True
+452,Eric,Cordova,eric.cordova452@example.com,+1-985-747-4929,2025-12-15,Returning,Canada,False
+453,Hannah,Dennis,hannah.dennis453@example.com,9287140693,2024-10-05,Returning,Germany,True
+454,Christopher,Brown,christopher.brown454@example.com,+1-839-583-4301x8718,2024-08-05,VIP,Canada,True
+455,Tracy,Morrison,tracy.morrison455@example.com,905.362.6565x04554,2026-04-28,New,United States,True
+456,Jason,Barron,jason.barron456@example.com,001-667-942-6629x912,2025-11-07,Returning,Australia,True
+457,Vanessa,Fox,vanessa.fox457@example.com,519-461-0646x28792,2022-07-09,New,Canada,True
+458,Marisa,Roberts,marisa.roberts458@example.com,604.994.7873x0024,2026-02-10,Returning,Canada,True
+459,David,Wade,david.wade459@example.com,962-873-0147x1959,2021-02-09,New,United States,True
+460,Miranda,Burton,miranda.burton460@example.com,415.789.0429x0257,2023-12-23,New,Canada,True
+461,Frank,Nelson,frank.nelson461@example.com,(750)744-8183x21928,2024-02-08,New,United States,False
+462,Margaret,Cohen,margaret.cohen462@example.com,945-818-9520x2845,2024-03-04,Returning,Canada,True
+463,Matthew,Bartlett,matthew.bartlett463@example.com,332-883-3898,2024-04-15,Returning,United States,True
+464,Steven,Jones,steven.jones464@example.com,(707)454-5279,2023-01-20,Returning,Canada,True
+465,Jennifer,Johnson,jennifer.johnson465@example.com,332-823-4232,2024-01-05,VIP,France,True
+466,Hannah,Bowers,hannah.bowers466@example.com,207-960-3108,2025-10-30,Returning,United States,True
+467,David,King,david.king467@example.com,440-711-9393,2025-07-16,New,France,True
+468,Anthony,Thomas,anthony.thomas468@example.com,001-249-555-2893x891,2026-04-30,VIP,United States,True
+469,Jennifer,Brandt,jennifer.brandt469@example.com,(480)913-8759,2024-10-26,New,Germany,True
+470,Emily,Rodriguez,emily.rodriguez470@example.com,(466)938-3615x171,2024-06-28,VIP,United Kingdom,True
+471,Kathryn,Bush,kathryn.bush471@example.com,+1-601-957-1647,2026-06-12,New,Canada,True
+472,Jeremiah,Russell,jeremiah.russell472@example.com,(431)875-2071x67811,2025-08-12,VIP,United Kingdom,False
+473,Richard,Garza,richard.garza473@example.com,321-553-5396,2025-02-01,New,Germany,True
+474,Mary,Hardy,mary.hardy474@example.com,499-946-5796x784,2021-11-24,VIP,United States,True
+475,Daniel,King,daniel.king475@example.com,432.601.0170x2695,2026-02-19,Returning,United States,True
+476,Christy,Davis,christy.davis476@example.com,687-773-4778,2025-08-08,VIP,Canada,True
+477,Lisa,Fernandez,lisa.fernandez477@example.com,9062167567,2023-09-28,New,United Kingdom,True
+478,Antonio,Hawkins,antonio.hawkins478@example.com,001-942-976-2467x197,2024-08-12,Returning,United Kingdom,True
+479,Anna,Moore,anna.moore479@example.com,7642796954,2022-09-03,VIP,United Kingdom,True
+480,Anthony,Williams,anthony.williams480@example.com,(259)505-6165x565,2025-12-19,Returning,United States,True
+481,John,Wong,john.wong481@example.com,001-711-241-5208,2025-11-03,Returning,United Kingdom,True
+482,Steven,Boyer,steven.boyer482@example.com,001-886-840-7905,2026-04-27,Returning,United States,True
+483,Marcus,Davis,marcus.davis483@example.com,913.357.8529x4563,2023-12-27,Returning,United States,True
+484,Mary,Herrera,mary.herrera484@example.com,640-349-6391x9195,2025-12-05,Returning,United States,True
+485,Ashley,Schmidt,ashley.schmidt485@example.com,(935)414-8468x53664,2022-01-25,Returning,United States,True
+486,Nicole,Burton,nicole.burton486@example.com,729.973.7489x69083,2024-01-09,VIP,United States,False
+487,Dylan,Hernandez,dylan.hernandez487@example.com,+1-846-565-1364x4249,2023-12-27,New,United States,True
+488,Daniel,Lee,daniel.lee488@example.com,447.678.6603,2023-04-17,New,Canada,True
+489,Derek,Green,derek.green489@example.com,882-707-0015x941,2023-03-29,VIP,United States,True
+490,Emily,Blackwell,emily.blackwell490@example.com,(523)319-8189x8471,2024-08-07,VIP,United States,True
+491,Kerri,Edwards,kerri.edwards491@example.com,001-663-963-2123,2022-12-17,Returning,United States,True
+492,Ricky,Roy,ricky.roy492@example.com,5786515867,2023-12-08,Returning,United States,True
+493,Natasha,Giles,natasha.giles493@example.com,(675)740-9003x486,2025-05-19,New,United States,True
+494,Rebecca,Jennings,rebecca.jennings494@example.com,+1-537-660-6441,2024-01-28,New,United States,True
+495,Jason,Zamora,jason.zamora495@example.com,456.604.1776x561,2024-05-21,Returning,Canada,True
+496,William,Bell,william.bell496@example.com,+1-685-770-0272x063,2023-05-01,Returning,Canada,True
+497,Barbara,Rodriguez,barbara.rodriguez497@example.com,682.496.5772,2025-03-02,Returning,Canada,True
+498,Grace,Serrano,grace.serrano498@example.com,531-365-2669x3008,2025-05-03,New,United States,True
+499,Terri,Gonzalez,terri.gonzalez499@example.com,001-320-269-6942x152,2023-06-24,VIP,United States,False
+500,Jennifer,Graham,jennifer.graham500@example.com,571.533.3447x626,2024-02-11,VIP,Germany,True
+501,Wanda,Campbell,wanda.campbell501@example.com,+1-936-326-2044x3973,2024-07-09,Returning,United States,True
+502,Alex,Anderson,alex.anderson502@example.com,963-766-9411x80053,2022-09-08,Returning,United States,True
+503,Wendy,Crosby,wendy.crosby503@example.com,+1-200-448-9646x528,2024-09-10,Returning,United States,True
+504,Jorge,Gordon,jorge.gordon504@example.com,672-715-8624x15027,2023-01-01,Returning,United States,False
+505,Sara,Campbell,sara.campbell505@example.com,294-585-6257x287,2023-02-21,Returning,United States,True
+506,Edgar,Hall,edgar.hall506@example.com,9747276170,2021-03-21,New,United States,True
+507,Vanessa,Hoffman,vanessa.hoffman507@example.com,671.521.5134x228,2022-12-02,VIP,Canada,True
+508,Brandy,Bonilla,brandy.bonilla508@example.com,392.761.3715x04165,2022-01-13,Returning,United States,True
+509,Eric,Miller,eric.miller509@example.com,001-477-549-0509x759,2023-01-20,VIP,Canada,True
+510,Michelle,Solis,michelle.solis510@example.com,350-218-9616x4236,2023-07-09,Returning,United Kingdom,True
+511,Melissa,Martin,melissa.martin511@example.com,001-564-921-4764x925,2022-02-24,Returning,United Kingdom,True
+512,Sean,Hughes,sean.hughes512@example.com,299-761-6592x661,2023-07-27,Returning,United Kingdom,True
+513,Teresa,Rhodes,teresa.rhodes513@example.com,+1-427-688-1476x1742,2026-04-07,VIP,Australia,True
+514,Mckenzie,Mills,mckenzie.mills514@example.com,690-781-0818x6617,2026-05-13,VIP,United States,True
+515,Jonathan,Miller,jonathan.miller515@example.com,901.672.2601x64597,2021-10-25,New,United States,True
+516,Matthew,Hull,matthew.hull516@example.com,(232)219-4168,2025-03-05,New,United States,True
+517,Randall,Smith,randall.smith517@example.com,+1-477-469-7499x5641,2024-11-18,Returning,Canada,True
+518,Alexander,Rodriguez,alexander.rodriguez518@example.com,5303372368,2025-02-03,Returning,Germany,True
+519,Kevin,Ford,kevin.ford519@example.com,560.612.2777x0793,2023-07-01,VIP,United States,True
+520,Ashley,Bass,ashley.bass520@example.com,6502166799,2025-07-12,New,Australia,True
+521,Tony,Tucker,tony.tucker521@example.com,001-797-330-8069,2025-05-27,Returning,United States,True
+522,Joseph,Wong,joseph.wong522@example.com,917.595.7602x4375,2026-05-29,Returning,Australia,True
+523,William,Matthews,william.matthews523@example.com,+1-359-972-4665x7293,2025-01-17,VIP,United States,True
+524,David,Gonzalez,david.gonzalez524@example.com,+1-671-767-4338x005,2021-12-13,Returning,United States,True
+525,Erica,Thompson,erica.thompson525@example.com,701.256.1931x83745,2023-12-11,Returning,United States,True
+526,Kayla,Hawkins,kayla.hawkins526@example.com,(389)210-7711,2024-05-21,Returning,United States,True
+527,William,Jackson,william.jackson527@example.com,435-724-7871,2023-09-23,Returning,United States,True
+528,Matthew,Taylor,matthew.taylor528@example.com,476.303.7548,2025-05-25,New,United States,False
+529,Joseph,Espinoza,joseph.espinoza529@example.com,(253)928-6326x66785,2022-11-04,New,United Kingdom,True
+530,Dustin,Smith,dustin.smith530@example.com,611.855.6260x60290,2026-05-04,VIP,United States,False
+531,Richard,Becker,richard.becker531@example.com,+1-845-950-4892,2024-07-20,Returning,United States,True
+532,Dawn,Clay,dawn.clay532@example.com,+1-497-656-3410x856,2022-07-07,VIP,Canada,True
+533,Jason,Hunt,jason.hunt533@example.com,385-220-0894x3468,2022-11-18,VIP,United Kingdom,True
+534,Mckenzie,Green,mckenzie.green534@example.com,551.701.7490x75399,2025-01-17,Returning,United States,True
+535,Kevin,Estrada,kevin.estrada535@example.com,001-992-368-3158x935,2025-02-08,Returning,United States,True
+536,Dwayne,Simmons,dwayne.simmons536@example.com,(811)606-2737x15869,2022-09-29,VIP,United States,True
+537,Breanna,Fields,breanna.fields537@example.com,376.522.8277x288,2024-01-30,Returning,United States,True
+538,Stanley,Johnson,stanley.johnson538@example.com,(685)219-6115,2024-06-25,New,Canada,True
+539,Alexandra,Wilson,alexandra.wilson539@example.com,554-447-0229x6044,2022-07-09,Returning,United States,True
+540,Lori,Burns,lori.burns540@example.com,985-710-6794,2026-05-07,New,United States,True
+541,Kimberly,Alvarez,kimberly.alvarez541@example.com,001-892-828-7772x519,2022-03-29,VIP,United Kingdom,True
+542,Jesse,Foster,jesse.foster542@example.com,+1-307-341-2094,2025-04-25,Returning,United States,True
+543,James,Montgomery,james.montgomery543@example.com,001-409-283-7801,2026-01-26,New,Canada,True
+544,Joshua,Harris,joshua.harris544@example.com,001-797-818-9569x070,2024-01-06,Returning,United States,True
+545,Henry,Johnson,henry.johnson545@example.com,456.641.1182x42241,2024-06-05,Returning,France,True
+546,Stephanie,Gregory,stephanie.gregory546@example.com,7954200461,2024-09-29,Returning,United States,True
+547,Robert,Nguyen,robert.nguyen547@example.com,(610)233-9937x8861,2025-10-21,New,United Kingdom,True
+548,Lucas,Tran,lucas.tran548@example.com,370-563-0489,2026-04-16,Returning,Canada,True
+549,Kathryn,Pearson,kathryn.pearson549@example.com,(749)467-1832,2022-09-22,Returning,United States,True
+550,Kimberly,Medina,kimberly.medina550@example.com,(687)800-7942x00749,2026-06-24,Returning,Canada,True
+551,Yvette,Kirby,yvette.kirby551@example.com,698.340.2891,2025-08-13,Returning,Australia,True
+552,Randall,Martinez,randall.martinez552@example.com,(684)963-9855,2025-05-19,VIP,Canada,True
+553,Joshua,Bates,joshua.bates553@example.com,853-979-5020x97002,2023-11-04,Returning,United Kingdom,True
+554,Kathryn,Medina,kathryn.medina554@example.com,+1-318-907-1569x5620,2024-08-12,Returning,Germany,True
+555,Mitchell,Lee,mitchell.lee555@example.com,5305453194,2025-03-20,VIP,United States,True
+556,Tina,Coffey,tina.coffey556@example.com,6479930361,2022-03-23,Returning,United States,False
+557,George,Lee,george.lee557@example.com,001-699-592-1921x249,2024-09-19,New,Canada,True
+558,Melanie,Johnson,melanie.johnson558@example.com,001-689-348-7060x566,2025-05-31,New,United States,True
+559,Erin,Owens,erin.owens559@example.com,(580)730-4687x506,2024-08-03,Returning,Germany,True
+560,Christopher,Armstrong,christopher.armstrong560@example.com,3363133254,2026-01-27,Returning,Australia,True
+561,Anthony,Reynolds,anthony.reynolds561@example.com,2957431735,2025-02-21,Returning,United States,True
+562,April,Young,april.young562@example.com,299-271-7911,2021-03-30,New,United States,True
+563,Nicholas,Wu,nicholas.wu563@example.com,001-212-607-0496x110,2024-11-12,New,United Kingdom,True
+564,Melissa,Morales,melissa.morales564@example.com,+1-363-799-0767x699,2026-02-09,New,United States,True
+565,Debra,Lowe,debra.lowe565@example.com,3785593110,2022-01-31,Returning,Germany,True
+566,Rebecca,Martinez,rebecca.martinez566@example.com,845.767.9723x20024,2025-05-31,Returning,United States,True
+567,Larry,Mcclure,larry.mcclure567@example.com,001-522-274-9545x089,2024-04-13,Returning,Canada,True
+568,Robert,Gonzalez,robert.gonzalez568@example.com,731.653.7795,2026-06-01,Returning,United States,True
+569,Robert,Martin,robert.martin569@example.com,707.830.3379x337,2022-12-29,VIP,Canada,True
+570,Jamie,Lopez,jamie.lopez570@example.com,6509150812,2024-06-20,Returning,United States,True
+571,James,Willis,james.willis571@example.com,001-450-503-3423x425,2023-05-01,Returning,Canada,True
+572,Andrew,Cameron,andrew.cameron572@example.com,502-761-5347,2026-03-26,Returning,United States,True
+573,Lisa,Guerrero,lisa.guerrero573@example.com,896.511.2233x86559,2023-10-02,Returning,United Kingdom,True
+574,Samantha,Hines,samantha.hines574@example.com,001-438-942-5304,2026-01-09,Returning,Germany,True
+575,Jason,Miller,jason.miller575@example.com,791.928.6857x8725,2022-03-13,VIP,United States,True
+576,Jennifer,Simpson,jennifer.simpson576@example.com,696-890-3337x363,2024-06-21,VIP,United States,True
+577,Pamela,Duncan,pamela.duncan577@example.com,(248)912-1478x539,2024-08-09,New,United States,False
+578,William,Rogers,william.rogers578@example.com,576.665.7546x027,2025-06-07,VIP,Canada,True
+579,Deanna,Howard,deanna.howard579@example.com,348-388-1431,2026-02-16,Returning,Canada,True
+580,Michael,Payne,michael.payne580@example.com,735-844-4392x84044,2024-10-13,New,United States,True
+581,Sonya,Underwood,sonya.underwood581@example.com,001-907-982-6333x738,2022-01-18,Returning,United States,True
+582,Matthew,Miller,matthew.miller582@example.com,466.437.7805,2023-04-26,VIP,United States,True
+583,Kevin,Rojas,kevin.rojas583@example.com,255.436.6684x5909,2022-05-27,Returning,Canada,True
+584,Eric,Cisneros,eric.cisneros584@example.com,399-799-6636x18637,2026-04-10,Returning,United States,True
+585,Ashley,Hayes,ashley.hayes585@example.com,812-618-2097x0231,2025-07-08,Returning,France,True
+586,Jamie,Carter,jamie.carter586@example.com,817.905.8025x66212,2023-10-06,New,United States,True
+587,Julia,Price,julia.price587@example.com,623.546.7299,2024-10-06,New,Canada,True
+588,Wayne,Cohen,wayne.cohen588@example.com,930-927-1693x859,2025-02-09,New,United States,True
+589,Steven,Williams,steven.williams589@example.com,547-454-6926,2025-03-20,New,United States,True
+590,Rachel,Quinn,rachel.quinn590@example.com,362.591.6032x484,2025-07-03,New,United Kingdom,True
+591,Regina,Jenkins,regina.jenkins591@example.com,001-281-951-1856x724,2025-10-10,New,Canada,True
+592,Anthony,Fowler,anthony.fowler592@example.com,+1-976-956-3600x4125,2022-09-18,Returning,France,True
+593,Carlos,Kelley,carlos.kelley593@example.com,372.474.2209,2024-03-27,New,United States,True
+594,Kelly,Nichols,kelly.nichols594@example.com,(921)204-2752x3083,2025-02-22,Returning,United States,True
+595,Mary,Cain,mary.cain595@example.com,+1-516-547-0900x6335,2025-10-27,VIP,United Kingdom,True
+596,Christopher,Fisher,christopher.fisher596@example.com,8533131220,2025-09-18,Returning,Canada,True
+597,Lisa,Morris,lisa.morris597@example.com,+1-439-238-6613x3155,2023-04-23,Returning,United States,True
+598,Richard,Stewart,richard.stewart598@example.com,(937)331-4950x1364,2022-11-05,New,United States,True
+599,Jennifer,Moody,jennifer.moody599@example.com,001-424-719-5625,2024-02-15,New,United States,True
+600,Tiffany,Estrada,tiffany.estrada600@example.com,250-599-7683,2025-02-10,New,Germany,True
+601,Andrew,Blake,andrew.blake601@example.com,743-963-9102,2026-01-05,New,United States,True
+602,Kenneth,Hernandez,kenneth.hernandez602@example.com,203.897.5245,2022-10-27,New,United States,True
+603,Deborah,Roberts,deborah.roberts603@example.com,5358533803,2021-10-11,New,United States,True
+604,Adrienne,White,adrienne.white604@example.com,+1-501-571-3023x2129,2022-10-30,New,United States,True
+605,William,Simmons,william.simmons605@example.com,942.533.6293x449,2021-10-12,New,United States,True
+606,Joseph,Harrington,joseph.harrington606@example.com,856-462-7768,2025-04-03,Returning,United States,True
+607,Lori,Leon,lori.leon607@example.com,4666149828,2025-03-16,New,United States,True
+608,Oscar,Torres,oscar.torres608@example.com,268-797-1527x3230,2025-10-11,Returning,United Kingdom,True
+609,Travis,Frost,travis.frost609@example.com,(556)874-9160x1692,2022-11-08,Returning,United States,True
+610,Susan,Wise,susan.wise610@example.com,001-458-675-0663x370,2025-10-16,Returning,United States,True
+611,Catherine,Blackburn,catherine.blackburn611@example.com,(843)899-2011,2022-12-01,New,Germany,True
+612,Janice,Mccann,janice.mccann612@example.com,883-662-6448,2025-07-08,Returning,Canada,True
+613,Jessica,Goodwin,jessica.goodwin613@example.com,001-211-395-2436x402,2026-06-15,Returning,United States,True
+614,Chad,Horton,chad.horton614@example.com,964.562.2522x37281,2022-09-28,New,United States,True
+615,Jacob,Brown,jacob.brown615@example.com,(634)367-9121,2023-02-18,VIP,United States,True
+616,Nicholas,Hill,nicholas.hill616@example.com,509-237-7100x40901,2023-07-03,VIP,Canada,True
+617,Nicholas,Meyer,nicholas.meyer617@example.com,001-847-275-9655x553,2023-06-25,New,France,True
+618,Theresa,Marks,theresa.marks618@example.com,607-562-0918,2022-12-14,New,Canada,True
+619,Miguel,Montgomery,miguel.montgomery619@example.com,+1-978-863-0505x0573,2023-11-01,Returning,Canada,True
+620,Jocelyn,Bauer,jocelyn.bauer620@example.com,(267)416-4932x898,2024-03-04,Returning,United Kingdom,True
+621,Tyler,Miller,tyler.miller621@example.com,+1-887-227-1783x3321,2025-07-09,New,United States,True
+622,Ethan,Hickman,ethan.hickman622@example.com,(343)747-1287x1539,2025-10-02,New,United States,True
+623,Nicholas,Love,nicholas.love623@example.com,001-568-363-3414x111,2025-12-01,Returning,Canada,True
+624,Ashley,Anderson,ashley.anderson624@example.com,569-304-0983x66552,2024-11-18,Returning,Australia,True
+625,Randall,Medina,randall.medina625@example.com,752.643.7729x420,2022-01-25,Returning,United States,True
+626,Wayne,Barker,wayne.barker626@example.com,297-437-4605x233,2026-04-25,Returning,Canada,False
+627,Melissa,Luna,melissa.luna627@example.com,620-686-5675x6618,2024-10-08,Returning,United States,True
+628,Heather,Lee,heather.lee628@example.com,+1-461-425-9047,2024-03-24,Returning,United States,True
+629,Scott,Olson,scott.olson629@example.com,(833)830-5912,2025-08-05,New,United States,True
+630,Erin,Jackson,erin.jackson630@example.com,8154720185,2024-05-27,New,United States,True
+631,Courtney,Powell,courtney.powell631@example.com,3139674926,2024-11-23,Returning,United Kingdom,True
+632,Michelle,Santos,michelle.santos632@example.com,975-601-1117x830,2025-01-13,VIP,United States,True
+633,Heather,Davis,heather.davis633@example.com,001-726-376-4921,2025-12-16,Returning,Canada,True
+634,Jennifer,Atkins,jennifer.atkins634@example.com,+1-326-306-8887,2023-11-11,Returning,United Kingdom,True
+635,Karen,Clark,karen.clark635@example.com,+1-412-392-0875x1029,2025-01-11,New,Australia,True
+636,Anna,York,anna.york636@example.com,2115845826,2026-01-01,Returning,United States,True
+637,Kevin,Shah,kevin.shah637@example.com,348.272.9758x59883,2025-01-14,Returning,United States,False
+638,Joel,Lopez,joel.lopez638@example.com,632-698-3954x2961,2024-01-29,New,United States,True
+639,Patrick,Mckee,patrick.mckee639@example.com,(471)846-2831x4359,2024-09-07,New,France,False
+640,Lorraine,Stewart,lorraine.stewart640@example.com,(360)793-1418x18615,2023-07-12,Returning,Australia,True
+641,Regina,Strickland,regina.strickland641@example.com,(334)401-6361,2025-08-17,New,United States,True
+642,Alisha,Hutchinson,alisha.hutchinson642@example.com,001-371-285-9484,2025-02-12,Returning,Germany,True
+643,George,Potts,george.potts643@example.com,(425)488-9679x2408,2025-04-07,New,United States,True
+644,Douglas,Bradley,douglas.bradley644@example.com,605-639-6727x578,2023-01-20,Returning,Canada,True
+645,Stephanie,Meyer,stephanie.meyer645@example.com,001-434-214-6511x131,2024-08-09,New,United States,True
+646,Christopher,Mitchell,christopher.mitchell646@example.com,506.282.7788x1609,2024-12-26,VIP,United Kingdom,True
+647,Jennifer,Park,jennifer.park647@example.com,001-753-489-0972x832,2024-12-16,Returning,United States,False
+648,Willie,Farley,willie.farley648@example.com,(676)525-1538x14474,2024-11-23,Returning,Germany,True
+649,Aaron,Welch,aaron.welch649@example.com,(734)680-7970x5097,2025-04-08,Returning,United Kingdom,True
+650,Michael,Smith,michael.smith650@example.com,001-826-350-1673x188,2023-01-26,Returning,United Kingdom,True
+651,Robin,Smith,robin.smith651@example.com,001-943-476-5456x284,2023-08-21,New,United States,True
+652,Donald,Burgess,donald.burgess652@example.com,8537134026,2023-07-05,Returning,United States,True
+653,Rachel,Martin,rachel.martin653@example.com,774.816.7872,2024-05-12,Returning,United States,True
+654,Warren,Mclean,warren.mclean654@example.com,(821)210-2258x0305,2025-10-09,Returning,United States,True
+655,Ryan,Roberts,ryan.roberts655@example.com,816.539.2823x4143,2023-04-27,Returning,United States,True
+656,Thomas,Patton,thomas.patton656@example.com,489-823-9231,2024-10-16,New,Australia,True
+657,Benjamin,Mooney,benjamin.mooney657@example.com,(660)593-1066,2023-06-29,New,Canada,True
+658,Jeffrey,Simmons,jeffrey.simmons658@example.com,7868041454,2022-11-07,Returning,United States,True
+659,John,Jacobson,john.jacobson659@example.com,(300)805-3474,2024-08-14,Returning,United States,True
+660,Jack,Vaughan,jack.vaughan660@example.com,(754)511-0825x559,2022-12-17,Returning,United States,True
+661,Debra,Clark,debra.clark661@example.com,(711)629-1093x3711,2024-06-18,Returning,Canada,True
+662,Jessica,Mayo,jessica.mayo662@example.com,782.702.3684,2025-01-01,VIP,United States,True
+663,Shane,Love,shane.love663@example.com,(217)568-8029x42409,2023-01-28,Returning,Australia,True
+664,Joy,Sanders,joy.sanders664@example.com,+1-488-212-7868x6694,2024-05-19,New,United States,True
+665,Ernest,Robinson,ernest.robinson665@example.com,001-308-478-8443x448,2026-01-26,New,France,True
+666,Jeffrey,Ferguson,jeffrey.ferguson666@example.com,702-742-4033x8105,2021-12-02,New,Germany,True
+667,Christopher,Thornton,christopher.thornton667@example.com,+1-742-569-4500,2024-01-07,New,United States,True
+668,Jessica,Ramirez,jessica.ramirez668@example.com,708-691-6498x373,2026-05-29,New,Australia,True
+669,James,Soto,james.soto669@example.com,001-462-573-6527x172,2024-12-26,New,United States,True
+670,Ashley,Harding,ashley.harding670@example.com,(340)442-2693,2026-02-20,New,United Kingdom,True
+671,Charles,Sanchez,charles.sanchez671@example.com,+1-261-482-0916x6010,2025-10-22,New,United States,True
+672,John,Miller,john.miller672@example.com,(490)901-8513,2025-10-27,VIP,Germany,True
+673,Kathleen,Stafford,kathleen.stafford673@example.com,(345)272-3084,2025-01-20,New,Germany,True
+674,Mallory,Garcia,mallory.garcia674@example.com,618-562-0303x6625,2025-04-24,Returning,United Kingdom,True
+675,Sandra,Cohen,sandra.cohen675@example.com,+1-317-221-3145x1951,2023-07-02,Returning,United Kingdom,True
+676,Cassandra,Thompson,cassandra.thompson676@example.com,659.326.2494x51475,2024-02-07,VIP,United States,True
+677,Kristina,Hensley,kristina.hensley677@example.com,(825)626-7711,2024-04-21,New,United States,True
+678,Duane,Morris,duane.morris678@example.com,(726)455-7676,2022-05-17,Returning,United States,True
+679,Leah,Valdez,leah.valdez679@example.com,566.887.8878,2025-07-01,VIP,United States,True
+680,Christopher,Espinoza,christopher.espinoza680@example.com,293.713.5030x58721,2024-11-05,VIP,Canada,True
+681,Michael,Atkinson,michael.atkinson681@example.com,001-824-272-8633x302,2023-09-18,Returning,United States,True
+682,Heather,Coleman,heather.coleman682@example.com,7194179202,2026-06-06,New,France,True
+683,Christian,Jones,christian.jones683@example.com,001-862-727-2847,2024-09-19,New,Canada,True
+684,Scott,Newman,scott.newman684@example.com,4412200928,2024-04-15,Returning,Germany,True
+685,Randy,Henderson,randy.henderson685@example.com,884.498.4362x418,2023-08-02,VIP,United States,True
+686,Julia,Morales,julia.morales686@example.com,7368289177,2025-08-31,Returning,Germany,True
+687,Margaret,Martin,margaret.martin687@example.com,(663)441-1159x503,2023-08-13,Returning,Australia,True
+688,Amber,Jones,amber.jones688@example.com,+1-204-938-3034x199,2025-04-06,New,United States,True
+689,Brandon,Edwards,brandon.edwards689@example.com,805-346-8356x5215,2025-03-08,Returning,Canada,True
+690,Wayne,Hampton,wayne.hampton690@example.com,9963790422,2025-04-25,New,United Kingdom,True
+691,Nicole,Davis,nicole.davis691@example.com,001-733-622-8898x572,2022-08-09,Returning,United States,True
+692,Michael,Chase,michael.chase692@example.com,(606)333-9912x97102,2023-11-11,Returning,United States,True
+693,Victor,Gibson,victor.gibson693@example.com,(342)414-9551,2022-11-20,Returning,United States,True
+694,Jennifer,Murray,jennifer.murray694@example.com,447.921.9705x4669,2022-01-23,New,United States,True
+695,Michael,Kirk,michael.kirk695@example.com,351-668-7409x03802,2025-06-07,New,United States,False
+696,Nicholas,Hudson,nicholas.hudson696@example.com,936-371-5778,2023-03-12,Returning,United States,True
+697,Christopher,Dennis,christopher.dennis697@example.com,(663)965-1559x7371,2024-05-17,New,United States,True
+698,Benjamin,Moore,benjamin.moore698@example.com,223.559.0960x5673,2023-10-13,Returning,United States,True
+699,Miranda,Cisneros,miranda.cisneros699@example.com,+1-564-642-1214x6147,2025-08-02,New,France,True
+700,Jack,Brown,jack.brown700@example.com,(854)223-5677x82659,2022-06-24,Returning,United States,True
+701,Ann,English,ann.english701@example.com,919.492.5502,2022-08-21,Returning,France,True
+702,Victor,Stewart,victor.stewart702@example.com,+1-464-880-7279x1033,2024-03-23,New,United States,False
+703,Javier,Clark,javier.clark703@example.com,390.955.0448,2025-05-03,Returning,United States,True
+704,Deborah,Bryant,deborah.bryant704@example.com,(455)886-8512x76528,2025-06-08,New,United States,True
+705,Patrick,Bruce,patrick.bruce705@example.com,001-964-391-1110x961,2023-01-18,New,United States,True
+706,Cynthia,Gordon,cynthia.gordon706@example.com,5469337861,2025-09-18,VIP,United States,True
+707,Stephanie,Bell,stephanie.bell707@example.com,566.205.3844x446,2024-12-11,Returning,Canada,True
+708,Rachel,Perry,rachel.perry708@example.com,8025589552,2024-06-07,Returning,United States,True
+709,Angela,Myers,angela.myers709@example.com,+1-860-596-2626x582,2022-08-10,New,Canada,True
+710,Cory,Owen,cory.owen710@example.com,419.264.8253x11060,2024-10-10,Returning,Canada,True
+711,Christine,Stephens,christine.stephens711@example.com,596-602-7523,2022-07-11,Returning,United States,True
+712,James,Pittman,james.pittman712@example.com,001-364-304-1209x117,2025-02-02,Returning,United States,True
+713,Donald,Green,donald.green713@example.com,(211)875-3617,2022-10-13,Returning,United Kingdom,True
+714,Charles,Chung,charles.chung714@example.com,236-465-7224,2025-01-21,Returning,United States,True
+715,Donna,Welch,donna.welch715@example.com,4156579980,2025-07-07,Returning,United States,True
+716,Sara,Lee,sara.lee716@example.com,5802882351,2024-08-20,VIP,France,True
+717,Mark,Robinson,mark.robinson717@example.com,001-824-547-3158x477,2026-03-02,Returning,United States,True
+718,John,Gonzalez,john.gonzalez718@example.com,001-846-619-9423x767,2021-04-13,VIP,Canada,False
+719,Lisa,Dean,lisa.dean719@example.com,+1-666-839-5517x208,2025-12-11,New,France,True
+720,Kelly,Serrano,kelly.serrano720@example.com,+1-585-760-1256x2531,2024-08-05,Returning,United States,True
+721,Nathan,Chan,nathan.chan721@example.com,505-305-3795,2025-06-01,VIP,United States,True
+722,Paul,Guzman,paul.guzman722@example.com,231.984.9196x65533,2025-11-24,New,United States,True
+723,Victor,Mooney,victor.mooney723@example.com,(211)972-9596x39040,2024-03-01,New,United States,True
+724,Justin,Skinner,justin.skinner724@example.com,(708)780-5017x1644,2024-09-01,Returning,United States,True
+725,Richard,Hawkins,richard.hawkins725@example.com,279-206-4771x59103,2026-03-02,Returning,Canada,True
+726,Dominic,Holder,dominic.holder726@example.com,001-363-221-3580x040,2023-10-31,Returning,United States,True
+727,Stacey,Jones,stacey.jones727@example.com,996-342-2971x25296,2024-12-03,New,United States,True
+728,Aimee,Allen,aimee.allen728@example.com,574.357.3144x1583,2025-03-13,Returning,France,True
+729,Charles,Simpson,charles.simpson729@example.com,503.776.3715,2025-10-06,New,United Kingdom,True
+730,Kathleen,Collins,kathleen.collins730@example.com,828.512.3567x983,2021-10-11,New,Canada,True
+731,Casey,Henderson,casey.henderson731@example.com,+1-949-912-7113x0724,2021-11-08,New,United States,True
+732,Michael,Wilson,michael.wilson732@example.com,+1-715-263-2686,2023-08-07,Returning,Canada,True
+733,Scott,Wood,scott.wood733@example.com,6669343629,2024-02-19,Returning,United States,True
+734,April,Rodriguez,april.rodriguez734@example.com,5313310094,2024-03-10,Returning,United States,False
+735,Amanda,Hill,amanda.hill735@example.com,+1-666-661-3473x235,2023-01-23,Returning,United States,True
+736,Jessica,Davis,jessica.davis736@example.com,997.843.2512x25720,2021-09-14,VIP,Germany,True
+737,Matthew,Thompson,matthew.thompson737@example.com,312-209-5790x737,2026-06-15,Returning,United States,False
+738,Lori,Bradley,lori.bradley738@example.com,638-982-2114x5775,2023-07-25,Returning,United States,True
+739,Jon,Ellis,jon.ellis739@example.com,(545)489-7148x026,2026-01-14,Returning,United States,False
+740,Michael,Johnson,michael.johnson740@example.com,001-965-431-3614,2023-04-16,Returning,United States,True
+741,Joseph,Shelton,joseph.shelton741@example.com,969-764-4309x85916,2024-06-30,Returning,Germany,True
+742,Keith,Montes,keith.montes742@example.com,627.228.4982x4741,2022-10-01,Returning,United Kingdom,True
+743,Shawn,Robinson,shawn.robinson743@example.com,001-210-674-0650,2026-04-05,Returning,United Kingdom,True
+744,Devin,Koch,devin.koch744@example.com,782.514.2369x14307,2023-06-26,Returning,United States,True
+745,Lisa,Walsh,lisa.walsh745@example.com,(661)444-9429x65923,2022-06-09,New,United States,True
+746,Robert,Gonzalez,robert.gonzalez746@example.com,714-797-8266x1287,2026-01-27,VIP,United States,True
+747,Taylor,Patterson,taylor.patterson747@example.com,(767)408-0612x94398,2023-06-25,Returning,United States,True
+748,Christine,Yoder,christine.yoder748@example.com,306-726-0787x0104,2025-10-05,Returning,United States,True
+749,Brooke,Short,brooke.short749@example.com,001-475-901-9803,2024-09-26,VIP,United Kingdom,True
+750,Derek,Jacobson,derek.jacobson750@example.com,+1-324-340-7931x1029,2021-07-27,Returning,United States,True
+751,John,Garcia,john.garcia751@example.com,4875601467,2026-02-11,New,United States,True
+752,Meagan,Payne,meagan.payne752@example.com,+1-579-916-2022x328,2023-06-30,VIP,United States,True
+753,Timothy,Roberts,timothy.roberts753@example.com,897-854-6617,2024-10-07,Returning,United States,True
+754,Eddie,Campbell,eddie.campbell754@example.com,296-709-4097,2024-08-07,Returning,United States,True
+755,Sydney,Mcdonald,sydney.mcdonald755@example.com,001-374-402-5883x586,2023-01-23,New,France,True
+756,Diana,Bell,diana.bell756@example.com,001-495-672-4461x767,2026-01-22,Returning,United Kingdom,True
+757,David,Nguyen,david.nguyen757@example.com,001-559-396-1002,2025-12-27,Returning,Australia,True
+758,Elizabeth,Porter,elizabeth.porter758@example.com,+1-275-333-1266x1094,2023-05-05,Returning,United States,True
+759,Scott,Brooks,scott.brooks759@example.com,+1-902-951-7629x8334,2024-04-20,VIP,United States,True
+760,Erika,Perez,erika.perez760@example.com,001-726-883-1901x302,2024-03-17,Returning,United States,True
+761,Ashley,Lin,ashley.lin761@example.com,328-973-3978x55982,2024-06-30,New,United States,True
+762,Ronald,Bennett,ronald.bennett762@example.com,591-228-4117,2024-04-18,Returning,Germany,True
+763,Carolyn,Rivera,carolyn.rivera763@example.com,544.665.1241,2024-01-25,New,United States,True
+764,Reginald,Brown,reginald.brown764@example.com,001-219-474-0056x435,2024-09-07,Returning,United States,True
+765,James,Montoya,james.montoya765@example.com,903-471-9905x16991,2025-08-24,New,United States,True
+766,Joseph,Williams,joseph.williams766@example.com,2782356743,2024-08-19,Returning,United States,False
+767,Anthony,Casey,anthony.casey767@example.com,889.460.8706,2026-03-22,Returning,United Kingdom,True
+768,Russell,Simmons,russell.simmons768@example.com,(817)219-5535,2023-06-19,VIP,United States,True
+769,John,Davis,john.davis769@example.com,3362890030,2025-09-29,Returning,United States,True
+770,David,White,david.white770@example.com,9553934296,2024-05-12,Returning,United States,True
+771,Diane,Jones,diane.jones771@example.com,+1-637-553-7458,2024-02-19,New,United States,True
+772,Alison,Adams,alison.adams772@example.com,001-488-510-5697x413,2025-05-06,Returning,United Kingdom,True
+773,Kevin,Tran,kevin.tran773@example.com,952-203-7710,2025-06-10,New,Germany,True
+774,Joseph,Chapman,joseph.chapman774@example.com,510-849-6706x6703,2025-12-26,Returning,Australia,True
+775,Jack,Jordan,jack.jordan775@example.com,5402850954,2025-03-23,Returning,United Kingdom,True
+776,Matthew,Calderon,matthew.calderon776@example.com,(460)818-6487x69984,2025-08-13,New,United States,True
+777,Tanner,Riddle,tanner.riddle777@example.com,720.844.1384,2025-06-08,New,Canada,True
+778,Benjamin,Hill,benjamin.hill778@example.com,249-901-4954x277,2026-04-30,Returning,United States,True
+779,Alan,Johnson,alan.johnson779@example.com,(378)936-0914x985,2025-03-25,Returning,United States,True
+780,Hector,Miranda,hector.miranda780@example.com,447-923-2290x310,2025-01-21,Returning,Germany,True
+781,Bethany,Williams,bethany.williams781@example.com,001-330-344-0580x935,2023-11-17,Returning,United States,True
+782,William,Wilson,william.wilson782@example.com,633-459-5616,2023-10-09,Returning,Australia,True
+783,Angel,Lawson,angel.lawson783@example.com,(456)257-4902x504,2022-09-23,New,United States,False
+784,Daniel,Lewis,daniel.lewis784@example.com,888-395-3690x26113,2024-08-01,Returning,Canada,True
+785,Melanie,Rose,melanie.rose785@example.com,6975887543,2022-03-08,New,Canada,True
+786,Mark,Lloyd,mark.lloyd786@example.com,(337)751-3765x158,2025-10-14,VIP,Germany,True
+787,Denise,Jacobs,denise.jacobs787@example.com,663.792.8369x294,2023-12-06,Returning,Canada,False
+788,Lee,Miller,lee.miller788@example.com,(982)397-3270x21648,2023-07-24,Returning,Canada,True
+789,David,Johnson,david.johnson789@example.com,(602)312-8866x52683,2021-10-06,Returning,United States,False
+790,Matthew,Summers,matthew.summers790@example.com,499-491-0157x67647,2025-06-21,VIP,United States,False
+791,Jennifer,Lawrence,jennifer.lawrence791@example.com,612.309.9576x57289,2025-04-02,New,United States,True
+792,Jesse,Snyder,jesse.snyder792@example.com,8987898645,2024-09-10,Returning,United Kingdom,False
+793,Katherine,Mckay,katherine.mckay793@example.com,7366849951,2024-02-21,Returning,United States,True
+794,Gabriel,Roberts,gabriel.roberts794@example.com,473.224.4913x4213,2025-04-22,Returning,Canada,True
+795,Carmen,Williams,carmen.williams795@example.com,+1-883-907-0534,2021-05-12,New,United States,True
+796,Abigail,Guerra,abigail.guerra796@example.com,511-376-7412x4151,2024-03-23,VIP,United States,True
+797,Mark,Hunter,mark.hunter797@example.com,278-215-0618x538,2025-10-13,VIP,United Kingdom,True
+798,John,Willis,john.willis798@example.com,434.572.7274,2022-02-07,Returning,United States,True
+799,Cynthia,Davis,cynthia.davis799@example.com,830.561.7893x20649,2022-04-08,Returning,United States,False
+800,Dana,Washington,dana.washington800@example.com,+1-524-334-7769x5874,2024-10-11,VIP,United States,True
+801,Sydney,Prince,sydney.prince801@example.com,001-446-975-3612x751,2022-12-11,Returning,Australia,True
+802,Mary,Shields,mary.shields802@example.com,+1-663-704-4836x085,2025-03-21,New,United Kingdom,True
+803,Robert,Lamb,robert.lamb803@example.com,(464)504-7350x47639,2022-09-26,Returning,United States,True
+804,Kimberly,Rodriguez,kimberly.rodriguez804@example.com,+1-395-229-8006x155,2024-01-08,Returning,United States,False
+805,April,Cox,april.cox805@example.com,828.563.4255,2023-08-21,Returning,United States,True
+806,Angela,Wright,angela.wright806@example.com,4006818670,2024-09-08,Returning,United Kingdom,False
+807,Kevin,Hall,kevin.hall807@example.com,001-230-241-6624x111,2022-12-13,VIP,Canada,True
+808,Julia,Weaver,julia.weaver808@example.com,(219)663-9456,2025-02-14,VIP,United States,True
+809,Joshua,Harris,joshua.harris809@example.com,697-564-6136x847,2022-10-18,Returning,United States,True
+810,Patrick,Kaiser,patrick.kaiser810@example.com,001-965-381-7390x637,2024-02-09,New,United States,True
+811,Dawn,Cook,dawn.cook811@example.com,+1-911-582-3793x1269,2022-10-26,VIP,Canada,True
+812,Brian,Snyder,brian.snyder812@example.com,(945)720-5996x04387,2025-12-25,Returning,United Kingdom,True
+813,Susan,Young,susan.young813@example.com,378.481.1616x202,2025-02-05,New,United States,True
+814,James,Kane,james.kane814@example.com,806-872-8728,2023-08-12,VIP,United States,True
+815,Albert,Wilson,albert.wilson815@example.com,748-659-5922x4839,2026-05-06,VIP,United States,True
+816,Thomas,Clark,thomas.clark816@example.com,522-587-0562x27104,2023-05-13,Returning,France,True
+817,Heather,Medina,heather.medina817@example.com,610-697-9215x83503,2024-05-01,Returning,United States,True
+818,Lori,Parrish,lori.parrish818@example.com,001-345-496-4883,2023-02-28,Returning,United Kingdom,True
+819,Dakota,Robinson,dakota.robinson819@example.com,(649)912-8965,2022-09-08,New,Canada,True
+820,Jason,Smith,jason.smith820@example.com,731.392.2270,2022-05-27,Returning,United States,True
+821,Paula,Williams,paula.williams821@example.com,776.675.4813x86667,2026-06-06,Returning,United States,True
+822,Mary,Stewart,mary.stewart822@example.com,993-624-2687,2024-07-31,New,United States,True
+823,Gina,Grant,gina.grant823@example.com,(452)205-7563x98365,2023-04-22,Returning,Canada,True
+824,James,Ward,james.ward824@example.com,209.645.1548,2023-10-02,Returning,United Kingdom,True
+825,Arthur,Hill,arthur.hill825@example.com,960.344.0907x9772,2024-04-13,Returning,Canada,True
+826,Benjamin,Johnson,benjamin.johnson826@example.com,001-622-521-6107x051,2026-01-31,VIP,United States,True
+827,Diana,Mclaughlin,diana.mclaughlin827@example.com,652-395-8066x01382,2022-04-27,Returning,United States,True
+828,Gerald,Williams,gerald.williams828@example.com,+1-938-362-0448x515,2023-03-24,Returning,France,True
+829,Ashlee,Ford,ashlee.ford829@example.com,212-512-5902,2024-01-04,Returning,United Kingdom,True
+830,Dana,Stevens,dana.stevens830@example.com,001-734-832-4064x242,2025-07-31,Returning,United States,True
+831,Jeremy,Lopez,jeremy.lopez831@example.com,724.747.4175,2021-11-30,New,France,True
+832,Kelsey,Mills,kelsey.mills832@example.com,+1-720-696-2893x6543,2025-02-18,Returning,Canada,True
+833,Christopher,Ayala,christopher.ayala833@example.com,737-740-1827x279,2026-04-15,New,Canada,True
+834,Anne,Barrett,anne.barrett834@example.com,7513502675,2021-08-20,New,United Kingdom,True
+835,Jacob,Howard,jacob.howard835@example.com,(878)820-7979,2026-02-12,Returning,United Kingdom,True
+836,Thomas,Sanchez,thomas.sanchez836@example.com,001-659-857-6403x816,2026-05-31,Returning,Canada,True
+837,Brittany,Martin,brittany.martin837@example.com,(249)383-9225,2024-02-16,VIP,United States,False
+838,Kyle,Cannon,kyle.cannon838@example.com,(476)527-0232x441,2026-03-08,Returning,United States,True
+839,Michaela,Kim,michaela.kim839@example.com,001-532-985-0725x178,2025-10-15,Returning,Australia,True
+840,Elizabeth,Guerra,elizabeth.guerra840@example.com,001-831-362-5265x469,2024-12-11,Returning,United States,True
+841,Michael,Santiago,michael.santiago841@example.com,001-203-892-3555,2025-08-11,New,United States,True
+842,Robin,Brewer,robin.brewer842@example.com,(873)403-4615,2022-02-13,Returning,United States,True
+843,Ronald,Mitchell,ronald.mitchell843@example.com,(370)846-2268x1715,2023-03-29,New,United States,True
+844,Linda,Smith,linda.smith844@example.com,329-986-7076x60464,2025-06-10,VIP,Canada,False
+845,Wayne,Norman,wayne.norman845@example.com,001-758-651-2686x120,2022-02-01,New,Australia,True
+846,James,Hess,james.hess846@example.com,001-776-607-4017x750,2023-04-03,Returning,United States,True
+847,Ronald,Leonard,ronald.leonard847@example.com,001-308-742-4560x754,2023-05-04,New,United States,True
+848,Jessica,Schmidt,jessica.schmidt848@example.com,(532)918-1227x6457,2025-07-04,VIP,United States,True
+849,Billy,Nguyen,billy.nguyen849@example.com,8298168154,2025-10-18,Returning,Germany,True
+850,Andrew,Clements,andrew.clements850@example.com,216-713-9449x883,2025-05-17,Returning,Canada,True
+851,Ashley,Lewis,ashley.lewis851@example.com,(242)848-0962x44063,2021-07-24,New,United States,True
+852,Diane,Hill,diane.hill852@example.com,995.813.3053x194,2024-02-04,Returning,United Kingdom,True
+853,Cynthia,Murphy,cynthia.murphy853@example.com,(478)805-5557x2773,2024-03-27,New,Germany,True
+854,Jonathan,Johnson,jonathan.johnson854@example.com,001-617-685-1385,2025-01-21,VIP,Germany,True
+855,Karen,Hayes,karen.hayes855@example.com,602.999.2959x660,2023-12-18,New,Australia,True
+856,Veronica,Brooks,veronica.brooks856@example.com,+1-326-691-1633,2024-10-15,New,United States,True
+857,Gregory,Moore,gregory.moore857@example.com,001-868-565-3694x551,2022-07-29,New,United Kingdom,True
+858,Michele,Simpson,michele.simpson858@example.com,347.822.6408x572,2022-09-13,Returning,United States,True
+859,Betty,Barnes,betty.barnes859@example.com,(263)709-3299x81996,2024-07-05,Returning,Germany,True
+860,Chelsea,Jackson,chelsea.jackson860@example.com,+1-571-450-9688x3275,2024-01-28,New,United Kingdom,True
+861,Thomas,Marquez,thomas.marquez861@example.com,952.541.0397,2022-11-04,Returning,United Kingdom,True
+862,Gabriela,Wallace,gabriela.wallace862@example.com,927.381.9523,2026-02-06,Returning,Canada,True
+863,Adam,Johnson,adam.johnson863@example.com,+1-968-276-1648x1980,2021-03-15,Returning,United States,False
+864,Kelly,Ross,kelly.ross864@example.com,001-405-768-7611x249,2026-02-06,Returning,United States,True
+865,Robert,Morgan,robert.morgan865@example.com,573.641.5177,2022-12-08,Returning,France,True
+866,Matthew,Norris,matthew.norris866@example.com,774-694-9022x84035,2024-06-07,Returning,Australia,True
+867,Kristopher,Baldwin,kristopher.baldwin867@example.com,001-647-874-2229,2024-09-24,New,United States,True
+868,Jonathan,Perez,jonathan.perez868@example.com,894.929.0458,2024-03-15,New,United States,True
+869,Christine,Jackson,christine.jackson869@example.com,(429)985-8567x287,2024-08-17,VIP,United States,True
+870,Penny,Smith,penny.smith870@example.com,353-543-3249,2024-05-29,VIP,United Kingdom,True
+871,Michael,Stevens,michael.stevens871@example.com,+1-308-233-5061x5814,2024-06-10,Returning,United Kingdom,True
+872,Sean,Mills,sean.mills872@example.com,642.633.7209,2025-03-28,New,United States,True
+873,Christopher,Lee,christopher.lee873@example.com,928-940-3339,2025-09-05,Returning,United States,True
+874,Corey,Keith,corey.keith874@example.com,5513371717,2022-05-16,Returning,Germany,True
+875,Amy,Lewis,amy.lewis875@example.com,649.809.6173x9970,2025-11-06,New,United Kingdom,True
+876,Carolyn,Vasquez,carolyn.vasquez876@example.com,(558)778-4448,2022-12-11,New,United States,True
+877,Joshua,Hoffman,joshua.hoffman877@example.com,871-627-0587x7221,2025-07-30,Returning,Canada,True
+878,Cody,Atkins,cody.atkins878@example.com,682-531-3348x45871,2025-02-01,Returning,United States,True
+879,Ashley,Moore,ashley.moore879@example.com,(936)822-9258,2022-08-31,New,United States,True
+880,Kimberly,Adams,kimberly.adams880@example.com,874-852-4555x746,2025-09-19,New,Canada,True
+881,Adam,Case,adam.case881@example.com,6656274033,2025-01-22,New,Canada,True
+882,Marissa,Johnson,marissa.johnson882@example.com,(465)788-3398x74113,2024-10-03,Returning,Germany,True
+883,Jennifer,David,jennifer.david883@example.com,001-870-267-3499,2023-10-12,New,Canada,True
+884,Craig,Bowman,craig.bowman884@example.com,485-674-1721x562,2025-01-10,New,United Kingdom,True
+885,Audrey,Hoffman,audrey.hoffman885@example.com,735.798.4884x021,2022-09-14,Returning,United States,True
+886,Rebecca,Griffin,rebecca.griffin886@example.com,625.673.7553,2024-02-01,New,United States,True
+887,Cassandra,Cantu,cassandra.cantu887@example.com,(716)266-7080,2022-05-20,Returning,United States,True
+888,Ariel,Forbes,ariel.forbes888@example.com,458.374.9511x91818,2026-01-19,New,United States,True
+889,Audrey,Mcdonald,audrey.mcdonald889@example.com,+1-931-864-7725x1295,2024-05-03,New,United Kingdom,True
+890,Pamela,Morales,pamela.morales890@example.com,709-960-0356x2439,2024-01-13,New,France,True
+891,Desiree,Gonzalez,desiree.gonzalez891@example.com,001-359-223-2342,2025-02-16,Returning,United States,True
+892,Amanda,Blackburn,amanda.blackburn892@example.com,5286515533,2026-03-18,VIP,United States,True
+893,Frank,Ritter,frank.ritter893@example.com,935.502.7160,2023-03-31,Returning,United Kingdom,True
+894,Omar,Griffin,omar.griffin894@example.com,(533)369-1128x9812,2024-10-01,Returning,United States,True
+895,Shelia,Yang,shelia.yang895@example.com,(956)233-1857x481,2024-10-12,Returning,Canada,True
+896,Adrian,Lara,adrian.lara896@example.com,(615)754-1643x1670,2024-07-31,New,United Kingdom,True
+897,Brandon,Boone,brandon.boone897@example.com,(290)528-2270,2021-05-10,New,Canada,True
+898,Michelle,Guerrero,michelle.guerrero898@example.com,(496)226-2282x251,2025-06-08,VIP,United States,True
+899,Tyler,Torres,tyler.torres899@example.com,+1-254-895-0050x7026,2025-08-19,New,United States,True
+900,Kathryn,Sharp,kathryn.sharp900@example.com,(321)905-3161,2025-11-18,New,United Kingdom,True
+901,Steven,Perry,steven.perry901@example.com,+1-472-790-4774,2025-06-02,New,Canada,True
+902,Diana,Diaz,diana.diaz902@example.com,+1-317-379-3238x223,2023-10-05,New,United States,True
+903,Jennifer,Campbell,jennifer.campbell903@example.com,+1-613-434-2457x988,2022-12-07,New,United Kingdom,True
+904,Mark,Brooks,mark.brooks904@example.com,(290)560-3202,2021-06-09,Returning,United States,True
+905,Fernando,Morris,fernando.morris905@example.com,001-977-653-9673,2025-05-07,Returning,United Kingdom,True
+906,Amy,Wilson,amy.wilson906@example.com,685-352-4578x715,2024-04-29,VIP,United States,True
+907,Kimberly,Simmons,kimberly.simmons907@example.com,6824137118,2024-07-03,Returning,Australia,False
+908,Morgan,Parker,morgan.parker908@example.com,(481)282-6832x30358,2023-05-15,Returning,United States,True
+909,Lauren,Cox,lauren.cox909@example.com,482.852.1293,2021-12-23,New,United States,True
+910,Michele,Ramirez,michele.ramirez910@example.com,(646)586-7752x4014,2026-05-12,Returning,United States,True
+911,Sandra,Austin,sandra.austin911@example.com,406-822-7236,2025-12-06,Returning,United States,True
+912,Peter,Lee,peter.lee912@example.com,(613)742-6192x372,2025-11-05,New,Germany,True
+913,Alex,Wilson,alex.wilson913@example.com,381-797-3741x8972,2026-02-12,Returning,France,True
+914,Nancy,Herring,nancy.herring914@example.com,6645176927,2024-11-28,Returning,United States,False
+915,Alexandra,Davis,alexandra.davis915@example.com,001-799-853-7660x144,2024-10-02,Returning,United States,True
+916,Elizabeth,King,elizabeth.king916@example.com,(310)917-3973x964,2023-11-16,Returning,United Kingdom,True
+917,Ann,Monroe,ann.monroe917@example.com,(798)860-9191x9113,2023-10-19,New,Germany,True
+918,Lisa,Higgins,lisa.higgins918@example.com,2575798066,2023-10-07,VIP,Canada,True
+919,Ashley,Johnson,ashley.johnson919@example.com,714-960-7455x53470,2024-12-08,Returning,United States,True
+920,Holly,Walters,holly.walters920@example.com,001-523-788-5652x715,2022-09-06,New,United States,True
+921,Maria,Garcia,maria.garcia921@example.com,001-916-759-7263x475,2024-08-24,VIP,Canada,True
+922,Kari,Chung,kari.chung922@example.com,301-539-4884x88269,2022-04-26,Returning,United States,True
+923,Clarence,Dawson,clarence.dawson923@example.com,+1-364-725-8562x6149,2024-04-21,VIP,Canada,True
+924,Yvonne,Ramos,yvonne.ramos924@example.com,5385240733,2024-10-21,Returning,United States,True
+925,Scott,Cain,scott.cain925@example.com,(504)830-9776,2025-12-01,Returning,United Kingdom,True
+926,Jacob,Stone,jacob.stone926@example.com,(396)445-4655x3585,2022-10-19,New,United States,True
+927,Marc,Carey,marc.carey927@example.com,001-538-792-1878x519,2023-03-22,New,Canada,True
+928,Jennifer,Newman,jennifer.newman928@example.com,+1-937-849-0797,2023-07-20,Returning,United States,False
+929,Calvin,Forbes,calvin.forbes929@example.com,7873805721,2025-03-05,Returning,Canada,True
+930,Stephanie,Hill,stephanie.hill930@example.com,709-576-2637x484,2022-10-30,New,United States,True
+931,Ashley,Liu,ashley.liu931@example.com,(828)495-0905x91191,2023-10-17,New,Canada,True
+932,Jessica,Wright,jessica.wright932@example.com,+1-822-807-1511x696,2025-11-29,Returning,Canada,True
+933,Heather,Taylor,heather.taylor933@example.com,521-745-2647x12463,2025-08-23,VIP,Canada,True
+934,Valerie,Schultz,valerie.schultz934@example.com,271-284-0908x05120,2022-11-20,Returning,Canada,True
+935,Mark,Torres,mark.torres935@example.com,001-595-712-3972,2023-11-11,New,Canada,True
+936,Collin,Vega,collin.vega936@example.com,(995)292-7282,2024-12-25,New,United Kingdom,True
+937,Christy,Mcconnell,christy.mcconnell937@example.com,344-915-2982,2026-04-04,New,United States,True
+938,James,Moore,james.moore938@example.com,+1-457-586-7181x535,2025-11-11,VIP,Germany,True
+939,Susan,Henry,susan.henry939@example.com,(805)507-9181x5899,2025-04-13,New,United States,False
+940,Justin,Taylor,justin.taylor940@example.com,001-934-866-6617x071,2024-01-02,Returning,United States,True
+941,Kevin,Gay,kevin.gay941@example.com,001-240-280-3149x982,2022-10-14,New,United States,True
+942,Tammy,Cruz,tammy.cruz942@example.com,(980)468-8285x031,2022-06-02,Returning,United States,True
+943,Patricia,Joseph,patricia.joseph943@example.com,537-339-9006,2022-09-22,Returning,United Kingdom,True
+944,Sandra,Smith,sandra.smith944@example.com,452.563.5602,2023-09-22,Returning,United Kingdom,True
+945,Christy,Scott,christy.scott945@example.com,(294)834-6066x64374,2023-05-08,New,United Kingdom,True
+946,Bobby,Wang,bobby.wang946@example.com,(731)411-2712,2022-11-18,New,United States,True
+947,Sherry,Scott,sherry.scott947@example.com,+1-964-584-4941x1631,2022-03-05,New,United States,True
+948,David,Cowan,david.cowan948@example.com,771.913.0621x1369,2022-12-16,VIP,United States,True
+949,Joanna,Ramos,joanna.ramos949@example.com,001-908-533-5090x254,2024-11-14,VIP,United States,True
+950,Rachel,Brown,rachel.brown950@example.com,(524)681-3235x7071,2025-09-07,Returning,United States,True
+951,Angela,Thomas,angela.thomas951@example.com,301-516-8809x25502,2025-11-09,Returning,United States,True
+952,Adam,Smith,adam.smith952@example.com,2699130981,2022-03-02,Returning,United States,True
+953,Sharon,Newman,sharon.newman953@example.com,796-573-7945x7727,2026-03-12,New,Canada,True
+954,Drew,Walsh,drew.walsh954@example.com,(264)925-0642,2026-06-01,VIP,United Kingdom,True
+955,Robert,Hobbs,robert.hobbs955@example.com,962.953.6667,2025-03-05,Returning,France,True
+956,Stephanie,Ford,stephanie.ford956@example.com,856-728-3333x93957,2022-04-03,Returning,Australia,True
+957,Dawn,Lewis,dawn.lewis957@example.com,(571)587-4960,2025-03-27,Returning,Canada,True
+958,Matthew,Wu,matthew.wu958@example.com,+1-868-562-7036x9249,2023-01-30,New,United States,True
+959,Edward,Stewart,edward.stewart959@example.com,327.359.9801,2026-05-20,New,Canada,True
+960,Andrew,Mora,andrew.mora960@example.com,3517553234,2022-07-17,Returning,United Kingdom,True
+961,Cindy,Stewart,cindy.stewart961@example.com,375.824.4182x226,2025-11-05,New,United States,True
+962,Eric,Tran,eric.tran962@example.com,443.212.7102x6767,2024-10-14,Returning,United States,True
+963,Brenda,Huerta,brenda.huerta963@example.com,(779)392-7079x551,2024-08-23,New,Germany,True
+964,Gregory,Hanson,gregory.hanson964@example.com,+1-862-413-5415x9709,2023-03-30,Returning,United States,False
+965,Michael,King,michael.king965@example.com,248.607.5203x44765,2024-08-07,New,Canada,True
+966,Karen,Wolf,karen.wolf966@example.com,515.980.2909x046,2023-12-23,Returning,Canada,True
+967,Norman,Johnson,norman.johnson967@example.com,+1-946-655-8665x2548,2021-07-12,Returning,United States,True
+968,Joseph,Gentry,joseph.gentry968@example.com,+1-515-381-0213x1251,2025-12-09,New,United States,True
+969,Michelle,Smith,michelle.smith969@example.com,3592129751,2025-05-06,Returning,United States,True
+970,Janet,Gonzalez,janet.gonzalez970@example.com,001-512-911-0633x016,2025-04-07,Returning,United States,True
+971,Lisa,Erickson,lisa.erickson971@example.com,592.674.9072x8012,2025-06-13,Returning,United States,True
+972,Douglas,Weaver,douglas.weaver972@example.com,611.832.5326,2025-06-15,VIP,Germany,True
+973,William,Mitchell,william.mitchell973@example.com,(245)838-0442x10175,2025-01-07,Returning,United States,True
+974,Christopher,Duran,christopher.duran974@example.com,001-970-715-9591x945,2025-06-10,New,United States,True
+975,Judy,Castillo,judy.castillo975@example.com,947.758.3392x0567,2026-01-15,New,United States,True
+976,Sandra,Mathis,sandra.mathis976@example.com,(877)772-2660x2562,2024-12-07,New,Australia,True
+977,Alexis,Moody,alexis.moody977@example.com,+1-222-992-3106x7245,2024-11-10,Returning,United States,True
+978,Philip,Torres,philip.torres978@example.com,+1-443-937-9766,2024-12-21,New,United States,True
+979,Tanya,Brown,tanya.brown979@example.com,915-579-4238,2023-03-07,Returning,Germany,True
+980,Robert,Smith,robert.smith980@example.com,725-449-6919x2845,2024-09-25,Returning,Germany,False
+981,Mike,Waller,mike.waller981@example.com,707-956-3353,2025-02-09,Returning,United States,True
+982,Kristin,Peters,kristin.peters982@example.com,001-553-525-9399,2023-05-05,Returning,United Kingdom,True
+983,Tracy,Harrison,tracy.harrison983@example.com,9589162951,2025-03-22,New,United States,True
+984,Carrie,Macdonald,carrie.macdonald984@example.com,001-241-776-3425x073,2025-05-28,New,United States,True
+985,Michael,Oliver,michael.oliver985@example.com,+1-524-357-5983,2025-04-06,Returning,United States,True
+986,Kenneth,Brown,kenneth.brown986@example.com,688.543.6604,2025-10-22,Returning,United States,False
+987,Douglas,Johnson,douglas.johnson987@example.com,+1-361-657-2768x2975,2024-09-04,Returning,United Kingdom,True
+988,Stephen,Gonzalez,stephen.gonzalez988@example.com,+1-974-729-2501x058,2024-03-05,Returning,United States,True
+989,Donald,Decker,donald.decker989@example.com,(280)265-6259x0459,2022-12-21,New,United States,True
+990,Jennifer,Reeves,jennifer.reeves990@example.com,311.822.1823x1555,2021-03-18,Returning,United Kingdom,True
+991,Matthew,Jones,matthew.jones991@example.com,(680)586-6281x3721,2025-12-17,Returning,United Kingdom,True
+992,John,Newman,john.newman992@example.com,+1-400-437-0033,2023-10-24,Returning,United States,True
+993,Vincent,Morris,vincent.morris993@example.com,001-560-584-7068x103,2025-09-13,New,Canada,True
+994,Brandi,Smith,brandi.smith994@example.com,001-619-658-2632x809,2023-11-07,Returning,United States,True
+995,Angela,Dixon,angela.dixon995@example.com,(339)645-3546,2025-11-05,Returning,United Kingdom,True
+996,Shannon,Griffin,shannon.griffin996@example.com,+1-586-632-1061x3394,2023-08-28,New,Canada,True
+997,Michael,Brown,michael.brown997@example.com,+1-939-843-8040x3253,2024-10-31,VIP,Australia,True
+998,Jennifer,Ellis,jennifer.ellis998@example.com,(292)277-8943x1910,2024-01-27,New,United States,True
+999,Mercedes,Arroyo,mercedes.arroyo999@example.com,5475692105,2023-12-15,VIP,United States,True
+1000,Tasha,Harmon,tasha.harmon1000@example.com,(514)360-4014x247,2023-03-25,Returning,United States,True

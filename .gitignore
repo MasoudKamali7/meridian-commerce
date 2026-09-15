@@ -1,0 +1,17 @@
+# Secrets — never commit
+.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
+*.egg-info/
+
+# Logs (contain operational data, not meant for version control)
+logs/*.jsonl
+logs/*.log
+
+# OS
+.DS_Store
