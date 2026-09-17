@@ -405,3 +405,101 @@ Reads `decision_path`/`final_priority` back from the database. See
 `reports/phase4_evaluation.md` for the actual current results (dominated by
 "no AI classification exists yet," honestly reported) and a clearly-labeled
 simulated run showing the fuller range of behavior.
+
+
+## Phase 5: AI Support Decision & Response Layer
+
+### Architecture
+
+```
+Ticket (Phase 3 outputs + Phase 4 decision + order/product context)
+                    │
+                    ▼
+        ResponseContext (Pydantic — no customer name/email/phone, no order total)
+                    │
+                    ▼
+        eligibility.py — deterministic; reads Phase 4's ruling and
+          re-verifies its preconditions (can only ever fail SAFE)
+                    │
+          ┌─────────┼─────────────────────┐
+          ▼         ▼                     ▼
+   NOT_ELIGIBLE  human_review      automated_eligible
+   (no LLM call)     │                    │
+                     ▼                    ▼
+              generator.py + safety.py scan
+                     │                    │
+                     ▼                    ▼
+          HUMAN_REVIEW_DRAFT       DRAFT_GENERATED (scan passed)
+          customer_facing=False    customer_facing=True
+                                   — or BLOCKED (scan failed; text discarded)
+```
+
+**Phase 4 remains authoritative.** Phase 5 never overrides a Human Review
+ruling and can never promote a ticket to automation.
+
+### Response statuses
+
+| Status | customer_facing | requires_human_review | Meaning |
+|---|---|---|---|
+| `NOT_ELIGIBLE` | false | false | Phase 4 hasn't decided this ticket yet |
+| `DRAFT_GENERATED` | **true** | false | Approved customer-facing draft |
+| `HUMAN_REVIEW_DRAFT` | false | true | Internal agent-reference draft only |
+| `BLOCKED` | false | true | Automation was authorized, but no safe draft could be produced |
+
+`customer_facing` and `requires_human_review` are **derived** from
+`response_status`, not stored — a Pydantic validator makes an inconsistent
+decision impossible to construct.
+
+### Response types
+
+`ORDER_STATUS`, `PRODUCT_QUESTION`, `PAYMENT_SUPPORT`, `ACCOUNT_SUPPORT`,
+`REFUND_SUPPORT`, `ORDER_ISSUE`, `COMPLAINT`, `GENERAL_SUPPORT`.
+
+A response type classifies the response **purpose only**. `REFUND_SUPPORT`
+means "a message about a refund request" — it never means a refund was
+issued. Phase 5 cannot take any action in the world.
+
+### Database changes
+
+`sql/07_phase5_schema.sql` adds four nullable columns to `tickets`:
+`response_status`, `response_type`, `response_draft`, `response_generated_at`
+(all CHECK-constrained), plus a constraint ensuring BLOCKED/NOT_ELIGIBLE
+never carry a draft. Apply once:
+
+```powershell
+psql -U meridian_app -d meridian_commerce -f sql\07_phase5_schema.sql
+```
+
+### Environment variables (new in Phase 5)
+
+| Variable | Purpose | Default |
+|---|---|---|
+| `RESPONSE_DRY_RUN` | Safety switch for `respond` — same double-confirmation as Phases 3/4 | `true` |
+| `RESPONSE_BATCH_SIZE` | Default ticket count if `--limit` isn't passed | `10` |
+| `GENERATE_INTERNAL_DRAFTS` | Whether to draft internal agent-reference text for human-review tickets | `true` |
+
+Phase 5 reuses `LOW_CONFIDENCE_THRESHOLD` and
+`STRONG_NEGATIVE_SENTIMENT_THRESHOLD` from Phase 4 rather than defining a
+second set — one source of truth.
+
+**Without an `ANTHROPIC_API_KEY`, Phase 5 degrades honestly:** it still makes
+real eligibility and routing decisions, generates no drafts, reports
+`generator_available: false`, and says so — it does not crash or pretend.
+
+### Example commands
+
+```powershell
+python -m src.pipeline respond --limit 10             # dry run (safe default)
+python -m src.pipeline respond --limit 1500 --live     # needs RESPONSE_DRY_RUN=false too
+python -m src.pipeline respond-evaluate
+```
+
+### Safety
+
+Three independent layers: prompt-level NEVER rules, a deterministic
+post-generation scanner (`src/response/safety.py`) that discards any draft
+claiming a refund/compensation/payment reversal/account or order change/
+completed action or mentioning AI internals, and structural Pydantic
+invariants. The scanner is a pattern matcher, not semantic understanding —
+it catches plainly-worded violations and can miss paraphrased ones. It's a
+floor, not a guarantee. See `PHASE5_SUMMARY.md` §4.

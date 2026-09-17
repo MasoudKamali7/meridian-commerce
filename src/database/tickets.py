@@ -22,6 +22,10 @@ PHASE4_SUMMARY.md for full reasoning):
    decision_path, rule_decision_at. It never touches category, priority,
    ai_predicted_category, created_at, customer_id, order_id, status,
    resolution_type, or any Phase 3 field — see PHASE4_SUMMARY.md.
+
+5. `update_phase5_response()` (Phase 5) writes ONLY: response_status,
+   response_type, response_draft, response_generated_at. It never touches
+   any Phase 1-4 field — see PHASE5_SUMMARY.md.
 """
 
 from typing import Optional
@@ -153,6 +157,95 @@ def fetch_phase4_results(conn) -> list:
                sentiment_score, final_priority, decision_path
         FROM tickets
         WHERE decision_path IS NOT NULL
+        ORDER BY ticket_id;
+    """
+    with get_cursor(conn) as cur:
+        cur.execute(query)
+        return cur.fetchall()
+
+
+# ----------------------------------------------------------------------------
+# Phase 5: Response decision layer
+# ----------------------------------------------------------------------------
+
+def fetch_tickets_for_response(conn, limit: int, only_unprocessed: bool = True) -> list:
+    """Fetch tickets with the minimal context the response layer needs.
+
+    Joins order/product context so a draft can be grounded in real order
+    facts. Deliberately does NOT select customer name, email, phone,
+    customer_id, payment_method, or order total — none of those are needed
+    to draft a support response, and the narrowest query is the one least
+    able to leak something into a prompt by accident.
+
+    product_names is aggregated with STRING_AGG over the order's line items
+    (DISTINCT, capped implicitly by order size) so the model can reference
+    what was actually ordered without a second query per ticket.
+    """
+    where_clause = "WHERE t.response_status IS NULL" if only_unprocessed else ""
+    query = f"""
+        SELECT t.ticket_id, t.message_text, t.ai_predicted_category,
+               t.classification_confidence, t.sentiment_score,
+               t.decision_path, t.final_priority,
+               t.order_id, o.order_status,
+               o.expected_delivery_date::text AS expected_delivery_date,
+               o.actual_delivery_date::text   AS actual_delivery_date,
+               c.customer_segment,
+               (SELECT STRING_AGG(DISTINCT p.product_name, ', ')
+                  FROM order_items oi JOIN products p ON oi.product_id = p.product_id
+                 WHERE oi.order_id = t.order_id) AS product_names
+        FROM tickets t
+        JOIN customers c ON t.customer_id = c.customer_id
+        LEFT JOIN orders o ON t.order_id = o.order_id
+        {where_clause}
+        ORDER BY t.ticket_id
+        LIMIT %s;
+    """
+    with get_cursor(conn) as cur:
+        cur.execute(query, (limit,))
+        rows = cur.fetchall()
+    for row in rows:
+        if row.get("classification_confidence") is not None:
+            row["classification_confidence"] = float(row["classification_confidence"])
+        if row.get("sentiment_score") is not None:
+            row["sentiment_score"] = float(row["sentiment_score"])
+    return rows
+
+
+def update_phase5_response(conn, ticket_id: int, response_status: str,
+                            response_type: Optional[str], response_draft: Optional[str]) -> None:
+    """Writes ONLY the four Phase 5-owned columns. Never touches category,
+    ai_predicted_category, classification_confidence, sentiment_score,
+    decision_path, final_priority, rule_decision_at, or any other
+    Phase 1-4 field."""
+    query = """
+        UPDATE tickets
+        SET response_status = %s,
+            response_type = %s,
+            response_draft = %s,
+            response_generated_at = now()
+        WHERE ticket_id = %s;
+    """
+    with get_cursor(conn) as cur:
+        cur.execute(query, (response_status, response_type, response_draft, ticket_id))
+    conn.commit()
+
+
+def count_phase5_processed(conn) -> int:
+    with get_cursor(conn) as cur:
+        cur.execute("SELECT COUNT(*) AS n FROM tickets WHERE response_status IS NOT NULL;")
+        return cur.fetchone()["n"]
+
+
+def fetch_phase5_results(conn) -> list:
+    """All tickets with a Phase 5 response decision, for evaluation.
+    response_draft itself is NOT selected — evaluation reports counts and
+    distributions, never draft contents."""
+    query = """
+        SELECT ticket_id, ai_predicted_category, decision_path, final_priority,
+               response_status, response_type,
+               (response_draft IS NOT NULL) AS has_draft
+        FROM tickets
+        WHERE response_status IS NOT NULL
         ORDER BY ticket_id;
     """
     with get_cursor(conn) as cur:

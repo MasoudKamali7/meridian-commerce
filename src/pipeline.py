@@ -15,13 +15,18 @@ Phase 4 (deterministic business rules):
                                                             recoverable — see rules_metrics.py
                                                             for what isn't)
 
-DRY_RUN behavior (both phases): dry-run mode does the real work — calls the
-LLM (Phase 3) or runs the real rule engine (Phase 4), logs the result — but
-never issues a database UPDATE. Going live requires BOTH the relevant
+Phase 5 (response decision & draft layer):
+    python -m src.pipeline respond --limit 10              (dry run by default)
+    python -m src.pipeline respond --limit 1500 --live      (writes to the DB)
+    python -m src.pipeline respond-evaluate                 (reads response_status/response_type
+                                                             back from the DB)
+
+DRY_RUN behavior (all three phases): dry-run mode does the real work — calls
+the LLM (Phases 3/5) or runs the real rule engine (Phase 4), logs the result —
+but never issues a database UPDATE. Going live requires BOTH the relevant
 DRY_RUN flag set to false in config AND --live on the command line; either
 alone keeps you in dry run. This double-confirmation is deliberate and is
-preserved unchanged from Phase 3 into Phase 4, per the Phase 4 brief's
-explicit instruction not to weaken it.
+preserved unchanged across Phases 3, 4, and 5.
 
 Cost tracking (Phase 3 only): token usage is recorded from the API's own
 `usage` field on every call (never estimated). A dollar cost is only
@@ -45,16 +50,26 @@ from .database.connection import get_connection
 from .database.tickets import (
     count_classified,
     count_phase4_decided,
+    count_phase5_processed,
     fetch_evaluation_data,
     fetch_phase4_results,
+    fetch_phase5_results,
     fetch_ticket_batch,
+    fetch_tickets_for_response,
     fetch_tickets_for_rules,
     update_phase4_decision,
+    update_phase5_response,
     update_ticket_classification,
 )
 from .evaluation.metrics import compute_metrics
+from .evaluation.response_metrics import (
+    compute_response_evaluation,
+    compute_response_evaluation_from_db,
+)
 from .evaluation.rules_metrics import compute_rules_evaluation, compute_rules_evaluation_from_db
 from .logging_config import setup_logging
+from .response.engine import safe_decide_response
+from .response.generator import ResponseGenerator
 from .rules.engine import safe_evaluate
 from .rules.models import TicketContext
 
@@ -331,8 +346,155 @@ def run_rules_evaluate(config, logger):
     return report
 
 
+def response_batch(conn, tickets: list, dry_run: bool, logger, config,
+                    generator) -> tuple:
+    """Core Phase 5 batch loop, independent of CLI/config wiring so it can be
+    unit-tested with a fake connection and a FakeLLMClient. `generator` may
+    be None to run the decision layer with no LLM calls at all."""
+    decisions = []
+
+    for row in tickets:
+        decision = safe_decide_response(
+            row,
+            generator=generator,
+            low_confidence_threshold=config.low_confidence_threshold,
+            strong_negative_sentiment_threshold=config.strong_negative_sentiment_threshold,
+            generate_internal_drafts=config.generate_internal_drafts,
+        )
+        decisions.append(decision)
+
+        logger.info(
+            f"Ticket {decision.ticket_id}: {decision.response_status}"
+            f"{' (customer-facing)' if decision.customer_facing else ''}",
+            extra={
+                "event": "response_fallback" if decision.is_fallback else "response_decision",
+                "ticket_id": decision.ticket_id,
+                "success": not decision.is_fallback,
+                "response_status": decision.response_status,
+                "response_type": decision.response_type,
+                "customer_facing": decision.customer_facing,
+                "requires_human_review": decision.requires_human_review,
+                "has_draft": decision.response_draft is not None,
+                "dry_run": dry_run,
+            },
+        )
+        # Draft TEXT is deliberately never logged — it can contain the
+        # customer's own words echoed back, and the log is not the place for
+        # message content. Only whether a draft exists is recorded.
+
+        if not dry_run:
+            update_phase5_response(
+                conn, ticket_id=decision.ticket_id,
+                response_status=decision.response_status,
+                response_type=decision.response_type,
+                response_draft=decision.response_draft,
+            )
+
+    summary = {
+        "dry_run": dry_run,
+        "tickets_processed": len(decisions),
+        "n_draft_generated": sum(1 for d in decisions if d.response_status == "DRAFT_GENERATED"),
+        "n_human_review_draft": sum(1 for d in decisions if d.response_status == "HUMAN_REVIEW_DRAFT"),
+        "n_blocked": sum(1 for d in decisions if d.response_status == "BLOCKED"),
+        "n_not_eligible": sum(1 for d in decisions if d.response_status == "NOT_ELIGIBLE"),
+        "n_fallback": sum(1 for d in decisions if d.is_fallback),
+    }
+    return summary, decisions
+
+
+def run_respond(config, logger, limit: int, live: bool):
+    # Same double-confirmation safety rule as Phases 3 and 4, preserved
+    # unchanged: going live requires BOTH RESPONSE_DRY_RUN=false in config
+    # AND --live on the command line.
+    dry_run = config.response_dry_run or not live
+    logger.info(
+        f"Starting response run: limit={limit}, dry_run={dry_run}",
+        extra={"event": "run_start", "dry_run": dry_run},
+    )
+
+    # The response layer degrades honestly without credentials: it still
+    # makes real eligibility/routing decisions, but produces no drafts and
+    # says so, rather than failing outright or pretending drafts exist.
+    generator = None
+    if config.anthropic_api_key:
+        try:
+            llm_client = AnthropicLLMClient(
+                api_key=config.anthropic_api_key,
+                model=config.model_name,
+                max_tokens=config.llm_max_tokens,
+                timeout_seconds=config.llm_timeout_seconds,
+                max_retries=config.llm_max_retries,
+            )
+            generator = ResponseGenerator(llm_client)
+        except LLMAuthError as e:
+            logger.error(f"LLM client unavailable: {e}", extra={"event": "config_error"})
+    else:
+        logger.warning(
+            "No ANTHROPIC_API_KEY configured — running the response layer in "
+            "decision-only mode (eligibility and routing are real; no drafts will be generated).",
+            extra={"event": "config_warning"},
+        )
+
+    with get_connection(config) as conn:
+        tickets = fetch_tickets_for_response(conn, limit=limit)
+        logger.info(f"Fetched {len(tickets)} tickets for response decisioning",
+                    extra={"event": "batch_fetched"})
+        summary, decisions = response_batch(conn, tickets, dry_run, logger, config, generator)
+
+    eval_report = compute_response_evaluation(decisions)
+    summary["generator_available"] = generator is not None
+    summary["evaluation"] = {
+        "metric_provenance": eval_report.metric_provenance,
+        "automated_response_eligible_rate": eval_report.automated_response_eligible_rate,
+        "human_review_response_rate": eval_report.human_review_response_rate,
+        "blocked_response_rate": eval_report.blocked_response_rate,
+        "not_eligible_rate": eval_report.not_eligible_rate,
+        "response_status_distribution": eval_report.response_status_distribution,
+        "response_type_distribution": eval_report.response_type_distribution,
+        "draft_generation_attempted": eval_report.draft_generation_attempted,
+        "draft_generation_succeeded": eval_report.draft_generation_succeeded,
+        "draft_generation_success_rate": eval_report.draft_generation_success_rate,
+        "missing_context_rate": eval_report.missing_context_rate,
+        "fallback_rate": eval_report.fallback_rate,
+        "notes": eval_report.notes,
+    }
+
+    print(json.dumps(summary, indent=2, default=str))
+    return summary
+
+
+def run_respond_evaluate(config, logger):
+    with get_connection(config) as conn:
+        n_processed = count_phase5_processed(conn)
+        rows = fetch_phase5_results(conn)
+
+    if not rows:
+        print("No Phase 5 response decisions found (response_status IS NOT NULL). "
+              "Run `respond --live` on at least a few tickets first.")
+        return None
+
+    report = compute_response_evaluation_from_db(rows)
+
+    print(f"[{report.metric_provenance}] Evaluated {report.n_processed} tickets "
+          f"({n_processed} total processed in DB)")
+    print(f"Automated response eligible rate: {report.automated_response_eligible_rate:.4f}  "
+          f"(share of ALL processed with an approved customer-facing draft)")
+    print(f"Human-review response rate:       {report.human_review_response_rate:.4f}")
+    print(f"Blocked response rate:            {report.blocked_response_rate:.4f}")
+    print(f"Not-eligible rate:                {report.not_eligible_rate:.4f}")
+    print(f"\nResponse status distribution: {report.response_status_distribution}")
+    print(f"Response type distribution:   {report.response_type_distribution}")
+    if report.draft_generation_success_rate is not None:
+        print(f"Draft generation success rate: {report.draft_generation_success_rate:.4f} "
+              f"({report.draft_generation_succeeded}/{report.draft_generation_attempted} attempted)")
+    for note in report.notes:
+        print(f"\nNOTE: {note}")
+
+    return report
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Meridian Commerce Phase 3/4 pipeline")
+    parser = argparse.ArgumentParser(description="Meridian Commerce Phase 3/4/5 pipeline")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     classify_parser = subparsers.add_parser("classify", help="Classify a batch of tickets (Phase 3)")
@@ -351,6 +513,14 @@ def main():
 
     subparsers.add_parser("rules-evaluate", help="Compute Phase 4 decision metrics from the database")
 
+    respond_parser = subparsers.add_parser("respond", help="Run the Phase 5 response-decision layer on a batch of tickets")
+    respond_parser.add_argument("--limit", type=int, default=None,
+                                 help="Number of tickets to process (default: RESPONSE_BATCH_SIZE from config)")
+    respond_parser.add_argument("--live", action="store_true",
+                                 help="Actually write response decisions to the database (default: dry run)")
+
+    subparsers.add_parser("respond-evaluate", help="Compute Phase 5 response metrics from the database")
+
     args = parser.parse_args()
     config = load_config()
     logger = setup_logging(config.log_dir, config.log_level)
@@ -365,6 +535,11 @@ def main():
         run_rules(config, logger, limit=limit, live=args.live)
     elif args.command == "rules-evaluate":
         run_rules_evaluate(config, logger)
+    elif args.command == "respond":
+        limit = args.limit if args.limit is not None else config.response_batch_size
+        run_respond(config, logger, limit=limit, live=args.live)
+    elif args.command == "respond-evaluate":
+        run_respond_evaluate(config, logger)
 
 
 if __name__ == "__main__":

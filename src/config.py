@@ -130,6 +130,17 @@ class Config:
     rules_dry_run: bool = field(default_factory=lambda: _get_bool("RULES_DRY_RUN", True))
     rules_batch_size: int = field(default_factory=lambda: _get_int("RULES_BATCH_SIZE", 10))
 
+    # --- Phase 5: response decision layer ---
+    # Same double-confirmation safety model as Phases 3 and 4: going live
+    # requires RESPONSE_DRY_RUN=false AND --live together.
+    response_dry_run: bool = field(default_factory=lambda: _get_bool("RESPONSE_DRY_RUN", True))
+    response_batch_size: int = field(default_factory=lambda: _get_int("RESPONSE_BATCH_SIZE", 10))
+    # Whether to produce internal-only drafts for human-review tickets.
+    # Off by default would waste the agent-assist value; on by default costs
+    # LLM calls on tickets a human handles anyway — configurable either way.
+    generate_internal_drafts: bool = field(
+        default_factory=lambda: _get_bool("GENERATE_INTERNAL_DRAFTS", True))
+
     def validate_for_live_run(self) -> list:
         """Returns a list of problems that would prevent a real (non-dry-run)
         LLM call. Called explicitly before any live API usage — never
