@@ -44,7 +44,7 @@ import time
 from pathlib import Path
 
 from .ai.classifier import TicketClassifier
-from .ai.llm_client import AnthropicLLMClient, LLMAuthError
+from .ai.llm_client import OpenRouterLLMClient, LLMAuthError
 from .config import load_config
 from .database.connection import get_connection
 from .database.tickets import (
@@ -62,6 +62,7 @@ from .database.tickets import (
     update_ticket_classification,
 )
 from .evaluation.metrics import compute_metrics
+from .evaluation.analytics import fetch_analytics, summarize_analytics, validate_analytics
 from .evaluation.response_metrics import (
     compute_response_evaluation,
     compute_response_evaluation_from_db,
@@ -163,17 +164,17 @@ def run_classify(config, logger, limit: int, live: bool):
             sys.exit(1)
 
     try:
-        llm_client = AnthropicLLMClient(
-            api_key=config.anthropic_api_key,
-            model=config.model_name,
-            max_tokens=config.llm_max_tokens,
-            timeout_seconds=config.llm_timeout_seconds,
-            max_retries=config.llm_max_retries,
-        )
+    llm_client = OpenRouterLLMClient(
+        api_key=config.openrouter_api_key,
+        model=config.model_name,
+        max_tokens=config.llm_max_tokens,
+        timeout_seconds=config.llm_timeout_seconds,
+        max_retries=config.llm_max_retries,
+    )
     except LLMAuthError as e:
         logger.error(f"Cannot start: {e}", extra={"event": "config_error"})
         print(f"\nCannot start classification run: {e}")
-        print("Set ANTHROPIC_API_KEY in your .env file (see .env.example) and try again.")
+        print("Set OPENROUTER_API_KEY in your .env file (see .env.example) and try again.")
         sys.exit(1)
 
     classifier = TicketClassifier(llm_client)
@@ -416,15 +417,15 @@ def run_respond(config, logger, limit: int, live: bool):
     # makes real eligibility/routing decisions, but produces no drafts and
     # says so, rather than failing outright or pretending drafts exist.
     generator = None
-    if config.anthropic_api_key:
+    if config.openrouter_api_key:
         try:
-            llm_client = AnthropicLLMClient(
-                api_key=config.anthropic_api_key,
-                model=config.model_name,
-                max_tokens=config.llm_max_tokens,
-                timeout_seconds=config.llm_timeout_seconds,
-                max_retries=config.llm_max_retries,
-            )
+            llm_client = OpenRouterLLMClient(
+    api_key=config.openrouter_api_key,
+    model=config.model_name,
+    max_tokens=config.llm_max_tokens,
+    timeout_seconds=config.llm_timeout_seconds,
+    max_retries=config.llm_max_retries,
+)
             generator = ResponseGenerator(llm_client)
         except LLMAuthError as e:
             logger.error(f"LLM client unavailable: {e}", extra={"event": "config_error"})
@@ -493,6 +494,34 @@ def run_respond_evaluate(config, logger):
     return report
 
 
+def run_analytics(config, logger):
+    """Phase 6: READ-ONLY. Reads the analytical views, independently validates
+    what can be cross-checked, and prints a summary. Issues no writes of any
+    kind — there is deliberately no --live flag on this command, because
+    there is nothing for it to mutate."""
+    logger.info("Starting analytics validation (read-only)", extra={"event": "run_start"})
+
+    with get_connection(config) as conn:
+        snapshot = fetch_analytics(conn)
+
+    issues = validate_analytics(snapshot)
+    summary = summarize_analytics(snapshot, issues)
+
+    print(json.dumps(summary, indent=2, default=str))
+
+    if issues:
+        logger.warning(f"Analytics validation found {len(issues)} issue(s)",
+                        extra={"event": "analytics_issues"})
+        for issue in issues:
+            logger.warning(f"[{issue.severity}] {issue.check}: {issue.detail}",
+                            extra={"event": "analytics_issue"})
+    else:
+        logger.info("Analytics validation passed — no inconsistencies found",
+                     extra={"event": "analytics_ok"})
+
+    return summary
+
+
 def main():
     parser = argparse.ArgumentParser(description="Meridian Commerce Phase 3/4/5 pipeline")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -521,6 +550,8 @@ def main():
 
     subparsers.add_parser("respond-evaluate", help="Compute Phase 5 response metrics from the database")
 
+    subparsers.add_parser("analytics", help="Phase 6: read-only analytics validation and summary")
+
     args = parser.parse_args()
     config = load_config()
     logger = setup_logging(config.log_dir, config.log_level)
@@ -540,6 +571,8 @@ def main():
         run_respond(config, logger, limit=limit, live=args.live)
     elif args.command == "respond-evaluate":
         run_respond_evaluate(config, logger)
+    elif args.command == "analytics":
+        run_analytics(config, logger)
 
 
 if __name__ == "__main__":

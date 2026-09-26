@@ -86,8 +86,12 @@ class Config:
     db_password: str = field(default_factory=lambda: os.getenv("DB_PASSWORD", ""))
 
     # --- LLM provider ---
-    anthropic_api_key: str = field(default_factory=lambda: os.getenv("ANTHROPIC_API_KEY", ""))
-    model_name: str = field(default_factory=lambda: os.getenv("MODEL_NAME", "claude-sonnet-4-6"))
+    openrouter_api_key: str = field(
+        default_factory=lambda: os.getenv("OPENROUTER_API_KEY", "")
+    )
+    model_name: str = field(
+    default_factory=lambda: os.getenv("MODEL_NAME", "openrouter/free")
+)
     llm_max_tokens: int = field(default_factory=lambda: _get_int("LLM_MAX_TOKENS", 1024))
     llm_timeout_seconds: float = field(default_factory=lambda: _get_float("LLM_TIMEOUT_SECONDS", 30.0))
     llm_max_retries: int = field(default_factory=lambda: _get_int("LLM_MAX_RETRIES", 3))

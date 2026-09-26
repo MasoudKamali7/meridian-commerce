@@ -1,17 +1,18 @@
 # Meridian Commerce — AI-Powered Customer Support Automation System
 
-**Phase 4: Deterministic Business Rule Engine + Human-in-the-Loop Decisioning**
-(Phases 1–3 — business design, PostgreSQL implementation, and AI
-classification — are complete; see their respective sections below.)
+**Phase 5: AI Support Decision & Response Layer**
+(Phases 1–4.1 — business design, PostgreSQL implementation, AI
+classification, and the deterministic rule engine — are complete; see their
+sections below.)
 
-This phase adds a deterministic rule engine on top of Phase 3's AI outputs:
-read a ticket's AI classification + order/customer context → run explicit,
-documented business rules → decide final priority and whether the ticket can
-be automated or needs a human. The LLM never makes this decision — it only
-supplies signals the rules reason over. No FastAPI, frontend, Power BI, RAG,
-agents, or automated actions — those are later phases. See
-`PHASE4_SUMMARY.md` for full decisions and results, and
-`reports/phase4_evaluation.md` for the evaluation write-up.
+This phase adds a controlled response layer on top of Phase 4's decision:
+read a ticket's AI classification, Phase 4 ruling, and order context →
+decide whether a customer-facing response is permissible → generate a
+grounded draft → scan it deterministically for forbidden claims before it
+can ever be marked customer-facing. Phase 4 remains authoritative for
+human-review decisions; Phase 5 never overrides it. No emails, no refunds,
+no order/account changes, no RAG, no agents, no FastAPI, no UI. See
+`PHASE5_SUMMARY.md` and `reports/phase5_evaluation.md`.
 
 ---
 
@@ -23,6 +24,7 @@ meridian-commerce/
 ├── PHASE2_SUMMARY.md              <- Phase 2 decisions, validation results, checklist
 ├── PHASE3_SUMMARY.md              <- Phase 3 decisions, results, checklist
 ├── PHASE4_SUMMARY.md              <- Phase 4 decisions, results, checklist
+├── PHASE5_SUMMARY.md              <- Phase 5 decisions, results, checklist
 ├── requirements.txt
 ├── .env.example                   <- copy to .env and fill in (never commit .env)
 ├── .gitignore
@@ -32,7 +34,9 @@ meridian-commerce/
 │   ├── 03_indexes.sql               <- indexes (applied after bulk load)
 │   ├── 04_validation.sql            <- data-quality validation suite
 │   ├── 05_phase4_schema.sql         <- Phase 4 migration: final_priority, rule_decision_at
-│   └── 06_phase4_validation.sql     <- Phase 4 data-quality checks
+│   ├── 06_phase4_validation.sql     <- Phase 4 data-quality checks
+│   ├── 07_phase5_schema.sql         <- Phase 5 migration: response_status/type/draft/generated_at
+│   └── 08_phase5_validation.sql     <- Phase 5 data-quality checks
 ├── scripts/
 │   ├── generate_data.py             <- synthetic data generator (seeded, reproducible)
 │   └── load_data.py                 <- bulk-loads the CSVs into PostgreSQL via COPY
@@ -45,21 +49,29 @@ meridian-commerce/
 ├── src/
 │   ├── config.py                    <- env-var settings + approved vocabularies (single source of truth)
 │   ├── logging_config.py            <- structured (JSON-lines) logging, no PII
-│   ├── pipeline.py                  <- CLI entry point (classify / evaluate / rules / rules-evaluate)
+│   ├── pipeline.py                  <- CLI entry point (classify / evaluate / rules / rules-evaluate / respond / respond-evaluate)
 │   ├── ai/
 │   │   ├── prompts.py                 <- system prompt + tool schema
 │   │   ├── llm_client.py              <- provider-agnostic interface + Anthropic implementation
 │   │   └── classifier.py              <- orchestration + strict Pydantic validation gate
 │   ├── database/
 │   │   ├── connection.py              <- psycopg2 connection/cursor helpers
-│   │   └── tickets.py                 <- fetch/update queries (Phase 3 + Phase 4, minimal-field writes)
+│   │   └── tickets.py                 <- fetch/update queries (Phases 3/4/5, minimal-field writes)
 │   ├── evaluation/
 │   │   ├── metrics.py                 <- Phase 3: accuracy, per-category P/R/F1, macro F1, confusion matrix
-│   │   └── rules_metrics.py           <- Phase 4: automation/human-review rates, rule frequency, etc.
-│   └── rules/
-│       ├── models.py                   <- TicketContext, RuleOutcome, Decision (Pydantic)
-│       ├── rules.py                     <- individual deterministic rule functions
-│       └── engine.py                    <- orchestration + documented precedence
+│   │   ├── rules_metrics.py           <- Phase 4: automation/human-review rates, rule frequency, etc.
+│   │   └── response_metrics.py        <- Phase 5: response status/type rates, draft success rate
+│   ├── rules/
+│   │   ├── models.py                   <- TicketContext, RuleOutcome, Decision (Pydantic)
+│   │   ├── rules.py                     <- individual deterministic rule functions
+│   │   └── engine.py                    <- orchestration + documented precedence
+│   └── response/
+│       ├── models.py                   <- ResponseContext, ResponseDecision, type mapping
+│       ├── eligibility.py               <- deterministic response-eligibility ruling
+│       ├── prompts.py                   <- drafting system prompt + tool schema
+│       ├── generator.py                 <- LLM call + output validation
+│       ├── safety.py                    <- deterministic forbidden-claim scanner
+│       └── engine.py                    <- decision table: eligibility + generation -> status
 ├── tests/
 │   ├── conftest.py                   <- FakeLLMClient test double + shared fixtures
 │   ├── test_classifier.py            <- Phase 3 validation-gate unit tests
@@ -67,10 +79,15 @@ meridian-commerce/
 │   ├── test_pipeline.py              <- Phase 3 dry-run / batch-processing unit tests
 │   ├── test_rules_engine.py          <- Phase 4 rule-engine logic tests
 │   ├── test_rules_database.py        <- Phase 4 DB query unit tests (mocked cursor)
-│   └── test_rules_pipeline.py        <- Phase 4 dry-run / live-mode protection tests
+│   ├── test_rules_pipeline.py        <- Phase 4 dry-run / live-mode protection tests
+│   ├── test_rules_metrics.py         <- Phase 4.1 corrected metric-definition tests
+│   ├── test_response_models.py       <- Phase 5 model invariants + safety scanner tests
+│   ├── test_response_engine.py       <- Phase 5 decision/eligibility/generation tests
+│   └── test_response_pipeline.py     <- Phase 5 dry-run / DB field-safety tests
 └── reports/
     ├── phase3_evaluation.md          <- Phase 3 methodology + actual results (or honest "not run" status)
-    └── phase4_evaluation.md          <- Phase 4 methodology + actual results (REAL/SIMULATED/NOT AVAILABLE labeled)
+    ├── phase4_evaluation.md          <- Phase 4 methodology + actual results (REAL/SIMULATED/NOT AVAILABLE labeled)
+    └── phase5_evaluation.md          <- Phase 5 methodology + actual results (same labeling discipline)
 ```
 
 ### Structure note (Phase 3)
@@ -406,6 +423,7 @@ Reads `decision_path`/`final_priority` back from the database. See
 "no AI classification exists yet," honestly reported) and a clearly-labeled
 simulated run showing the fuller range of behavior.
 
+---
 
 ## Phase 5: AI Support Decision & Response Layer
 
@@ -503,3 +521,164 @@ completed action or mentioning AI internals, and structural Pydantic
 invariants. The scanner is a pattern matcher, not semantic understanding —
 it catches plainly-worded violations and can miss paraphrased ones. It's a
 floor, not a guarantee. See `PHASE5_SUMMARY.md` §4.
+
+---
+
+# Phase 6 — Analytics & Monitoring
+
+Turns the operational system built in Phases 1–5 into a measurable one.
+**Phase 6 is strictly read-only**: it creates views and runs SELECTs, and
+never mutates a ticket, customer, or order record.
+
+## Architecture
+
+```
+PostgreSQL (operational tables — untouched)
+        │  SELECT only
+        ▼
+Analytical SQL Views      sql/09_phase6_analytics_views.sql
+        │
+        ▼
+Python Validation         src/evaluation/analytics.py
+   (independently re-derives every % and both medians)
+        │
+        ▼
+Power BI-ready layer  +  reports/phase6_evaluation.md
+```
+
+## Objectives
+
+1. Expose business and AI metrics as clean, importable SQL views.
+2. Validate those metrics independently in Python so a broken view is caught, not trusted.
+3. Report honestly which metrics are measurable today and which are not.
+4. Prepare a Power BI-consumable layer without fabricating a dashboard.
+
+## The SQL analytical layer
+
+| View | Grain | Covers |
+|---|---|---|
+| `vw_ticket_analytics` | **one row per ticket** | Ticket + customer + order fields, plus derived `delivery_delay_days`, `first_response_minutes`, `resolution_hours`, `rule_decision_hours`, `response_generation_hours`, `final_priority_score`, `recommended_action` |
+| `vw_classification_metrics` | single row | Phase 3 coverage, confidence stats, exact category match |
+| `vw_rule_decision_metrics` | single row | Phase 4 automated/human-review split, urgent human review, avg priority score |
+| `vw_response_metrics` | single row | Phase 5 status distribution and rates |
+| `vw_operational_metrics` | single row | First response / resolution / decision latency, mean **and** median |
+
+Apply and validate:
+
+```powershell
+psql -U meridian_app -d meridian_commerce -f sql\09_phase6_analytics_views.sql
+psql -U meridian_app -d meridian_commerce -f sql\10_phase6_validation.sql
+```
+
+### Metric definitions (denominators stated explicitly)
+
+| Metric | Numerator / Denominator |
+|---|---|
+| `classification_coverage_pct` | classified / **all tickets** |
+| `low_confidence_rate_pct` | confidence < 0.75 / tickets **with a confidence value** |
+| `exact_category_match_rate_pct` | prediction == ground truth / tickets **with a prediction** |
+| `automated_rate_pct` | Automated / tickets **with a Phase 4 decision** |
+| `human_review_rate_pct` | Human Review / tickets **with a Phase 4 decision** |
+| `urgent_human_review_rate_pct` | Human Review AND priority High/Urgent / tickets **with a decision** (Phase 4.1's definition, reused) |
+| `average_priority_score` | Low=0, Medium=1, High=2, Urgent=3 — the `config.py` `PRIORITY_ORDER` scale |
+| `response_processed_rate_pct` | processed / **all tickets** |
+| `draft/blocked/not_eligible/human_review_response_rate_pct` | status count / tickets **Phase 5 processed** |
+
+**NULL means NOT AVAILABLE, never 0.** Every rate uses
+`NULLIF(denominator, 0)`. With no AI predictions recorded, `0%` accuracy
+would read as "the classifier got everything wrong"; NULL correctly reads as
+"nothing has been classified".
+
+`tickets.category` is **ground truth**; `tickets.ai_predicted_category` is
+the **model prediction**. Their comparison becomes an accuracy-**style**
+backtest once real predictions exist — it is never validated production
+accuracy.
+
+## Python evaluation
+
+```powershell
+python -m src.pipeline analytics
+```
+
+Read-only by construction — the command has no `--live` flag because there is
+nothing for it to mutate. It reads the views, **independently recomputes**
+every percentage from the raw counts and both medians from the ticket-grain
+rows, and reports any disagreement, impossible value (e.g. urgent human
+review exceeding human review), broken partition, or out-of-range percentage.
+
+## Current results
+
+**Real data — operational layer** (AI-independent, so genuinely populated):
+
+| Metric | Value |
+|---|---|
+| Total tickets | 1,500 |
+| Tickets with first response | 1,410 |
+| Avg / median first response | 1,015.67 min / 753.60 min |
+| Resolved tickets | 1,139 |
+| Avg / median resolution | 50.27 h / 45.09 h |
+
+**NOT AVAILABLE** — all classification, rule-decision, and response metrics.
+Classification coverage is **0.00%** because no `ANTHROPIC_API_KEY` exists in
+this environment, so Phase 3 never classified a real ticket, so Phase 4 has
+nothing to rule on, so Phase 5 has nothing to respond to. Classification
+accuracy therefore cannot yet be evaluated. See
+`reports/phase6_evaluation.md`.
+
+## Testing
+
+```powershell
+pytest tests/ -q      # 160 passed
+```
+
+32 new tests cover percentage math, zero denominators, null handling, median
+interpolation (matching `PERCENTILE_CONT`), coverage/rate calculations, and
+count↔percentage consistency — including 14 that deliberately corrupt a
+snapshot to confirm the validator catches problems rather than just passing
+on good data.
+
+SQL validation (`sql/10_phase6_validation.sql`) confirms: all five views
+exist and query cleanly, no `ROUND()` type errors, no divide-by-zero, ticket
+grain is exactly one row per ticket (1500/1500, 0 duplicates), all count
+partitions hold, all percentages in range, no negative durations.
+
+## How to connect Power BI to PostgreSQL
+
+1. **Get Data → PostgreSQL database**. Server `localhost:5432`, Database `meridian_commerce`.
+2. Authenticate as `meridian_app`. For a real deployment, create a dedicated **read-only** role instead:
+   ```sql
+   CREATE ROLE powerbi_reader LOGIN PASSWORD '<choose-one>';
+   GRANT CONNECT ON DATABASE meridian_commerce TO powerbi_reader;
+   GRANT USAGE ON SCHEMA public TO powerbi_reader;
+   GRANT SELECT ON vw_ticket_analytics, vw_classification_metrics,
+                   vw_rule_decision_metrics, vw_response_metrics,
+                   vw_operational_metrics TO powerbi_reader;
+   ```
+   That role can read the analytical layer and nothing else — the same read-only guarantee, enforced by the database rather than by convention.
+3. Select the five `vw_*` views. Use **Import** mode for this data size; DirectQuery only if near-real-time matters.
+4. `vw_ticket_analytics` is the fact table; the four aggregate views are single-row KPI cards.
+5. Build a date table from `created_at` for time intelligence.
+
+> Power BI Desktop was **not** run and no `.pbix` file is included — what's
+> delivered is the Power BI-ready SQL layer plus this documentation.
+
+## Recommended dashboard pages
+
+| Page | Contents | Current state |
+|---|---|---|
+| **1 — Executive Overview** | Total tickets, automated rate, human review rate, classification coverage, response processing rate, avg first response, avg resolution | Operational KPIs live; AI KPIs show "Not available" |
+| **2 — AI Classification** | Coverage, confidence distribution, low-confidence rate, predicted vs. actual, per-category results | **Unavailable today** |
+| **3 — Rule Engine & Human Review** | Automated vs. human review, final priority distribution, urgent human review, human review by category and segment | Unavailable today |
+| **4 — AI Response Layer** | Response processing rate, DRAFT_GENERATED / HUMAN_REVIEW_DRAFT / BLOCKED / NOT_ELIGIBLE, response generation time | Unavailable today |
+| **5 — Operations** | First response, resolution, median vs. average, delivery delay, volume by channel / category / over time | **Fully populated** |
+
+For pages 2–4, use an explicit *"Data not available — AI pipeline has not
+been run"* card rather than charts of zeros. A bar chart of zeros is
+indistinguishable from a chart of failures.
+
+## Limitations
+
+- Four of five views have no data until an API key exists and Phases 3–5 run for real.
+- Views are query-time, not materialized — correct and always fresh, but a much larger table would want materialization plus a refresh schedule.
+- `vw_ticket_analytics` excludes `order_items`/`products` to protect ticket grain; product-level analysis needs its own order-item-grain view.
+- No historical snapshotting, so metric *drift* can't be reconstructed retroactively.
