@@ -1,5 +1,5 @@
 """
-Meridian Commerce — Phase 3: Configuration
+Meridian Commerce — Configuration (Phases 3–6)
 
 Loads all settings from environment variables (via a local .env file, never
 committed — see .gitignore). No credentials or connection details are
@@ -16,6 +16,21 @@ from dotenv import load_dotenv
 # environment variables take precedence and .env is typically absent.
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(PROJECT_ROOT / ".env")
+
+
+# --- LLM provider constants (OpenRouter, free routing only) ---
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+DEFAULT_OPENROUTER_MODEL = "openrouter/free"
+
+
+def is_free_openrouter_model(model) -> bool:
+    """True only for OpenRouter's free router or an explicit ':free' variant.
+    Mirrors src.ai.llm_client.is_free_openrouter_model (kept here too so
+    config has no dependency on the provider SDK)."""
+    if not model or not str(model).strip():
+        return False
+    model = str(model).strip()
+    return model == DEFAULT_OPENROUTER_MODEL or model.endswith(":free")
 
 
 def _get_bool(name: str, default: bool) -> bool:
@@ -83,15 +98,18 @@ class Config:
     db_port: str = field(default_factory=lambda: os.getenv("DB_PORT", "5432"))
     db_name: str = field(default_factory=lambda: os.getenv("DB_NAME", "meridian_commerce"))
     db_user: str = field(default_factory=lambda: os.getenv("DB_USER", "meridian_app"))
-    db_password: str = field(default_factory=lambda: os.getenv("DB_PASSWORD", ""))
+    db_password: str = field(default_factory=lambda: os.getenv("DB_PASSWORD", ""), repr=False)
 
     # --- LLM provider ---
+    # Provider: OpenRouter (OpenAI-compatible API, https://openrouter.ai/api/v1).
+    # The key is read ONLY from the environment / local .env and is excluded
+    # from repr() so it can never leak through a logged Config object.
     openrouter_api_key: str = field(
-        default_factory=lambda: os.getenv("OPENROUTER_API_KEY", "")
-    )
+        default_factory=lambda: os.getenv("OPENROUTER_API_KEY", ""), repr=False)
+    # Free routing only. "openrouter/free" lets OpenRouter pick a free model
+    # that supports the features the request needs (here: tool calling).
     model_name: str = field(
-    default_factory=lambda: os.getenv("MODEL_NAME", "openrouter/free")
-)
+        default_factory=lambda: os.getenv("MODEL_NAME", DEFAULT_OPENROUTER_MODEL))
     llm_max_tokens: int = field(default_factory=lambda: _get_int("LLM_MAX_TOKENS", 1024))
     llm_timeout_seconds: float = field(default_factory=lambda: _get_float("LLM_TIMEOUT_SECONDS", 30.0))
     llm_max_retries: int = field(default_factory=lambda: _get_int("LLM_MAX_RETRIES", 3))
@@ -150,10 +168,15 @@ class Config:
         LLM call. Called explicitly before any live API usage — never
         silently proceeds with missing credentials."""
         problems = []
-        if not self.anthropic_api_key:
+        if not self.openrouter_api_key or not self.openrouter_api_key.strip():
             problems.append(
-                "ANTHROPIC_API_KEY is not set. Set it in a local .env file "
+                "OPENROUTER_API_KEY is not set. Set it in a local .env file "
                 "(see .env.example) or as a real environment variable."
+            )
+        if not is_free_openrouter_model(self.model_name):
+            problems.append(
+                f"MODEL_NAME '{self.model_name}' is not a free OpenRouter model. "
+                f"Use {DEFAULT_OPENROUTER_MODEL} (or a model id ending in ':free')."
             )
         if not self.db_password:
             problems.append("DB_PASSWORD is not set.")

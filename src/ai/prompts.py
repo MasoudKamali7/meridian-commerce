@@ -52,8 +52,9 @@ def build_user_prompt(message_text: str) -> str:
     return f'Customer support message:\n"""\n{message_text}\n"""'
 
 
-# JSON Schema for the forced tool-use call (Anthropic "tool use" structured
-# output). Enums are declared here too, as a first line of defense — but the
+# JSON Schema for the forced tool/function call (OpenAI-compatible function
+# calling via OpenRouter; converted in llm_client._to_openai_tool). Enums are
+# declared here too, as a first line of defense — but the
 # authoritative check is still the Python-side Pydantic validation in
 # classifier.py, since a model can produce schema-shaped output with an
 # unexpected value regardless of the declared enum.

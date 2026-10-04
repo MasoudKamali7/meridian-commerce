@@ -1,8 +1,8 @@
 """Shared pytest fixtures for Phase 3 tests.
 
 `FakeLLMClient` is a test double implementing the same `LLMClient` interface
-`AnthropicLLMClient` does — this is the whole point of the abstraction in
-llm_client.py: tests never touch the real anthropic SDK or network.
+`OpenRouterLLMClient` does — this is the whole point of the abstraction in
+llm_client.py: tests never touch the real OpenAI SDK, OpenRouter, or network.
 """
 
 import logging

@@ -4,8 +4,11 @@ pandas==3.0.2
 numpy==2.4.4
 psycopg2-binary==2.9.13
 
-# Phase 3 (AI classification pipeline)
-anthropic==1.5.0
+# Phase 3+ (AI classification / response pipeline)
+# LLM provider: OpenRouter, via its OpenAI-compatible API (OpenAI Python SDK).
+# Pinned to the last 2.x release. It replaces the previous provider SDK, which
+# is no longer imported anywhere.
+openai==2.54.0
 python-dotenv==1.2.2
 pydantic==2.13.5
 scikit-learn==1.8.0

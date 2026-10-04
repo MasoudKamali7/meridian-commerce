@@ -16,7 +16,7 @@ SENT = -0.7
 
 
 class FakeResponseLLMClient:
-    """Implements the same interface AnthropicLLMClient does (Phase 3's
+    """Implements the same interface OpenRouterLLMClient does (Phase 3's
     abstraction), returning a canned tool_input or raising a canned error."""
 
     def __init__(self, tool_input=None, error=None):

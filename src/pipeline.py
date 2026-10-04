@@ -44,7 +44,7 @@ import time
 from pathlib import Path
 
 from .ai.classifier import TicketClassifier
-from .ai.llm_client import OpenRouterLLMClient, LLMAuthError
+from .ai.llm_client import OpenRouterLLMClient, LLMAuthError, LLMConfigError
 from .config import load_config
 from .database.connection import get_connection
 from .database.tickets import (
@@ -164,13 +164,13 @@ def run_classify(config, logger, limit: int, live: bool):
             sys.exit(1)
 
     try:
-    llm_client = OpenRouterLLMClient(
-        api_key=config.openrouter_api_key,
-        model=config.model_name,
-        max_tokens=config.llm_max_tokens,
-        timeout_seconds=config.llm_timeout_seconds,
-        max_retries=config.llm_max_retries,
-    )
+        llm_client = OpenRouterLLMClient(
+            api_key=config.openrouter_api_key,
+            model=config.model_name,
+            max_tokens=config.llm_max_tokens,
+            timeout_seconds=config.llm_timeout_seconds,
+            max_retries=config.llm_max_retries,
+        )
     except LLMAuthError as e:
         logger.error(f"Cannot start: {e}", extra={"event": "config_error"})
         print(f"\nCannot start classification run: {e}")
@@ -420,18 +420,18 @@ def run_respond(config, logger, limit: int, live: bool):
     if config.openrouter_api_key:
         try:
             llm_client = OpenRouterLLMClient(
-    api_key=config.openrouter_api_key,
-    model=config.model_name,
-    max_tokens=config.llm_max_tokens,
-    timeout_seconds=config.llm_timeout_seconds,
-    max_retries=config.llm_max_retries,
-)
+                api_key=config.openrouter_api_key,
+                model=config.model_name,
+                max_tokens=config.llm_max_tokens,
+                timeout_seconds=config.llm_timeout_seconds,
+                max_retries=config.llm_max_retries,
+            )
             generator = ResponseGenerator(llm_client)
-        except LLMAuthError as e:
+        except (LLMAuthError, LLMConfigError) as e:
             logger.error(f"LLM client unavailable: {e}", extra={"event": "config_error"})
     else:
         logger.warning(
-            "No ANTHROPIC_API_KEY configured — running the response layer in "
+            "No OPENROUTER_API_KEY configured — running the response layer in "
             "decision-only mode (eligibility and routing are real; no drafts will be generated).",
             extra={"event": "config_warning"},
         )
