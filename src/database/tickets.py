@@ -88,6 +88,30 @@ def count_classified(conn) -> int:
         return cur.fetchone()["n"]
 
 
+def count_classification_backlog(conn) -> dict:
+    """Return the current Phase 3 coverage/backlog counts.
+
+    This is read-only and intentionally counts persisted predictions only.
+    Dry-run classifications are not included because they do not write
+    ai_predicted_category.
+    """
+    query = """
+        SELECT
+            COUNT(*) AS total_tickets,
+            COUNT(ai_predicted_category) AS classified_tickets,
+            COUNT(*) - COUNT(ai_predicted_category) AS unclassified_tickets
+        FROM tickets;
+    """
+    with get_cursor(conn) as cur:
+        cur.execute(query)
+        row = cur.fetchone()
+    return {
+        "total_tickets": row["total_tickets"],
+        "classified_tickets": row["classified_tickets"],
+        "unclassified_tickets": row["unclassified_tickets"],
+    }
+
+
 # ----------------------------------------------------------------------------
 # Phase 4: Business-rule engine support
 # ----------------------------------------------------------------------------

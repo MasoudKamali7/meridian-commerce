@@ -48,6 +48,7 @@ from .ai.llm_client import OpenRouterLLMClient, LLMAuthError, LLMConfigError
 from .config import load_config
 from .database.connection import get_connection
 from .database.tickets import (
+    count_classification_backlog,
     count_classified,
     count_phase4_decided,
     count_phase5_processed,
@@ -180,10 +181,15 @@ def run_classify(config, logger, limit: int, live: bool):
     classifier = TicketClassifier(llm_client)
 
     with get_connection(config) as conn:
+        backlog_before = count_classification_backlog(conn)
         tickets = fetch_ticket_batch(conn, limit=limit)
         logger.info(f"Fetched {len(tickets)} tickets to classify",
                     extra={"event": "batch_fetched"})
         summary = classify_batch(conn, classifier, tickets, dry_run, logger)
+        backlog_after = count_classification_backlog(conn)
+
+    summary["classification_backlog_before"] = backlog_before
+    summary["classification_backlog_after"] = backlog_after
 
     input_price = os.getenv("INPUT_TOKEN_PRICE_PER_MILLION")
     output_price = os.getenv("OUTPUT_TOKEN_PRICE_PER_MILLION")

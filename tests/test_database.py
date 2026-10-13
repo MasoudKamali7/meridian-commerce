@@ -68,3 +68,22 @@ def test_fetch_evaluation_data_only_returns_classified_tickets():
 
     executed_sql = mock_cursor.execute.call_args[0][0]
     assert "WHERE ai_predicted_category IS NOT NULL" in executed_sql
+
+
+def test_count_classification_backlog_reports_persisted_coverage_only():
+    mock_conn, mock_cursor = make_mock_conn(fetchone_return={
+        "total_tickets": 1500,
+        "classified_tickets": 3,
+        "unclassified_tickets": 1497,
+    })
+
+    result = tickets.count_classification_backlog(mock_conn)
+
+    executed_sql = mock_cursor.execute.call_args[0][0]
+    assert "COUNT(ai_predicted_category) AS classified_tickets" in executed_sql
+    assert "COUNT(*) - COUNT(ai_predicted_category) AS unclassified_tickets" in executed_sql
+    assert result == {
+        "total_tickets": 1500,
+        "classified_tickets": 3,
+        "unclassified_tickets": 1497,
+    }

@@ -325,6 +325,13 @@ oversight — see `PHASE3_SUMMARY.md`.
 python -m src.pipeline classify --limit 10
 ```
 
+The JSON output includes `classification_backlog_before` and
+`classification_backlog_after`, counted from persisted database fields. In a
+dry run those counts should be unchanged; in a live run, `classified_tickets`
+only increases for validated successful predictions that were actually
+written. This is the safest way to track a long backlog without mistaking a
+small pilot sample for full coverage.
+
 ### Example: batch-processing command (writes to the database)
 
 ```powershell
