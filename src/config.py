@@ -37,7 +37,16 @@ def _get_bool(name: str, default: bool) -> bool:
     val = os.getenv(name)
     if val is None:
         return default
-    return val.strip().lower() in ("1", "true", "yes", "on")
+
+    normalized = val.strip().lower()
+    if normalized in ("1", "true", "yes", "on"):
+        return True
+    if normalized in ("0", "false", "no", "off"):
+        return False
+    raise ValueError(
+        f"Invalid boolean value for {name}: {val!r}. "
+        "Use true/false, 1/0, yes/no, or on/off."
+    )
 
 
 def _get_int(name: str, default: int) -> int:
