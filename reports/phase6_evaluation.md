@@ -8,6 +8,8 @@ Metrics whose population is empty are reported as **NOT AVAILABLE**, never as
 `0` — the distinction between "measured zero" and "nothing ran to measure"
 is the point of this report.
 
+> **Status update (2026-10-13).** Section 3 and the NOT AVAILABLE findings below are the values from 2026-09-17 and are kept as the historical record. Current values (all read from the executed Phase 6 views): coverage 0.20% (3 of 1,500); average confidence 0.8667; exact category match 100.00% on 3 samples (an accuracy-style backtest, not production accuracy); automated 0.07%, human review 99.93%, High/Urgent human review 3.13%; 3 responses processed (draft generation 33.33%, blocked 0.00%); operational metrics unchanged (1,410 first responses, 1,139 resolved). The human-review rate is mostly a consequence of missing classifications: rule `missing_classification` fired on 1,497 of the 1,499 human-review tickets. Provider note: the project now uses OpenRouter, not Anthropic. See `meridian_powerbi_dashboard_pack/docs/validation_report.md`.
+
 ---
 
 ## 1. What Was Measured

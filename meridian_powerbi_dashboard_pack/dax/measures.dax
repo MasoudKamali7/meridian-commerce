@@ -1,0 +1,278 @@
+-- ============================================================================
+-- Meridian Commerce - Power BI measures
+-- Home table: KPI_Measures (a blank helper table; hide its Column1)
+--
+-- SECTION A  = measures that exist in the dashboard (3 pages). Logic is exactly
+--              what the PBIX uses; the NAMES below are the intended names.
+-- SECTION B  = optional extended measures (NOT used by the current report).
+-- SECTION C  = optional dynamic text (shown in a Card visual).
+--
+-- Mapping to SQL (sql/09_phase6_analytics_views.sql):
+--   Classification Coverage %          = classification_coverage_pct
+--   Human Review Rate %                = human_review_rate_pct
+--   Automated Rate %                   = automated_rate_pct
+--   High/Urgent Human Review Rate %    = urgent_human_review_rate_pct
+--        ("urgent" in the SQL name means final_priority High OR Urgent)
+-- ============================================================================
+
+
+-- ============================================================================
+-- SECTION A - IMPLEMENTED IN THE DASHBOARD
+-- ============================================================================
+
+-- Model objects (not measures) the dashboard relies on:
+--
+--   Calculated column on Tickets:
+--     Created Date =
+--         DATE(YEAR(Tickets[created_at]), MONTH(Tickets[created_at]), DAY(Tickets[created_at]))
+--
+--   Calculated table (mark as date table; relate Date[Date] -> Tickets[Created Date],
+--   one-to-many, single direction, active):
+--     Date =
+--         CALENDAR(
+--             DATEVALUE(MIN(Tickets[created_at])),
+--             DATEVALUE(MAX(Tickets[created_at]))
+--         )
+--     (Equivalent and simpler: CALENDAR(MIN(Tickets[Created Date]), MAX(Tickets[Created Date])))
+--
+--   The four single-row summary views are loaded as disconnected tables
+--   ('public vw_*_metrics'). No relationship to or between them.
+
+Total Tickets =
+COUNTROWS(Tickets)
+-- One row per ticket (grain verified: 1,500 rows, 1,500 distinct ticket_id).
+-- Format: whole number with thousands separator (#,0).
+
+Classified Tickets =
+CALCULATE(
+    COUNTROWS(Tickets),
+    NOT ISBLANK(Tickets[ai_predicted_category])
+)
+-- Relies on missing predictions being true NULLs (verified: 1,497 NULL, 0 empty strings).
+-- If a future load writes '' instead of NULL, ISBLANK would be FALSE and this would over-count.
+
+Classification Coverage % =
+DIVIDE(
+    [Classified Tickets],
+    [Total Tickets],
+    0
+)
+-- Denominator: ALL tickets (SQL policy: coverage is genuinely 0.00% when nothing is classified).
+
+Human Review Rate % =
+DIVIDE(
+    CALCULATE(COUNTROWS(Tickets), Tickets[decision_path] = "Human Review"),
+    CALCULATE(COUNTROWS(Tickets), NOT ISBLANK(Tickets[decision_path])),
+    0
+)
+-- Denominator: tickets WITH a rule decision. Currently 1,499 / 1,500 = 99.93%.
+-- NOTE: CALCULATE replaces any filter on decision_path, so clicking a decision_path
+--       bar does not change this card. The report disables that interaction.
+
+Automated Rate % =
+DIVIDE(
+    CALCULATE(COUNTROWS(Tickets), Tickets[decision_path] = "Automated"),
+    CALCULATE(COUNTROWS(Tickets), NOT ISBLANK(Tickets[decision_path])),
+    0
+)
+-- Currently 1 / 1,500 = 0.07%.
+
+High/Urgent Human Review Rate % =
+DIVIDE(
+    CALCULATE(
+        COUNTROWS(Tickets),
+        Tickets[decision_path] = "Human Review",
+        Tickets[final_priority] IN {"High", "Urgent"}
+    ),
+    CALCULATE(COUNTROWS(Tickets), NOT ISBLANK(Tickets[decision_path])),
+    0
+)
+-- Phase 4.1 definition (Human Review AND final_priority High/Urgent), denominator = decided tickets.
+-- Currently 47 / 1,500 = 3.13%. Do NOT confuse with the Urgent-only count below (1 = 0.07%).
+
+Urgent-Only Human Review Count =
+CALCULATE(
+    COUNTROWS(Tickets),
+    Tickets[decision_path] = "Human Review",
+    Tickets[final_priority] = "Urgent"
+)
+-- Count of Urgent-only tickets (currently 1). Not shown on any page; keep only if you need it.
+
+-- FORMAT STRINGS used in the PBIX: rates "0.00 %" (percentage, 2 decimals); counts "0".
+-- Recommended: counts "#,0" so 1500 displays as 1,500.
+-- OPTIONAL ALIGNMENT WITH THE SQL "NULL = NOT AVAILABLE" POLICY: the three DIVIDE(...,0)
+-- rate measures return 0.00% for an empty slice. Remove the third DIVIDE argument to return
+-- BLANK instead (affects only slices with no decided tickets; today's values are unchanged).
+
+
+-- ============================================================================
+-- SECTION B - OPTIONAL EXTENDED MEASURES (not used by the current 3-page report)
+-- ============================================================================
+
+-- Operations ------------------------------------------------------------------
+Tickets With First Response =
+COUNT(Tickets[first_response_at])
+
+Tickets With Resolution Timestamp =
+COUNT(Tickets[resolved_at])
+-- = SQL resolved_tickets (COUNT(resolved_at)). Includes tickets whose status is now Reopened
+-- (76 today) and excludes one ticket with status Resolved but no timestamp. Not the same as
+-- status IN ('Resolved','Closed') = 1,064.
+
+Resolution Timestamp Rate % =
+DIVIDE([Tickets With Resolution Timestamp], [Total Tickets])
+
+Avg First Response Minutes =
+AVERAGE(Tickets[first_response_minutes])
+
+Median First Response Minutes =
+MEDIAN(Tickets[first_response_minutes])
+
+Avg Resolution Hours =
+AVERAGE(Tickets[resolution_hours])
+
+Median Resolution Hours =
+MEDIAN(Tickets[resolution_hours])
+-- MEDIAN interpolates, matching PERCENTILE_CONT(0.5) in vw_operational_metrics.
+
+-- AI classification (do not put quality metrics on a page until coverage is meaningful) --
+Unclassified Tickets =
+[Total Tickets] - [Classified Tickets]
+
+Avg Classification Confidence =
+AVERAGE(Tickets[classification_confidence])
+-- Model self-reported confidence, not calibrated probability. 3 samples today.
+
+Confidence Available Tickets =
+CALCULATE([Total Tickets], NOT ISBLANK(Tickets[classification_confidence]))
+
+Low Confidence Tickets =
+CALCULATE(
+    [Total Tickets],
+    NOT ISBLANK(Tickets[classification_confidence]),
+    Tickets[classification_confidence] < 0.75
+)
+
+Low Confidence Rate % =
+DIVIDE([Low Confidence Tickets], [Confidence Available Tickets])
+
+Exact Category Matches =
+CALCULATE(
+    [Total Tickets],
+    FILTER(
+        Tickets,
+        NOT ISBLANK(Tickets[ai_predicted_category])
+            && Tickets[ai_predicted_category] = Tickets[ground_truth_category]
+    )
+)
+
+Exact Category Match Rate % =
+DIVIDE([Exact Category Matches], [Classified Tickets])
+-- Accuracy-STYLE backtest against synthetic seed labels. 100% on 3 samples proves nothing.
+-- Never show without the sample size and never describe as production accuracy.
+
+Exact Category Match Label =
+VAR MatchRate = [Exact Category Match Rate %]
+VAR Samples   = [Classified Tickets]
+RETURN
+IF(
+    ISBLANK(MatchRate),
+    "Not available",
+    FORMAT(MatchRate, "0.00%") & " on " & FORMAT(Samples, "#,0") & " classified sample(s)"
+)
+
+AI Quality Caveat =
+"Accuracy-style backtest against synthetic seed labels; not validated production accuracy."
+
+-- Rules -----------------------------------------------------------------------
+Tickets With Rule Decision =
+CALCULATE([Total Tickets], NOT ISBLANK(Tickets[decision_path]))
+
+Automated Decisions =
+CALCULATE([Total Tickets], Tickets[decision_path] = "Automated")
+
+Human Review Decisions =
+CALCULATE([Total Tickets], Tickets[decision_path] = "Human Review")
+
+High/Urgent Human Review Tickets =
+CALCULATE(
+    [Total Tickets],
+    Tickets[decision_path] = "Human Review",
+    Tickets[final_priority] IN {"High", "Urgent"}
+)
+-- Numerator of High/Urgent Human Review Rate % (47 today). Renamed from "Urgent Human Review".
+
+Average Priority Score =
+AVERAGE(Tickets[final_priority_score])
+-- Low=0, Medium=1, High=2, Urgent=3 (src/config.py PRIORITY_ORDER). 1.033 today.
+
+-- Responses ---------------------------------------------------------------------
+Response Processed =
+CALCULATE([Total Tickets], NOT ISBLANK(Tickets[response_status]))
+
+Response Not Processed =
+[Total Tickets] - [Response Processed]
+-- "Never reached by Phase 5" (response_status NULL). Distinct from NOT_ELIGIBLE (a Phase 5 ruling).
+
+Response Processed Rate % =
+DIVIDE([Response Processed], [Total Tickets])
+
+Drafts Generated =
+CALCULATE([Total Tickets], Tickets[response_status] = "DRAFT_GENERATED")
+
+Human Review Drafts =
+CALCULATE([Total Tickets], Tickets[response_status] = "HUMAN_REVIEW_DRAFT")
+
+Blocked Responses =
+CALCULATE([Total Tickets], Tickets[response_status] = "BLOCKED")
+
+Not Eligible Responses =
+CALCULATE([Total Tickets], Tickets[response_status] = "NOT_ELIGIBLE")
+
+Draft Generation Rate % =
+DIVIDE([Drafts Generated], [Response Processed])
+
+Human Review Response Rate % =
+DIVIDE([Human Review Drafts], [Response Processed])
+
+Blocked Rate % =
+DIVIDE([Blocked Responses], [Response Processed])
+
+Not Eligible Rate % =
+DIVIDE([Not Eligible Responses], [Response Processed])
+
+-- DO NOT DISPLAY (kept for completeness) ------------------------------------------
+-- These are batch-run artefacts: rule decisions and responses were written in
+-- Sept-Oct 2026 for tickets created from 2022, so the "hours" are meaningless (~6,862 h and
+-- ~13,339 h on average). They are not latency measurements.
+Avg Rule Decision Hours =
+AVERAGE(Tickets[rule_decision_hours])
+
+Avg Response Generation Hours =
+AVERAGE(Tickets[response_generation_hours])
+
+
+-- ============================================================================
+-- SECTION C - OPTIONAL DYNAMIC TEXT (show in a Card visual; text boxes cannot bind measures)
+-- Replaces hard-coded text such as "3 of 1,500", which goes stale after a refresh.
+-- ============================================================================
+
+AI Coverage Warning =
+VAR Classified = [Classified Tickets]
+VAR Total      = [Total Tickets]
+RETURN
+IF(
+    Classified < 30,
+    "AI sample size is very small: " & FORMAT(Classified, "#,0") & " of " & FORMAT(Total, "#,0")
+        & " tickets. Not enough to claim validated accuracy.",
+    BLANK()
+)
+
+Routing Context Note =
+VAR Unclassified = [Total Tickets] - [Classified Tickets]
+RETURN
+"Human-review routing is a rule-engine outcome: a ticket with no AI classification is always routed to human review. "
+    & FORMAT(Unclassified, "#,0") & " of " & FORMAT([Total Tickets], "#,0")
+    & " tickets have no AI classification."
+-- Backed by rule "missing_classification" (src/rules/rules.py): it forces Human Review
+-- whenever ai_predicted_category is NULL (fired on 1,497 of the 1,499 human-review tickets).

@@ -4,6 +4,8 @@
 **Phase:** 6
 **Status:** Complete. 160/160 tests passing (32 new + all 128 from Phases 3–5, unmodified). Five read-only analytical views created and validated against the live database. **Zero operational data mutated.**
 
+> **Status update (2026-10-13).** The text below is the historical Phase 6 record, written when no classification, rule-decision or response data existed. That is no longer true: 3 tickets have since been classified live, the rule engine has decided all 1,500 tickets (Human Review 1,499, Automated 1), and 3 responses were processed. A three-page Power BI dashboard now exists (see `meridian_powerbi_dashboard_pack/`). The test suite is now **226 passing** (160 at the time of this phase). `python -m src.pipeline analytics` reports 0 issues. Statements below such as "no `.pbix`", "four of five views have no data", "NOT AVAILABLE" for classification/rule/response rates, and "no `ANTHROPIC_API_KEY`" (the project now uses OpenRouter) describe the earlier state. Current values and the reconciliation evidence are in `meridian_powerbi_dashboard_pack/docs/data_dictionary.md` and `docs/validation_report.md`.
+
 ---
 
 ## 1. Pre-Work: Repository & Schema Inspection
