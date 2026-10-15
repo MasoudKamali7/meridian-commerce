@@ -59,12 +59,12 @@ A three-page Power BI report built on the Phase 6 views (Import mode, PostgreSQL
 | **AI Classification** | Classified tickets, coverage, categories of the pilot sample, final-priority distribution, and an explicit sample-size limitation notice. No accuracy, match-rate or confidence figure is shown on purpose |
 | **Operational Performance** | First response (average / median), average resolution time, tickets with a resolution timestamp, rule decisions, responses generated, response-status and resolution-type charts |
 
-**Current data state (verified 2026-10-13):** 1,500 tickets; 3 classified (0.20% coverage); 1,499 routed to human review (99.93%), 1 automated (0.07%); 47 High/Urgent human-review tickets (3.13%); 3 responses processed; 1,410 tickets with a first response (avg 1,015.67 min, median 753.60 min); 1,139 with a resolution timestamp (avg 50.27 h, median 45.09 h).
+**Latest reported data state (2026-10-15):** 1,500 tickets; 100 classified (6.67% coverage); 1,499 routed to human review (99.93%), 1 automated (0.07%); 47 High/Urgent human-review tickets (3.13%); 3 responses processed; 1,410 tickets with a first response (avg 1,015.67 min, median 753.60 min); 1,139 with a resolution timestamp (avg 50.27 h, median 45.09 h). The user ran `python -m src.pipeline analytics`; it reported `issues_found: 0`. The Power BI `.pbix` remains a 2026-10-13 snapshot and must be refreshed separately.
 
 **How to read it honestly**
 
-- **AI quality is not measured.** Only 3 of 1,500 tickets carry an AI prediction, so no accuracy claim is possible. `exact_category_match_rate_pct` (100% on 3 samples) is deliberately not shown.
-- **The 99.93% human-review rate is mostly a consequence of missing classifications, not a finding about routing quality.** Rule `missing_classification` forces Human Review for any ticket without an AI category; it fired on 1,497 of the 1,499 human-review tickets.
+- **AI quality is not validated for production.** 100 of 1,500 tickets carry an AI prediction. The 95.0% exact-category match is an accuracy-style backtest against synthetic seed labels, not validated production accuracy, and is deliberately not shown as an accuracy claim.
+- **The 99.93% human-review rate is mostly a consequence of missing classifications, not a finding about routing quality.** Rule `missing_classification` forces Human Review for any ticket without an AI category; it fired on 1,400 of the 1,499 human-review tickets.
 - **High priority is mostly the VIP high-value-order rule.** 45 of the 47 High/Urgent human-review tickets are unclassified tickets raised to High by that rule; the other 2 are AI-classified tickets.
 - **Timing metrics describe synthetic history**, not AI impact. `rule_decision_hours` and `response_generation_hours` are not shown: decisions were written in 2026 for tickets created from 2022, so those durations are batch-run artefacts.
 
@@ -354,7 +354,7 @@ for the full methodology and — honestly — the current status of real results
 in the environment this project was built in (short version: the pipeline
 and all its validation/error-handling/dry-run logic were built and verified
 end-to-end, but no LLM credential was available when that report was written;
-the project has since moved to OpenRouter and a 3-ticket live pilot exists — see
+the project has since moved to OpenRouter and a 100-ticket live pilot exists — see
 Phase 6 below for current results).
 
 ### Running the tests
@@ -638,15 +638,16 @@ every percentage from the raw counts and both medians from the ticket-grain
 rows, and reports any disagreement, impossible value (e.g. urgent human
 review exceeding human review), broken partition, or out-of-range percentage.
 
-## Current results (as of 2026-10-13)
+## Latest reported results (2026-10-15)
 
-The original Phase 6 report was written when no AI, rule-engine or response data existed. That state has changed: 3 tickets were classified live, the rule engine was run live over all 1,500 tickets, and 3 responses were processed. `python -m src.pipeline analytics` reports **0 issues** against this state.
+The original Phase 6 report was written when no AI, rule-engine or response data existed. Since then, 100 tickets were classified live, the rule engine was run live over all 1,500 tickets, and 3 responses were processed. The user-reported `python -m src.pipeline analytics` run on 2026-10-15 reports **0 issues**. Rule, response, and operational values below remain as in the 2026-10-13 snapshot; refresh against the database before treating those values as current.
 
 | Layer | Metric | Value |
 |---|---|---|
-| Classification | Classified / coverage | 3 of 1,500 / 0.20% |
-| Classification | Average confidence | 0.8667 (3 samples; not evidence of quality) |
-| Classification | Exact category match | 100.0% on 3 samples — accuracy-*style* backtest against synthetic labels, **not** production accuracy |
+| Classification | Classified / coverage | 100 of 1,500 / 6.67% |
+| Classification | Average confidence | 0.9018 (100 samples; not evidence of production quality) |
+| Classification | Low-confidence rate | 1.00% |
+| Classification | Exact category match | 95.0% on 100 samples — accuracy-*style* backtest against synthetic labels, **not** production accuracy |
 | Rules | Tickets with a decision | 1,500 |
 | Rules | Automated / human review | 0.07% (1) / 99.93% (1,499) |
 | Rules | High/Urgent human review (`urgent_human_review_rate_pct`) | 3.13% (47) |
@@ -654,7 +655,7 @@ The original Phase 6 report was written when no AI, rule-engine or response data
 | Operations | First response: tickets / avg / median | 1,410 / 1,015.67 min / 753.60 min |
 | Operations | Resolved (has `resolved_at`): tickets / avg / median | 1,139 / 50.27 h / 45.09 h |
 
-Interpretation limits: with 3 classified tickets, AI quality cannot be evaluated. The 99.93% human-review rate is mostly the `missing_classification` rule firing on unclassified tickets. `resolved_tickets` counts tickets with a `resolved_at` timestamp, which includes tickets whose status is now `Reopened`.
+Interpretation limits: 100 predictions are a small pilot, and the labels are synthetic; no production accuracy or business-impact claim is supported. The 99.93% human-review rate is mostly the `missing_classification` rule firing on unclassified tickets. `resolved_tickets` counts tickets with a `resolved_at` timestamp, which includes tickets whose status is now `Reopened`.
 
 ## Testing
 
@@ -698,7 +699,7 @@ Do not chart AI quality, match rate or confidence on any page until classificati
 
 ## Limitations
 
-- AI classification covers 0.20% of tickets, so no AI quality or business-impact claim is supportable yet.
+- AI classification covers 6.67% of tickets. The 100-sample match figure is only a backtest against synthetic labels; no production-quality or business-impact claim is supportable.
 - The dashboard's headline routing numbers are driven by missing classifications (see **Power BI Dashboard**).
 - Views are query-time, not materialized: correct and always fresh, but a much larger table would want materialization plus a refresh schedule.
 - `vw_ticket_analytics` excludes `order_items`/`products` to protect ticket grain; product-level analysis needs its own order-item-grain view.

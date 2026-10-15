@@ -1,2 +1,2 @@
 total_tickets,classified_tickets,classification_coverage_pct,average_confidence,low_confidence_rate_pct,exact_category_match_rate_pct,note
-1500,3,0.2,0.8667,0.0,100.0,"Accuracy-style backtest against synthetic seed labels on 3 samples; not validated production accuracy."
+1500,100,6.67,0.9018,1.0,95.0,"Accuracy-style backtest against synthetic seed labels on 100 samples; not validated production accuracy."

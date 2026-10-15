@@ -71,18 +71,18 @@ Use this exact meaning in titles and tooltips:
 - Operational timing metrics: synthetic historical support data, not AI improvement.
 - Human-review routing: a rule-engine outcome that is dominated by tickets with no AI classification.
 
-## 6. QA checklist (values verified 2026-10-13)
+## 6. QA checklist (latest reported values: 2026-10-15)
 
 Executive Overview
 
-- Total Tickets 1,500; Classified Tickets 3; Classification Coverage 0.20%.
+- Total Tickets 1,500; Classified Tickets 100; Classification Coverage 6.67% after refreshing the PBIX data.
 - Tickets Routed to Human Review 99.93%; High/Urgent Tickets Routed to Human Review 3.13%; Tickets Routed Automatically 0.07%.
 - Decision chart: Human Review 1,499, Automated 1. Original-priority chart: Low 472, Medium 442, High 392, Urgent 194.
 - Each card shows the **title** you expect, not a measure name that says something else. In particular the 99.93% card must be backed by a measure named `Human Review Rate %`, and no measure named "Urgent-Only..." may hold a rate formula.
 
 AI Classification
 
-- Classified Tickets 3; Coverage 0.20%; three category bars of 1; Final Priority: Medium 1,452, High 47, Urgent 1.
+- Classified Tickets 100; Coverage 6.67%; category bars should total 100 after refreshing the PBIX data; Final Priority values below are from the older imported snapshot and should be refreshed from the live views.
 - The limitation text is visible; no accuracy, match-rate or confidence figure appears.
 
 Operational Performance

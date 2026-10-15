@@ -12,8 +12,8 @@ Slicers: Date (`Date[Date]`, saved range = full data range 2022-02-05 to 2026-06
 
 | Visual | Field / measure | Notes |
 |---|---|---|
-| Card: Classified Tickets | `[Classified Tickets]` | 3 |
-| Card: Classification Coverage % | `[Classification Coverage %]` | 0.20% |
+| Card: Classified Tickets | `[Classified Tickets]` | 100 in latest reported DB state; refresh PBIX |
+| Card: Classification Coverage % | `[Classification Coverage %]` | 6.67% in latest reported DB state; refresh PBIX |
 | Card: Total Tickets | `[Total Tickets]` | 1,500 |
 | Card: Tickets Routed to Human Review | `[Human Review Rate %]` | 99.93%, denominator = tickets with a rule decision |
 | Card: High/Urgent Tickets Routed to Human Review | `[High/Urgent Human Review Rate %]` | 3.13% of decided tickets; this is the SQL `urgent_human_review_rate_pct` |
@@ -31,13 +31,13 @@ Purpose: show AI coverage and the size of the pilot sample, nothing more.
 | Visual | Field / measure | Notes |
 |---|---|---|
 | Header subtitle | text | "AI Classification Coverage (Pilot Sample Only)" |
-| Card: Classified Tickets | `[Classified Tickets]` | 3 |
-| Card: Classification Coverage % | `[Classification Coverage %]` | 0.20% |
-| Chart: AI-Predicted Categories (3-Ticket Pilot Sample) | `Tickets[ai_predicted_category]` x `[Total Tickets]` | Blank category filtered out; three bars of 1 |
+| Card: Classified Tickets | `[Classified Tickets]` | 100 in latest reported DB state; refresh PBIX |
+| Card: Classification Coverage % | `[Classification Coverage %]` | 6.67% in latest reported DB state; refresh PBIX |
+| Chart: AI-Predicted Categories (100-Ticket Pilot Sample) | `Tickets[ai_predicted_category]` x `[Total Tickets]` | Blank category filtered out; counts should sum to 100 after refresh |
 | Chart: Final Priority Distribution | `Tickets[final_priority]` x `[Total Tickets]` | Rule-engine output, not an AI prediction: Medium 1,452 / High 47 / Urgent 1 |
 | Text: Classification data limitation | static text | Required |
 
-Deliberately **not shown**: exact category match rate (100% on 3 samples), average confidence, any "accuracy" wording.
+Deliberately **not shown**: exact category match rate (95% on 100 synthetic-label samples), average confidence, any "accuracy" wording.
 
 ## Page 3: Operational Performance
 

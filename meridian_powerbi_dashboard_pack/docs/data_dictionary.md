@@ -38,8 +38,8 @@ Do not join order line items into this fact table. Orders can have many line ite
 | `created_at`, `Created Date` | Creation timestamp; date-only copy used for the `Date` relationship | Date slicer |
 | `channel` | Support channel (Email 581, Chat 531, Phone 234, Contact Form 85, Social Media 69) | Slicer |
 | `ground_truth_category` | Historical seed category (synthetic label) | Not on any page |
-| `ai_predicted_category` | Model prediction; NULL for 1,497 tickets | Coverage, AI page |
-| `classification_confidence` | Model self-reported confidence 0-1; 3 values | Not on any page |
+| `ai_predicted_category` | Model prediction; NULL for 1,400 tickets in the latest reported state | Coverage, AI page |
+| `classification_confidence` | Model self-reported confidence 0-1; 100 values in the latest reported state | Not on any page |
 | `original_priority` | Priority in the seed data | Executive Overview chart |
 | `final_priority` | Priority computed by the Phase 4 rule engine | AI page chart, High/Urgent rate |
 | `final_priority_score` | Low=0, Medium=1, High=2, Urgent=3 | Not on any page |
@@ -63,8 +63,8 @@ Rate denominators (from `sql/09_phase6_analytics_views.sql`):
 
 ## Caveats you must keep when presenting
 
-1. **AI sample size.** 3 classified tickets (ids 1-3). No AI quality claim is supportable.
-2. **Human-review rate is mostly a missing-classification effect.** Rule `missing_classification` forces Human Review for any ticket without an AI category; it fired on 1,497 of the 1,499 human-review tickets. The only Automated ticket is one of the 3 classified.
+1. **AI sample size and labels.** 100 classified tickets (latest reported state). The exact-category match is 95% against synthetic seed labels, not validated production accuracy.
+2. **Human-review rate is mostly a missing-classification effect.** Rule `missing_classification` forces Human Review for any ticket without an AI category; it fired on 1,400 unclassified tickets. The only Automated ticket is among the classified tickets.
 3. **High priority is mostly the VIP high-value-order rule.** 45 of the 47 High/Urgent human-review tickets are unclassified tickets raised to High by the rule "VIP customer with order value of 450 or more". The other 2 are AI-classified tickets.
 4. **`resolved_tickets` counts `resolved_at`.** It includes 76 tickets whose status is now `Reopened` and misses one `Resolved` ticket with no timestamp. Status `Resolved` + `Closed` is 1,064.
 5. **Original vs final priority differ a lot.** Original: Urgent 194, High 392. Final: Urgent 1, High 47. Label every priority chart with which one it shows.
@@ -72,16 +72,16 @@ Rate denominators (from `sql/09_phase6_analytics_views.sql`):
 7. **Timestamps in the PBIX are rounded to about 3 ms** (Power BI datetime precision). Durations are unaffected at 2 decimals.
 8. **Synthetic data.** Nothing here is real customer data.
 
-## Current known metrics (verified 2026-10-13)
+## Latest reported metrics (2026-10-15; analytics validation: 0 issues)
 
 | Metric | Current value |
 |---|---:|
 | Total tickets | 1,500 |
-| Classified tickets | 3 |
-| Classification coverage | 0.20% |
-| Average confidence | 0.8667 |
-| Low confidence rate | 0.00% |
-| Exact category match rate | 100.00% on 3 samples (not shown on the dashboard) |
+| Classified tickets | 100 |
+| Classification coverage | 6.67% |
+| Average confidence | 0.9018 |
+| Low confidence rate | 1.00% |
+| Exact category match rate | 95.00% on 100 synthetic-label samples (not shown on the dashboard; not production accuracy) |
 | Tickets with rule decision | 1,500 |
 | Automated rate | 0.07% (1) |
 | Human review rate | 99.93% (1,499) |
@@ -98,4 +98,6 @@ Rate denominators (from `sql/09_phase6_analytics_views.sql`):
 | Tickets with a resolution timestamp | 1,139 |
 | Average resolution hours | 50.27 |
 | Median resolution hours | 45.09 |
+
+The `.pbix` remains an older imported snapshot (2026-10-13); refresh its queries in Power BI Desktop before presenting it as current.
 | Validation issues found | 0 |

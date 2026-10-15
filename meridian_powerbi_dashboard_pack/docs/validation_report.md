@@ -1,6 +1,6 @@
 # Dashboard Validation Report
 
-Date: 2026-10-13. Scope: reconcile the Power BI file with the project's SQL, rule engine, seed data and tests.
+Date: 2026-10-13 (historical PBIX validation). Scope: reconcile the Power BI file with the project's SQL, rule engine, seed data and tests. The live database later reached 100 classified tickets on 2026-10-15; this report and embedded PBIX data have not been refreshed to that newer state.
 
 ## Result
 
@@ -30,7 +30,7 @@ Also reproduced from the seed data: original priority (Low 472, Medium 442, High
 
 ## Independence: what each check does and does not prove
 
-Independent of the PBIX (computed from the repository only): the operational metrics, original priority, status, channel, the rule-engine decisions for the 1,497 unclassified tickets, the SQL view logic and the validation scripts.
+Independent of the PBIX (computed from the repository only): the operational metrics, original priority, status, channel, the rule-engine decisions for the 1,400 currently unclassified tickets, the SQL view logic and the validation scripts.
 
 **Not independent.** The production database is not in the repository, so these inputs for the live state came from the PBIX export:
 
